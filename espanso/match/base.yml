@@ -12,9 +12,6 @@ matches:
   - trigger: ":espanso"
     replace: "Hi there!"
 
-  - trigger: ":trfv"
-    replace: "Ready for validation\n You can use my QA account #Antoine Corp on STAGE\n The project is called \nThanks!\n QA: "
-
   - trigger: ":rfv"
     replace: "Ready for validation"
 
