@@ -19,3 +19,13 @@ vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
 
 vim.keymap.set('n', '<leader>e', ':NvimTreeToggle<CR>', {noremap = true})
+
+-- Splits
+vim.keymap.set('n',"<C-h>","<C-w>h",{noremap=true})
+vim.keymap.set('n',"<C-j>","<C-w>j",{noremap=true})
+vim.keymap.set('n',"<C-k>","<C-w>k",{noremap=true})
+vim.keymap.set('n',"<C-l>","<C-w>l",{noremap=true})
+vim.keymap.set('n',"<C-Up>","<cmd>resize -2<CR>",{noremap=true})
+vim.keymap.set('n',"<C-Down>","<cmd>resize +2<CR>",{noremap=true})
+vim.keymap.set('n',"<C-Left>","<cmd>vertical resize -2<CR>",{noremap=true})
+vim.keymap.set('n',"<C-Right>","<cmd>vertical resize +2<CR>",{noremap=true})
