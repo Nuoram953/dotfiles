@@ -12,6 +12,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.keymap.set("i", "jk", "<ESC>" ,{noremap=true})
 vim.keymap.set("t", "jk", "<C-\\><C-n>", {noremap=true})
 
+-- telescope
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
@@ -29,3 +30,7 @@ vim.keymap.set('n',"<C-Up>","<cmd>resize -2<CR>",{noremap=true})
 vim.keymap.set('n',"<C-Down>","<cmd>resize +2<CR>",{noremap=true})
 vim.keymap.set('n',"<C-Left>","<cmd>vertical resize -2<CR>",{noremap=true})
 vim.keymap.set('n',"<C-Right>","<cmd>vertical resize +2<CR>",{noremap=true})
+
+-- buffers
+vim.keymap.set('n',"<leader>tv","<C-w>v",{noremap=true, desc="Vertical split"})
+vim.keymap.set('n',"<leader>th","<C-w>s",{noremap=true, desc="Horizontal split"})
