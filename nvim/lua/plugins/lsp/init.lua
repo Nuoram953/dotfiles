@@ -2,25 +2,24 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    config = function (_, opts)
-      require'lspconfig'.tsserver.setup{}
-      require'lspconfig'.svelte.setup{}
-      
-    end
+    config = function(_, opts)
+      require("lspconfig").tsserver.setup({})
+      require("lspconfig").svelte.setup({})
+    end,
   },
 
   {
     "williamboman/mason-lspconfig.nvim",
-    config = function (_, opts)
-      require('mason-lspconfig').setup({
+    config = function(_, opts)
+      require("mason-lspconfig").setup({
         ensure_installed = {
-          'tsserver',
-          'eslint',
-          'html',
-          'cssls'
-        }
+          "tsserver",
+          "eslint",
+          "html",
+          "cssls",
+        },
       })
-    end
+    end,
   },
 
   -- formatters
@@ -74,6 +73,5 @@ return {
         ensure_installed()
       end
     end,
-    
   },
 }
