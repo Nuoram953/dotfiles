@@ -1,57 +1,110 @@
--- Options are automatically loaded before lazy.nvim startup
--- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
--- Add any additional options here
--- This file is automatically loaded by plugins.config
-
-
+local cmd = vim.cmd
+-- Set options (global/buffer/windows-scoped)
 local opt = vim.opt
+-- Global variables
+local g = vim.g
+local s = vim.s
+local indent = 4
 
-opt.autowrite = true -- Enable auto write
-opt.clipboard = "unnamedplus" -- Sync with system clipboard
-opt.completeopt = "menu,menuone,noselect"
-opt.conceallevel = 3 -- Hide * markup for bold and italic
-opt.confirm = true -- Confirm to save changes before exiting modified buffer
-opt.cursorline = true -- Enable highlighting of the current line
-opt.expandtab = true -- Use spaces instead of tabs
-opt.formatoptions = "jcroqlnt" -- tcqj
-opt.grepformat = "%f:%l:%c:%m"
-opt.grepprg = "rg --vimgrep"
-opt.ignorecase = true -- Ignore case
-opt.inccommand = "nosplit" -- preview incremental substitute
-opt.laststatus = 0
-opt.list = true -- Show some invisible characters (tabs...
-opt.mouse = "a" -- Enable mouse mode
-opt.number = true -- Print line number
-opt.pumblend = 10 -- Popup blend
-opt.pumheight = 10 -- Maximum number of entries in a popup
-opt.relativenumber = true -- Relative line numbers
-opt.scrolloff = 4 -- Lines of context
-opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
-opt.shiftround = true -- Round indent
-opt.shiftwidth = 2 -- Size of an indent
-opt.shortmess:append({ W = true, I = true, c = true })
-opt.showmode = false -- Dont show mode since we have a statusline
-opt.sidescrolloff = 8 -- Columns of context
-opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
-opt.smartcase = true -- Don't ignore case with capitals
-opt.smartindent = true -- Insert indents automatically
-opt.spelllang = { "en" }
-opt.splitbelow = true -- Put new windows below current
-opt.splitright = true -- Put new windows right of current
-opt.tabstop = 2 -- Number of spaces tabs count for
-opt.termguicolors = true -- True color support
-opt.timeoutlen = 300
-opt.undofile = true
-opt.undolevels = 10000
-opt.updatetime = 200 -- Save swap file and trigger CursorHold
-opt.wildmode = "longest:full,full" -- Command-line completion mode
-opt.winminwidth = 5 -- Minimum window width
-opt.wrap = false -- Disable line wrap
+cmd([[
+	filetype plugin indent on
+]])
 
-if vim.fn.has("nvim-0.9.0") == 1 then
-  opt.splitkeep = "screen"
-  opt.shortmess:append({ C = true })
+opt.backspace = {"eol", "start", "indent"} -- allow backspacing over everything in insert mode
+opt.clipboard = "unnamedplus" -- allow neovim to access the system clipboard
+vim.opt.fileencoding = "utf-8" -- the encoding written to a file
+opt.encoding = "utf-8" -- the encoding
+opt.matchpairs = {"(:)", "{:}", "[:]", "<:>"}
+opt.syntax = "enable"
+
+-- indention
+opt.autoindent = true -- auto indentation
+opt.expandtab = true -- convert tabs to spaces
+opt.shiftwidth = indent -- the number of spaces inserted for each indentation
+opt.smartindent = true -- make indenting smarter
+opt.softtabstop = indent -- when hitting <BS>, pretend like a tab is removed, even if spaces
+opt.tabstop = indent -- insert 2 spaces for a tab
+opt.shiftround = true -- use multiple of shiftwidth when indenting with "<" and ">"
+
+-- search
+opt.hlsearch = true -- highlight all matches on previous search pattern
+opt.ignorecase = true -- ignore case in search patterns
+opt.smartcase = true -- smart case
+opt.wildignore = opt.wildignore + {"*/node_modules/*", "*/.git/*", "*/vendor/*"}
+opt.wildmenu = true -- make tab completion for files/buffers act like bash
+
+-- ui
+opt.cursorline = true -- highlight the current line
+opt.laststatus = 2 -- only the last window will always have a status line
+opt.lazyredraw = true -- don"t update the display while executing macros
+opt.list = true
+-- You can also add "space" or "eol", but I feel it"s quite annoying
+opt.listchars = {
+    tab = "┊ ",
+    trail = "·",
+    extends = "»",
+    precedes = "«",
+    nbsp = "×"
+}
+
+-- Hide cmd line
+opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
+
+opt.mouse = "a" -- allow the mouse to be used in neovim
+opt.relativenumber = true -- set relative lines
+opt.scrolloff = 18 -- minimal number of screen lines to keep above and below the cursor
+opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
+opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
+opt.splitbelow = true -- open new split below
+opt.splitright = true -- open new split to the right
+opt.wrap = false -- display a long line
+
+-- backups
+opt.backup = false -- create a backup file
+opt.swapfile = false -- creates a swapfile
+opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+
+-- autocomplete
+opt.completeopt = {"menu", "menuone", "noselect"} -- mostly just for cmp
+opt.shortmess = opt.shortmess + {
+    c = true
+} -- hide all the completion messages, e.g. "-- XXX completion (YYY)", "match 1 of 2", "The only match", "Pattern not found"
+
+-- By the way, -- INSERT -- is unnecessary anymore because the mode information is displayed in the statusline.
+opt.showmode = false
+
+-- perfomance
+-- remember N lines in history
+opt.history = 100 -- keep 100 lines of history
+opt.redrawtime = 1500
+opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.ttimeoutlen = 10
+opt.updatetime = 100 -- signify default updatetime 4000ms is not good for async update
+
+-- theme
+opt.termguicolors = true -- enable 24-bit RGB colors
+
+-- persistent undo
+-- Don"t forget to create folder $HOME/.local/share/nvim/undo
+local undodir = vim.fn.stdpath("data") .. "/undo"
+opt.undofile = true -- enable persistent undo
+opt.undodir = undodir
+opt.undolevels = 1000
+opt.undoreload = 10000
+
+-- fold
+opt.foldmethod = "marker"
+opt.foldlevel = 99
+
+-- Disable builtin plugins
+local disabled_built_ins = {"2html_plugin", "getscript", "getscriptPlugin", "gzip", "logipat", "netrw", "netrwPlugin",
+                            "netrwSettings", "netrwFileHandlers", "matchit", "tar", "tarPlugin", "rrhelper",
+                            "spellfile_plugin", "vimball", "vimballPlugin", "zip", "zipPlugin", "tutor", "rplugin",
+                            "synmenu", "optwin", "compiler", "bugreport", "ftplugin"}
+
+for _, plugin in pairs(disabled_built_ins) do
+    g["loaded_" .. plugin] = 1
 end
-
--- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
+-- Colorscheme
+-- By default, use rose-pine
+cmd.colorscheme("tokyonight")
