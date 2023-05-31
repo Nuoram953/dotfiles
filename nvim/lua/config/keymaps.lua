@@ -21,3 +21,14 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", {}) -- open/close
 vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", {}) -- refresh
 vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {}) -- search file
 
+-- Window management
+vim.keymap.set('n',"<leader>tv","<C-w>v",{noremap=true, desc="Vertical split"})
+vim.keymap.set('n',"<leader>th","<C-w>s",{noremap=true, desc="Horizontal split"})
+vim.keymap.set('n',"<C-h>","<C-w>h",{noremap=true})
+vim.keymap.set('n',"<C-j>","<C-w>j",{noremap=true})
+vim.keymap.set('n',"<C-k>","<C-w>k",{noremap=true})
+vim.keymap.set('n',"<C-l>","<C-w>l",{noremap=true})
+vim.keymap.set('n',"<C-Up>","<cmd>resize -2<CR>",{noremap=true})
+vim.keymap.set('n',"<C-Down>","<cmd>resize +2<CR>",{noremap=true})
+vim.keymap.set('n',"<C-Left>","<cmd>vertical resize -2<CR>",{noremap=true})
+vim.keymap.set('n',"<C-Right>","<cmd>vertical resize +2<CR>",{noremap=true})
