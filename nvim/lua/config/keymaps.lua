@@ -1,3 +1,5 @@
+vim.keymap.set("i", "jk", "<ESC>" ,{noremap=true})
+vim.keymap.set("t", "jk", "<C-\\><C-n>", {noremap=true})
 -- Telescope
 -- <leader> is a space now
 local builtin = require("telescope.builtin")
