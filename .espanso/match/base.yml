@@ -15,6 +15,8 @@ matches:
   - trigger: ":rfv"
     replace: "Ready for validation"
 
+  - trigger: ":%a"
+    replace: "%appdata%"
   # NOTE: espanso uses YAML to define matches, so pay attention to the indentation!
 
   # But matches can also be dynamic:
