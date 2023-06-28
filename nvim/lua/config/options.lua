@@ -51,7 +51,7 @@ opt.listchars = {
 opt.cmdheight = 0 -- more space in the neovim command line for displaying messages
 
 opt.mouse = "a" -- allow the mouse to be used in neovim
-opt.relativenumber = true -- set relative lines
+opt.relativenumber = true -- set numbered lines
 opt.scrolloff = 18 -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
@@ -77,7 +77,7 @@ opt.showmode = false
 -- remember N lines in history
 opt.history = 100 -- keep 100 lines of history
 opt.redrawtime = 1500
-opt.timeoutlen = 250 -- time to wait for a mapped sequence to complete (in milliseconds)
+opt.timeoutlen = 1550 -- time to wait for a mapped sequence to complete (in milliseconds)
 opt.ttimeoutlen = 10
 opt.updatetime = 100 -- signify default updatetime 4000ms is not good for async update
 
