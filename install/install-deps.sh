@@ -1,5 +1,7 @@
 #!/bin/zsh
 
+apt-get update
+
 #if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 source ./install-deps-linux.sh
 #elif [[ "$OSTYPE" == "darwin"* ]]; then
