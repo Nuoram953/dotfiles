@@ -29,4 +29,4 @@ function linkDotfile {
   ln -s ${dotfilesDir}/${1} ${dest}
 }
 
-linkDotfile tmux/.tmux.conf
+linkDotfile .tmux.conf 
