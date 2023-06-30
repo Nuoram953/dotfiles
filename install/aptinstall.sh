@@ -25,3 +25,4 @@ install nmap
 install openvpn
 install tmux
 install neovim
+install zsh
