@@ -30,3 +30,4 @@ function linkDotfile {
 }
 
 linkDotfile .tmux.conf 
+linkDotfile .zshrc
