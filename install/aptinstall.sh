@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 
 function install {
@@ -26,3 +27,4 @@ install openvpn
 install tmux
 install neovim
 install zsh
+install build-essential

@@ -4,7 +4,7 @@
 ./aptinstall.sh
 
 # Get all pgrades
-sudo apt upgrade -yu
+sudo apt upgrade -y
 
 
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
