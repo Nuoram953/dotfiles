@@ -28,4 +28,6 @@ install tmux
 install neovim
 install zsh
 install build-essential
+install libreadline-dev
+install unzip
 install exa

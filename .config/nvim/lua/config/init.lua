@@ -14,7 +14,10 @@ require("lazy").setup({
     root = vim.fn.stdpath("data") .. "/lazy", -- directory where plugins will be installed
     spec = { { {
         import = "plugins"
-    },  } },
+    },
+    {import="plugins/code"},
+
+} },
     lockfile = vim.fn.stdpath("config") .. "/lazy-lock.json", -- lockfile generated after running update.
     defaults = {
         lazy = false,                                         -- should plugins be lazy-loaded?
