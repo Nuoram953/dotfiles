@@ -31,3 +31,5 @@ install build-essential
 install libreadline-dev
 install unzip
 install exa
+install nodejs
+install npm
