@@ -34,3 +34,4 @@ linkDotfile .zshrc
 linkDotfile .bashrc
 linkDotfile .p10k.zsh
 linkDotfile .config
+linkDotfile .aliases
