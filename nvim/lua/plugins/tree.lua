@@ -59,7 +59,7 @@ return { -- File explore
         }
         },
         filters = {
-          dotfiles = true,
+          dotfiles = false,
         },
       })
     end
