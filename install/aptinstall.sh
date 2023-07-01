@@ -28,3 +28,4 @@ install tmux
 install neovim
 install zsh
 install build-essential
+install exa
