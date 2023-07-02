@@ -84,7 +84,6 @@ M.lsp_servers = {
     "html",
     "graphql",
     "tailwindcss",
-    "gopls",
 }
 
 function M.on_attach(on_attach)
