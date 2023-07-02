@@ -1,7 +1,9 @@
 #!/bin/bash
 
+
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
+
 curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
@@ -34,3 +36,7 @@ install libreadline-dev
 install unzip
 install exa
 install npm
+
+#Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+chsh -s $(which zsh)
