@@ -1,7 +1,7 @@
 #!/bin/bas
 
-./symlink.sh
 ./aptinstall.sh
+./symlink.sh
 
 # Get all pgrades
 sudo apt upgrade -y
@@ -35,4 +35,3 @@ else
     echo "Directory does not exists. Cloning repo..."
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
-
