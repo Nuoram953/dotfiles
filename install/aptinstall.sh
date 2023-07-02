@@ -2,6 +2,8 @@
 
 sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
+curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
 function install {
   which $1 &> /dev/null
@@ -31,5 +33,4 @@ install build-essential
 install libreadline-dev
 install unzip
 install exa
-install nodejs
 install npm
