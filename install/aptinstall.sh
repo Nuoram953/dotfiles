@@ -37,5 +37,6 @@ install exa
 install npm
 install expect
 install sed
+install ripgrep
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
