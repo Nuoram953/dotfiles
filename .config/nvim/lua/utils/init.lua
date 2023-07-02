@@ -86,6 +86,28 @@ M.lsp_servers = {
     "tailwindcss",
 }
 
+M.parsers = {
+  "lua",
+  "vim",
+  "markdown",
+  "markdown_inline",
+  "bash",
+  "python",
+  "cpp",
+  "c",
+  "java",
+  "javascript",
+  "typescript",
+  "tsx",
+  "html",
+  "css",
+  "json",
+  "yaml",
+  "toml",
+  "regex",
+  "dockerfile",
+}
+
 function M.on_attach(on_attach)
     vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
