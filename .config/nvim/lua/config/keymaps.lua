@@ -5,8 +5,8 @@ vim.g.loaded_netrwPlugin = 1
 -- set termguicolors to enable highlight groups
 vim.opt.termguicolors = true
 
-vim.keymap.set("i", "jk", "<ESC>" ,{noremap=true})
-vim.keymap.set("t", "jk", "<C-\\><C-n>", {noremap=true})
+vim.keymap.set("i", "ne", "<ESC>" ,{noremap=true})
+vim.keymap.set("t", "ne", "<C-\\><C-n>", {noremap=true})
 -- Telescope
 -- <leader> is a space now
 local builtin = require("telescope.builtin")
