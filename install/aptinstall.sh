@@ -20,7 +20,6 @@ function install {
 
 # Basics
 install awscli
-install chromium-browser
 install curl
 install exfat-utils
 install file
