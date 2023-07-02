@@ -22,6 +22,9 @@ vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", {}) -- open/close
 vim.keymap.set("n", "<leader>nr", ":NvimTreeRefresh<CR>", {}) -- refresh
 vim.keymap.set("n", "<leader>nf", ":NvimTreeFindFile<CR>", {}) -- search file
 
+-- Symbole-outline
+vim.keymap.set("n", "<leader>so", ":SymbolsOutline<CR>", {})
+
 -- Window management
 vim.keymap.set('n',"<leader>tv","<C-w>v",{noremap=true, desc="Vertical split"})
 vim.keymap.set('n',"<leader>th","<C-w>s",{noremap=true, desc="Horizontal split"})
