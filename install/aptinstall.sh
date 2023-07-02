@@ -37,4 +37,4 @@ install exa
 install npm
 install expect
 
-
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
