@@ -15,6 +15,7 @@ vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", {})
+vim.keymap.set("n", ";", "<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>", opts)
 
 -- NvimTree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", {}) -- open/close
@@ -32,3 +33,10 @@ vim.keymap.set('n',"<C-Up>","<cmd>resize -2<CR>",{noremap=true})
 vim.keymap.set('n',"<C-Down>","<cmd>resize +2<CR>",{noremap=true})
 vim.keymap.set('n',"<C-Left>","<cmd>vertical resize -2<CR>",{noremap=true})
 vim.keymap.set('n',"<C-Right>","<cmd>vertical resize +2<CR>",{noremap=true})
+
+-- Use <Tab> to cycle through buffers in tab
+vim.keymap.set("n", "<Tab>", "<cmd>:bprevious<cr>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
+
+vim.keymap.set("v", "J", ":m '>+1<CR>gv==kgvo<esc>=kgvo", { desc = "move highlighted text down" })
+vim.keymap.set("v", "K", ":m '<-2<CR>gv==jgvo<esc>=jgvo", { desc = "move highlighted text up" })
