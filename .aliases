@@ -1,2 +1,3 @@
 alias exa3='exa --tree --level=3 --long'
 alias nv=nvim
+alias cl=clear
