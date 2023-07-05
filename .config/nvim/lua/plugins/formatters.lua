@@ -16,6 +16,11 @@ return {
 						-- "lua" filetype
 						require("formatter.filetypes.lua").stylua,
 					},
+					json = {
+						-- "formatter.filetypes.json" defines default configurations for the
+						-- "json" filetype
+						require("formatter.filetypes.json").fixjson,
+					},
 					-- Use the special "*" filetype for defining formatter configurations on
 					-- any filetype
 					["*"] = {
