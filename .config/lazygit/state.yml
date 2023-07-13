@@ -1,6 +1,8 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/nuoram/dotfiles
+- /home/nuoram/raylib-game-template
+- /home/nuoram/web-rogue-like
 startuppopupversion: 5
 customcommandshistory: []
 hidecommandlog: false
