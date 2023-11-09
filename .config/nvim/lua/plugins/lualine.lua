@@ -1,5 +1,9 @@
 return {
     'nvim-lualine/lualine.nvim',
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "meuter/lualine-so-fancy.nvim"
+    },
     config = function(_)
 
 require('lualine').setup({
@@ -24,7 +28,7 @@ require('lualine').setup({
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff', 'diagnostics'},
     lualine_c = {'filename'},
-    lualine_x = {'encoding', 'fileformat', 'filetype'},
+    lualine_x = {'encoding', 'fileformat', 'filetype', {"fancy_macro"}},
     lualine_y = {'progress'},
     lualine_z = {'location'}
   },
