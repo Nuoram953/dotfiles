@@ -21,6 +21,13 @@ return {
 						-- "json" filetype
 						require("formatter.filetypes.json").fixjson,
 					},
+                    python = {
+                        require("formatter.filetypes.python").black,
+                        require("formatter.filetypes.python").isort,
+                    },
+                    sql = {
+                        require("formatter.filetypes.sql").sql
+                    },
 					-- Use the special "*" filetype for defining formatter configurations on
 					-- any filetype
 					["*"] = {

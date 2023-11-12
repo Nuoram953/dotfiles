@@ -20,7 +20,6 @@ return { -- File explore
 					adaptive_size = true,
 					centralize_selection = true,
 					width = 50,
-					hide_root_folder = false,
 					side = "left",
 					preserve_window_proportions = false,
 					number = false,
