@@ -1,6 +1,7 @@
 #!/bin/bas
 
 ./aptinstall.sh
+./pip.sh
 ./symlink.sh
 
 # Get all pgrades
