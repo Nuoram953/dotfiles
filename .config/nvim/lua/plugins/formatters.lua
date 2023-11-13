@@ -26,7 +26,7 @@ return {
                         require("formatter.filetypes.python").isort,
                     },
                     sql = {
-                        require("formatter.filetypes.sql").sql
+                        require("formatter.filetypes.sql").pgformat
                     },
 					-- Use the special "*" filetype for defining formatter configurations on
 					-- any filetype
