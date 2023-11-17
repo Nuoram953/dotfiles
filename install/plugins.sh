@@ -29,4 +29,10 @@ else
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
+if [ -d ~/.oh-my-zsh/custom/plugins/zsh-vi-mode ]; then
+    echo "Directory already exists. Skipping cloning."
+else
+    echo "Directory does not exists. Cloning repo..."
+    git clone https://github.com/jeffreytse/zsh-vi-mode.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-vi-mode
+fi
 
