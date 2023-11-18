@@ -111,3 +111,16 @@ source ~/.aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+convertPath(){
+    local currentPath="$PWD"
+    local prefix="$1"
+    shift
+
+    if [[ "$currentPath" = *"/mnt/"* ]]; then
+        eval "cmd.exe /c \"$prefix\" \"$@\""
+    else
+        "$prefix" "$@"
+
+    fi
+}

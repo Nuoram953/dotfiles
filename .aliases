@@ -2,4 +2,19 @@ alias exa3='exa --tree --level=3 --long'
 alias nv=nvim
 alias cl=clear
 alias cmd='cmd.exe /c'
-alias gw='git.exe'
+
+alias gits='convertPath git status'
+alias gitc='convertPath git commit'
+alias gitco='convertPath git checkout'
+alias gitplo='convertPath git pull origin'
+alias gitpl='convertPath git pull'
+alias gitpso='convertPath git push origin'
+alias gitps='convertPath git push'
+alias gita='convertPath git add'
+alias gitaa='convertPath git add --all'
+alias gitr='convertPath git restore'
+alias gitb='convertPath git branch'
+alias gitf='convertPath git fetch'
+alias gitst='convertPath git stash'
+
+alias ghprs='convertPath gh pr status'
