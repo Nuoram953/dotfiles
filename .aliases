@@ -3,8 +3,10 @@ alias nv=nvim
 alias cl=clear
 alias cmd='cmd.exe /c'
 
+alias pym='convertPath python manage.py'
+
 alias gits='convertPath git status'
-alias gitc='convertPath git commit'
+alias gitc='convertPath git commit -m'
 alias gitco='convertPath git checkout'
 alias gitplo='convertPath git pull origin'
 alias gitpl='convertPath git pull'
@@ -18,3 +20,6 @@ alias gitf='convertPath git fetch'
 alias gitst='convertPath git stash'
 
 alias ghprs='convertPath gh pr status'
+alias ghprc='convertPath gh pr create --web'
+alias ghprck='convertPath gh pr checks'
+alias ghprv='convertPath gh pr view'
