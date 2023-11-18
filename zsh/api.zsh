@@ -19,12 +19,13 @@ jw(){
     local number_arg=$1
     local time_arg=$2
 
-    # if [[ $number_arg =~ ^[0-9]+$ ]]; then
-    #     echo "Number argument is: $number_arg"
-    # else
-    #     echo "Error: The third argument must be a number."
-    #     return 1
-    # fi
+
+    if [[ $number_arg =~ ^(0h[1-5]?[0-9]m|[1-9]?[0-9]+m)$ ]]; then
+        echo "Number argument is: $number_arg"
+    else
+        echo "Error: The third argument must be a number."
+        return 1
+    fi
 
     if [[ $time_arg =~ ^([0-9]+)h?([0-9]+)m$ ]]; then
         local hours=${match[1]}
@@ -37,5 +38,9 @@ jw(){
     fi
 
     call_api "https://$JIRA_DOMAIN.atlassian.net/rest/api/3/issue/$number_arg/worklog" $seconds
+
+}
+
+jw(){
 
 }
