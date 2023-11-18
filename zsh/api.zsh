@@ -27,16 +27,16 @@ jw(){
         return 1
     fi
 
-    if [[ $time_arg =~ ^(0h[1-5]?[0-9]m|[1-9]?[0-9]m)$ ]]; then
+    if [[ $time_arg =~ ^([0-9]+)h?([0-9]+)?m?$ ]]; then
         local hours=0
         local minutes=0
 
-        if [[$time_arg == *h*]]; then
+        if [[ $time_arg = *h* ]]; then
             hours=${match[1]}
-        fi
-
-        if [[$time_arg == *m ]]; then
             minutes=${match[2]}
+        
+        else
+            minutes=${match[1]}
         fi
 
         local seconds=$((hours * 3600 + minutes * 60))
