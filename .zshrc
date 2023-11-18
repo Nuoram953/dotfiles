@@ -106,6 +106,7 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 #
 # Example aliases
 source ~/.aliases
+source ~/dotfiles/zsh/api.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
