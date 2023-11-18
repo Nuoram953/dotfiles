@@ -5,7 +5,7 @@ call_api(){
     local data=$2
 
     local user="$JIRA_EMAIL:$JIRA_TOKEN"
-    local encoded_credentials=$echo( -n $user | base64)
+    local encoded_credentials=$(echo -n $user | base64)
 
     local response=$(curl --location $url \
                             --header 'Content-Type: application/json' \
@@ -20,16 +20,25 @@ jw(){
     local time_arg=$2
 
 
-    if [[ $number_arg =~ ^(0h[1-5]?[0-9]m|[1-9]?[0-9]+m)$ ]]; then
-        echo "Number argument is: $number_arg"
+    if [[ $number_arg =~ ^[A-Z]+-[0-9]+$ ]]; then
+        echo "Key argument is: $number_arg"
     else
-        echo "Error: The third argument must be a number."
+        echo "Error: The third argument must be a valid key."
         return 1
     fi
 
-    if [[ $time_arg =~ ^([0-9]+)h?([0-9]+)m$ ]]; then
-        local hours=${match[1]}
-        local minutes=${match[2]}
+    if [[ $time_arg =~ ^(0h[1-5]?[0-9]m|[1-9]?[0-9]m)$ ]]; then
+        local hours=0
+        local minutes=0
+
+        if [[$time_arg == *h*]]; then
+            hours=${match[1]}
+        fi
+
+        if [[$time_arg == *m ]]; then
+            minutes=${match[2]}
+        fi
+
         local seconds=$((hours * 3600 + minutes * 60))
         echo "Time argument is: $hours hours and $minutes minutes ($seconds)"
     else
@@ -38,9 +47,5 @@ jw(){
     fi
 
     call_api "https://$JIRA_DOMAIN.atlassian.net/rest/api/3/issue/$number_arg/worklog" $seconds
-
-}
-
-jw(){
 
 }
