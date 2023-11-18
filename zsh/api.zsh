@@ -34,7 +34,7 @@ jw(){
         if [[ $time_arg = *h* ]]; then
             hours=${match[1]}
             minutes=${match[2]}
-        
+
         else
             minutes=${match[1]}
         fi

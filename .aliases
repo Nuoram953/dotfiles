@@ -5,6 +5,8 @@ alias cmd='cmd.exe /c'
 
 alias pym='convertPath python manage.py'
 
+alias js='python3 ~/dotfiles/scripts/jira.py get_issues_in_active_sprint'
+
 alias gits='convertPath git status'
 alias gitc='convertPath git commit -m'
 alias gitco='convertPath git checkout'
