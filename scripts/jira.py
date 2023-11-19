@@ -54,7 +54,7 @@ def print_issues(issues):
         if len(issue["summary"])>55:
             issue["summary"] = issue["summary"][0:60] + "..."
 
-    print(issue["key"], f"[{issue['status']}]", issue["due"] or "", "\n", issue["summary"], "\n")
+        print(issue["key"], f"[{issue['status']}]", issue["due"] or "", "\n", issue["summary"], "\n")
 
 def get(url):
     auth = HTTPBasicAuth(os.environ.get("JIRA_EMAIL"), os.environ.get("JIRA_TOKEN"))
