@@ -25,12 +25,12 @@ def get_issues_assigned_to_me(args):
     print_issues(issues)
 
 def get_status(args):
-    print("--")
+    print("---------------------------------------------------------")
     get_issues_in_active_sprint(args)
-    print("--")
+    print("---------------------------------------------------------")
     if args.project_request:
         get_issues_assigned_to_me(args)
-        print("--")
+        print("---------------------------------------------------------")
 
 def open_issue(args):
     url = f"https://{os.environ.get('JIRA_DOMAIN')}.atlassian.net/browse/{args.key}"
