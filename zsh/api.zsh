@@ -12,7 +12,6 @@ call_api(){
                             --header "Authorization: Basic '$encoded_credentials'" \
                             --data '{"timeSpentSeconds":'$data'}') \
 
-    echo $response | jq '.'
 }
 
 jw(){
@@ -20,7 +19,7 @@ jw(){
     local time_arg=$2
 
 
-    if [[ $number_arg =~ ^[A-Z]+-[0-9]+$ ]]; then
+    if [[ $number_arg =~ ^[a-zA-Z]+-[0-9]+$ ]]; then
         echo "Key argument is: $number_arg"
     else
         echo "Error: The third argument must be a valid key."
