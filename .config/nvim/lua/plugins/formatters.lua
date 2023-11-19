@@ -23,6 +23,7 @@ return {
 						require("formatter.filetypes.sql").pgformat,
 					},
 					php = {
+						require("formatter.defaults.prettier"),
 						require("formatter.filetypes.php").phpcbf,
 						require("formatter.filetypes.php").php_cs_fixer,
 					},

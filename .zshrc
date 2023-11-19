@@ -115,14 +115,14 @@ source ~/dotfiles/zsh/api.zsh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 convertPath(){
-    local currentPath="$PWD"
-    local prefix="$1"
-    shift
+    local current_directory=$(pwd)
 
-    if [[ "$currentPath" = *"/mnt/"* ]]; then
-        eval "cmd.exe /c \"$prefix\" \"$@\""
-    else
-        "$prefix" "$@"
-
-    fi
-}
+  # Check if the current directory is within WSL
+  if [[ $current_directory == /mnt/* ]]; then
+    # Current directory is in Windows, use cmd.exe
+    cmd.exe /c "$@"
+  else
+    # Current directory is in WSL, use wsl command
+     "$@"
+  fi
+    }
