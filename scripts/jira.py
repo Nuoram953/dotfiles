@@ -24,7 +24,6 @@ def get_issues_assigned_to_me(args):
     issues = parse_issues(issues)
     print_issues(issues)
 
-
 def get_status(args):
     print("--")
     get_issues_in_active_sprint(args)
@@ -33,41 +32,29 @@ def get_status(args):
         get_issues_assigned_to_me(args)
         print("--")
 
-
 def open_issue(args):
     url = f"https://{os.environ.get('JIRA_DOMAIN')}.atlassian.net/browse/{args.key}"
     command = f"cmd.exe /c start {url}"
     subprocess.run(command, shell=True)
 
-
 def parse_issues(issues):
     output = []
     for issue in issues:
-        output.append(
-            {
-                "key": issue["key"],
-                "summary": issue["fields"]["summary"],
-                "status": issue["fields"]["status"]["name"],
-                "due": issue["fields"]["duedate"],
-            }
-        )
-        return output
+        output.append({
+            "key": issue["key"],
+            "summary": issue["fields"]["summary"],
+            "status":issue["fields"]['status']['name'],
+            "due":issue['fields']['duedate']
+            })
+    return output
 
 
 def print_issues(issues):
     for issue in issues:
-        if len(issue["summary"]) > 55:
+        if len(issue["summary"])>55:
             issue["summary"] = issue["summary"][0:60] + "..."
 
-    print(
-        issue["key"],
-        f"[{issue['status']}]",
-        issue["due"] or "",
-        "\n",
-        issue["summary"],
-        "\n",
-    )
-
+    print(issue["key"], f"[{issue['status']}]", issue["due"] or "", "\n", issue["summary"], "\n")
 
 def get(url):
     auth = HTTPBasicAuth(os.environ.get("JIRA_EMAIL"), os.environ.get("JIRA_TOKEN"))
@@ -79,7 +66,6 @@ def get(url):
 
     return json.loads(response.text)["issues"]
 
-
 p = argparse.ArgumentParser()
 subparsers = p.add_subparsers()
 
@@ -89,7 +75,7 @@ option_me_parser.set_defaults(func=get_issues_assigned_to_me)
 
 option_status_parser = subparsers.add_parser("status")
 option_status_parser.add_argument("project_sprint")
-option_status_parser.add_argument("project_request", nargs="?", default=None)
+option_status_parser.add_argument("project_request", nargs='?', default=None)
 option_status_parser.set_defaults(func=get_status)
 
 option_open_parser = subparsers.add_parser("open")
