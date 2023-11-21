@@ -12,3 +12,4 @@ function install {
 }
 
 install virtualenv
+install click

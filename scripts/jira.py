@@ -1,11 +1,62 @@
 import argparse
 import json
 import os
+import re
 import subprocess
+
+import click
 import requests
 from requests.auth import HTTPBasicAuth
 
 URL = f"https://{os.environ.get('JIRA_DOMAIN')}.atlassian.net/rest/api/3/"
+
+
+@click.group()
+def cli():
+    pass
+
+
+@click.command()
+@click.argument("key", type=str)
+@click.argument("time", type=str)
+@click.option("-m", "--message", help="The message for your worklog", required=0)
+def add_worklog(key, time, message=None):
+    if not re.match(r"^([0-9]+)h?([0-9]+)?m?$", time):
+        time = click.prompt("Enter a valid worklog")
+
+    if not re.match(r"^[a-zA-Z]+-[0-9]+$", key):
+        key = click.prompt("Enter a valid key")
+
+    if "h" in time:
+        time_splitted = time.split("h")
+        hours = time_splitted[0]
+        minutes = time_splitted[1].split("m")[0]
+    else:
+        hours = 0
+        minutes = time.split("m")[0]
+
+    seconds = (int(hours) * 3600) + (int(minutes) * 60)
+
+    click.echo(f"Your time in seconds: {seconds}")
+    url = f"https://{os.environ.get('JIRA_DOMAIN')}.atlassian.net/rest/api/3/issue/{key}/worklog"
+    data = {"timeSpentSeconds": seconds}
+
+    if message:
+        data["comment"] = {
+            "content": [
+                {"content": [{"text": message, "type": "text"}], "type": "paragraph"}
+            ],
+            "type": "doc",
+            "version": 1,
+        }
+
+    post(url, json.dumps(data))
+
+
+cli.add_command(add_worklog)
+
+if __name__ == "__main__":
+    cli()
 
 
 def get_issues_in_active_sprint(args):
@@ -72,6 +123,18 @@ def get(url):
         url=url,
         headers={"Content-Type": "application/json", "Accept": "application/json"},
         auth=auth,
+    )
+
+    return json.loads(response.text)["issues"]
+
+
+def post(url, data):
+    auth = HTTPBasicAuth(os.environ.get("JIRA_EMAIL"), os.environ.get("JIRA_TOKEN"))
+    response = requests.post(
+        url=url,
+        headers={"Content-Type": "application/json", "Accept": "application/json"},
+        auth=auth,
+        data=data,
     )
 
     return json.loads(response.text)["issues"]
