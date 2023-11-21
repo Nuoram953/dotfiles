@@ -53,6 +53,17 @@ def add_worklog(key, time, message=None):
     post(url, json.dumps(data))
 
 
+def post(url, data):
+    auth = HTTPBasicAuth(os.environ.get("JIRA_EMAIL"), os.environ.get("JIRA_TOKEN"))
+    response = requests.post(
+        url=url,
+        headers={"Content-Type": "application/json", "Accept": "application/json"},
+        auth=auth,
+        data=data,
+    )
+
+    return json.loads(response.text)
+
 cli.add_command(add_worklog)
 
 if __name__ == "__main__":
@@ -128,16 +139,6 @@ def get(url):
     return json.loads(response.text)["issues"]
 
 
-def post(url, data):
-    auth = HTTPBasicAuth(os.environ.get("JIRA_EMAIL"), os.environ.get("JIRA_TOKEN"))
-    response = requests.post(
-        url=url,
-        headers={"Content-Type": "application/json", "Accept": "application/json"},
-        auth=auth,
-        data=data,
-    )
-
-    return json.loads(response.text)["issues"]
 
 
 p = argparse.ArgumentParser()
