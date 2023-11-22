@@ -68,6 +68,16 @@ def get_board_issues(project, project_type):
     parsed_issues = parse_issues(issues)
     print_issues(parsed_issues)
 
+@click.command()
+@click.argument("project", type=str)
+@click.option("-p", "--parent", help="Enter the parent's key if you want to create a child task", required=0, default=None)
+@click.option("-s", "--summary", prompt="Enter the summary", help="Task summary and description")
+@click.option("-a", "--assignee", prompt="Enter the assignee", help="Task's assignee")
+@click.option("-t", "--issue-type", prompt="Choose the task's type", help="Task's type")
+@click.option("-e", "--estimate", prompt="Enter the estimate time", help="How much time the task will take")
+def create_task(project, parent, summary, assignee, issue_type, estimate):
+    pass
+
 
 def post(url, data):
     auth = HTTPBasicAuth(os.environ.get("JIRA_EMAIL"), os.environ.get("JIRA_TOKEN"))
