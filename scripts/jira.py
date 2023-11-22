@@ -65,7 +65,7 @@ def get_board_issues(project, project_type):
         url = f"{URL}search?maxResults=150&jql=project={project} and due <= endOfMonth() and due >= startOfMonth() and status != closed"
 
     issues = get(url)
-    parsed_issues = parse_issues(issues, project_type.upper())
+    parsed_issues = parse_issues(issues)
     print_issues(parsed_issues)
 
 
