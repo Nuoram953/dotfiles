@@ -15,7 +15,7 @@ vim.g.mapleader = " "
 vim.opt.termguicolors = true -- enable 24-bit RGB colors
 
 require("lazy").setup("plugins", {
-	install = { colorscheme = { "tokyonight" } },
+	install = { colorscheme = { "dracula" } },
 	defaults = { lazy = false },
 	ui = {
 		border = "rounded",

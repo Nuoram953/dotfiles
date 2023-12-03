@@ -52,6 +52,8 @@ opt.cmdheight = 0 -- more space in the neovim command line for displaying messag
 
 opt.mouse = "a" -- allow the mouse to be used in neovim
 opt.relativenumber = true -- set numbered lines
+opt.number = true
+opt.statusline = "%l %L %n %r%y %= %-14.(%l,%c%V%) %P"
 opt.scrolloff = 18 -- minimal number of screen lines to keep above and below the cursor
 opt.sidescrolloff = 3 -- minimal number of screen columns to keep to the left and right (horizontal) of the cursor if wrap is `false`
 opt.signcolumn = "yes" -- always show the sign column, otherwise it would shift the text each time
@@ -107,4 +109,4 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 -- Colorscheme
 -- By default, use rose-pine
-cmd.colorscheme("tokyonight")
+cmd.colorscheme("dracula")
