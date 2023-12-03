@@ -12,10 +12,24 @@ vim.keymap.set("t", "jj", "<C-\\><C-n>", {noremap=true})
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, {desc="Find files"})
 vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
+-- vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", {})
 vim.keymap.set("n", ";", "<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>", opts)
+vim.keymap.set(
+  "n",
+  "<space>fb",
+  ":Telescope file_browser<CR>",
+  { noremap = true }
+)
+
+-- open file_browser with the path of the current buffer
+vim.keymap.set(
+  "n",
+  "<space>fb",
+  ":Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { noremap = true }
+)
 
 -- NvimTree
 vim.keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>", {}) -- open/close
