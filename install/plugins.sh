@@ -1,4 +1,4 @@
-#!/bin/bas
+#!/bin/bash
 
 if [ -d ~/.tmux/plugins/tpm ]; then
     echo "Directory already exists. Skipping cloning."
