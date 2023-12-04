@@ -13,3 +13,4 @@ function install {
 
 install virtualenv
 install click
+install screeninfo

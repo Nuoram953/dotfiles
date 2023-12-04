@@ -38,7 +38,7 @@ install npm
 install expect
 install sed
 install ripgrep
-install python3
+install python3-pip
 install jq
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
