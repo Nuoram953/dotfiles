@@ -51,10 +51,8 @@ M.mason_packages = {
     "clang-format",
     "clangd",
     "codelldb",
-    "cspell",
     "css-lsp",
     "eslint-lsp",
-    "graphql-language-service-cli",
     "html-lsp",
     "json-lsp",
     "lua-language-server",
@@ -62,7 +60,6 @@ M.mason_packages = {
     "prettier",
     "pyright",
     "shfmt",
-    "tailwindcss-language-server",
     "taplo",
     "typescript-language-server",
     "yaml-language-server",
@@ -82,8 +79,6 @@ M.lsp_servers = {
     "cssls",
     "taplo",
     "html",
-    "graphql",
-    "tailwindcss",
 }
 
 M.parsers = {
@@ -93,8 +88,6 @@ M.parsers = {
   "markdown_inline",
   "bash",
   "python",
-  "cpp",
-  "c",
   "java",
   "javascript",
   "typescript",
