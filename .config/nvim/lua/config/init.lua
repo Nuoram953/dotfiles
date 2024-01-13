@@ -20,7 +20,7 @@ require("lazy").setup("plugins", {
 	ui = {
 		border = "rounded",
 	},
-	checker = { enabled = true },
+	checker = { enabled = false },
 	debug = false,
     performance = {
         cache = {

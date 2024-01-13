@@ -11,9 +11,10 @@ vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true })
 -- <leader> is a space now
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
+vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>so", builtin.lsp_document_symbols, {})
+vim.keymap.set("n", "<leader>sO", builtin.lsp_workspace_symbols, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
 vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", {})
 vim.keymap.set(

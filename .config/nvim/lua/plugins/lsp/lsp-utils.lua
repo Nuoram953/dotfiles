@@ -7,11 +7,11 @@ M.capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
 
 M.setup = function()
 	vim.diagnostic.config({
-		virtual_text = false,
+		virtual_text = true,
 		float = {
 			focusable = false,
 			style = "minimal",
-			border = "rounded",
+			border = "solid",
 			source = "always",
 			header = "",
 			prefix = "",

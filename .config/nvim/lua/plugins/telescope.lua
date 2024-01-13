@@ -4,6 +4,7 @@ return { -- Telescope
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"nvim-lua/plenary.nvim",
+            "nvim-telescope/telescope-live-grep-args.nvim",
 		},
 		config = function(_)
 			require("telescope").setup({
@@ -17,6 +18,7 @@ return { -- Telescope
 					file_ignore_patterns = { "node_modules", "static", ".git" },
 				},
 			})
+        require("telescope").load_extension("live_grep_args")
 		end,
 	},
 }
