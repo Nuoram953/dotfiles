@@ -7,8 +7,11 @@ vim.opt.termguicolors = true
 
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true })
+
+vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true, silent=true })
+vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true, silent=true })
+
 -- Telescope
--- <leader> is a space now
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
 vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
@@ -48,10 +51,10 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv==kgvo<esc>=kgvo", { desc = "move highlig
 vim.keymap.set("v", "K", ":m '<-2<CR>gv==jgvo<esc>=jgvo", { desc = "move highlighted text up" })
 
 -- Refactor
-vim.keymap.set("x", "<leader>re", ":Refactor extract ")
-vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file ")
+vim.keymap.set("x", "<leader>re", ":Refactor extract", { desc = "Refactor extract" })
+vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file", { desc = "Refactor extract_to_file" })
 vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
-vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var")
-vim.keymap.set( "n", "<leader>rI", ":Refactor inline_func")
+vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var", { desc = "Refactor inline_var" })
+vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
 vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
 vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")

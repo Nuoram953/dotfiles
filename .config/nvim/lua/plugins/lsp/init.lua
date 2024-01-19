@@ -45,6 +45,19 @@ return {
                         capabilities = capabilities_cpp,
                     })
                 end,
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup({
+                        on_attach = lsp_utils.on_attach,
+                        capabilities = lsp_utils.capabilities,
+                        settings = {
+                            Lua = {
+                                diagnostics  = {
+                                    globals = {'vim', 'opts'},
+                                },
+                            },
+                        },
+                    })
+                end,
             })
         end,
     },

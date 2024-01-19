@@ -64,7 +64,8 @@ M.mason_packages = {
     "typescript-language-server",
     "yaml-language-server",
     "gopls",
-    "editorconfig-checker"
+    "editorconfig-checker",
+    "ts-standard"
 }
 
 M.lsp_servers = {

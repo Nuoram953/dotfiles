@@ -19,6 +19,10 @@ return {
 						require("formatter.filetypes.python").black,
 						require("formatter.filetypes.python").isort,
 					},
+					typescript = {
+						require("formatter.defaults.prettier"),
+						require("formatter.filetypes.typescript").ts_standard,
+					},
 					sql = {
 						require("formatter.filetypes.sql").pgformat,
 					},
