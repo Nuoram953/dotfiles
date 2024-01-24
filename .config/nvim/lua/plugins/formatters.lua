@@ -23,6 +23,9 @@ return {
 						require("formatter.defaults.prettier"),
 						require("formatter.filetypes.typescript").ts_standard,
 					},
+					typescriptreact = {
+						require("formatter.defaults.prettier"),
+					},
 					sql = {
 						require("formatter.filetypes.sql").pgformat,
 					},

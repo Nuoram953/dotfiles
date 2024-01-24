@@ -49,19 +49,19 @@ M.setup = function()
 	vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 	vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, bufopts)
 	-- show diagnostics in hover window
-	vim.api.nvim_create_autocmd("CursorHold", {
-		callback = function()
-			local opts = {
-				focusable = false,
-				close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
-				border = "rounded",
-				source = "always",
-				prefix = " ",
-				scope = "cursor",
-			}
-			vim.diagnostic.open_float(nil, opts)
-		end,
-	})
+	-- vim.api.nvim_create_autocmd("CursorHold", {
+	-- 	callback = function()
+	-- 		local opts = {
+	-- 			focusable = false,
+	-- 			close_events = { "BufLeave", "CursorMoved", "InsertEnter" },
+	-- 			border = "rounded",
+	-- 			source = "always",
+	-- 			prefix = " ",
+	-- 			scope = "cursor",
+	-- 		}
+	-- 		vim.diagnostic.open_float(nil, opts)
+	-- 	end,
+	-- })
 	vim.api.nvim_create_autocmd("FileType", {
 		pattern = "sh",
 		callback = function()

@@ -8,8 +8,11 @@ vim.opt.termguicolors = true
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true })
 
-vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true, silent=true })
-vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true, silent=true })
+vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true })
+
+vim.keymap.set("n", "<leader>fo", ":Format<CR>", { noremap = true })
+vim.keymap.set("x", "<leader>fo", ":Format<CR>", { noremap = true })
 
 -- Telescope
 local builtin = require("telescope.builtin")
@@ -58,3 +61,4 @@ vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var", { desc = "Ref
 vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
 vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
 vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+
