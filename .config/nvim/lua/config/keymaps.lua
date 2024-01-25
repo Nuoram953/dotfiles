@@ -62,3 +62,22 @@ vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
 vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
 vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
+-- Quickfix list
+vim.keymap.set(
+	"n",
+	"<leader>dq",
+	"<cmd>lua vim.diagnostic.setloclist()<CR>",
+	{ desc = "Send lsp to Quickfix list", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	"<leader>dn",
+	"<cmd>lua vim.diagnostic.goto_next()<CR>",
+	{ desc = "Go to next element in Quickfix", noremap = true, silent = true }
+)
+vim.keymap.set(
+	"n",
+	"<leader>dp",
+	"<cmd>lua vim.diagnostic.goto_prev()<CR>",
+	{ desc = "Go to previous element in Quickfix", noremap = true, silent = true }
+)
