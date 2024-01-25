@@ -6,6 +6,7 @@ local M = {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-cmdline",
 		"hrsh7th/cmp-path",
+		"saadparwaiz1/cmp_luasnip",
 	},
 	opts = function()
 		local cmp = require("cmp")
@@ -77,6 +78,7 @@ local M = {
 				{ name = "nvim_lsp" },
 				{ name = "path" },
 				{ name = "buffer" },
+				{ name = "luasnip" },
 			},
 			experimental = {
 				ghost_text = {
