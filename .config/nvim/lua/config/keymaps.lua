@@ -52,6 +52,10 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
 vim.keymap.set("v", "J", ":m '>+1<CR>gv==kgvo<esc>=kgvo", { desc = "move highlighted text down" })
 vim.keymap.set("v", "K", ":m '<-2<CR>gv==jgvo<esc>=jgvo", { desc = "move highlighted text up" })
 
+-- nvim-scissors
+vim.keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end)
+vim.keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
+
 -- Refactor
 vim.keymap.set("x", "<leader>re", ":Refactor extract", { desc = "Refactor extract" })
 vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file", { desc = "Refactor extract_to_file" })
@@ -83,3 +87,6 @@ vim.keymap.set(
 
 -- dap
 vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint", noremap = true })
+
+local dapui = require("dapui")
+vim.keymap.set("n", "<leader>dut", dapui.toggle, { desc = "Toggle dapui", noremap = true })
