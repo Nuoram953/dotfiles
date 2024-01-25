@@ -14,7 +14,11 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.opt.termguicolors = true -- enable 24-bit RGB colors
 
-require("lazy").setup("plugins", {
+require("lazy").setup({
+	spec = {
+		{ import = "plugins" },
+		{ import = "plugins.dap" },
+	},
 	install = { colorscheme = { "dracula" } },
 	defaults = { lazy = false },
 	ui = {
@@ -22,9 +26,9 @@ require("lazy").setup("plugins", {
 	},
 	checker = { enabled = false },
 	debug = false,
-    performance = {
-        cache = {
-            enabled = true
-        }
-    }
+	performance = {
+		cache = {
+			enabled = true,
+		},
+	},
 })

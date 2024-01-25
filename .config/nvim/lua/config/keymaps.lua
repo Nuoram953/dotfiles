@@ -8,11 +8,10 @@ vim.opt.termguicolors = true
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true })
 
-vim.keymap.set("n", "<leader>w", ":w<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>ww", ":w<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true })
 
-vim.keymap.set("n", "<leader>fo", ":Format<CR>", { noremap = true })
-vim.keymap.set("x", "<leader>fo", ":Format<CR>", { noremap = true })
+vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
 
 -- Telescope
 local builtin = require("telescope.builtin")
@@ -81,3 +80,6 @@ vim.keymap.set(
 	"<cmd>lua vim.diagnostic.goto_prev()<CR>",
 	{ desc = "Go to previous element in Quickfix", noremap = true, silent = true }
 )
+
+-- dap
+vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint", noremap = true })
