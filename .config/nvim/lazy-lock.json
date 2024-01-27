@@ -27,6 +27,7 @@
   "plenary.nvim": { "branch": "master", "commit": "55d9fe89e33efd26f532ef20223e5f9430c8b0c0" },
   "project.nvim": { "branch": "main", "commit": "8c6bad7d22eef1b71144b401c9f74ed01526a4fb" },
   "refactoring.nvim": { "branch": "master", "commit": "156532476deb10b1b2a32cb38e1078b3f9951c42" },
+  "rest.nvim": { "branch": "main", "commit": "3035cab370f806651704d5af5d18cbf0b0be0840" },
   "startup.nvim": { "branch": "master", "commit": "088de9f5af8a10dfc39f8e397e3e9646940c7323" },
   "telescope-file-browser.nvim": { "branch": "master", "commit": "98101b22402cd6d1c7e9a7e0c4718bfc98cb1625" },
   "telescope-live-grep-args.nvim": { "branch": "master", "commit": "731a046da7dd3adff9de871a42f9b7fb85f60f47" },
