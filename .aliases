@@ -2,6 +2,7 @@ alias exa3='exa --tree --level=3 --long'
 alias nv=nvim
 alias cl=clear
 alias cmd='cmd.exe /c'
+alias mux='tmuxinator'
 
 alias pym='convertPath python manage.py'
 
@@ -21,6 +22,7 @@ alias gitr='convertPath git restore'
 alias gitb='convertPath git branch'
 alias gitf='convertPath git fetch'
 alias gitst='convertPath git stash'
+alias gitm='convertPath git merge'
 
 alias ghprs='convertPath gh pr status'
 alias ghprc='convertPath gh pr create --web'
