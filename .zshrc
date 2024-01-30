@@ -129,3 +129,10 @@ convertPath(){
      "$@"
   fi
     }
+
+function tmux_last_session(){
+
+    LAST_TMUX_SESSION=$(tmux list-sessions | awk -F ":" '{print$1}' | tail -n1);
+    tmux attach -t $LAST_TMUX_SESSION
+}
+bindkey -s '^s' 'tmux_last_session ^M'
