@@ -65,7 +65,8 @@ M.mason_packages = {
     "yaml-language-server",
     "gopls",
     "editorconfig-checker",
-    "ts-standard"
+    "ts-standard",
+    "debugpy"
 }
 
 M.lsp_servers = {
