@@ -12,4 +12,4 @@ sudo apt upgrade -y
 #Oh My Zsh
 chsh -s $(which zsh)
 
-./neovim.sh
+# ./neovim.sh
