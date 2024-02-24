@@ -7,9 +7,6 @@ alias mux='tmuxinator'
 
 alias pym='convertPath python manage.py'
 
-alias js='python3 ~/dotfiles/scripts/jira.py status'
-alias jo='python3 ~/dotfiles/scripts/jira.py open'
-
 alias gits='convertPath git status'
 alias gitc='convertPath git commit -m'
 alias gitco='convertPath git checkout'
@@ -29,3 +26,5 @@ alias ghprs='convertPath gh pr status'
 alias ghprc='convertPath gh pr create --web'
 alias ghprck='convertPath gh pr checks'
 alias ghprv='convertPath gh pr view'
+
+alias jsp='jira spint list --current -a$(jira me)'
