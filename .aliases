@@ -1,4 +1,5 @@
 alias exa3='exa --tree --level=3 --long'
+alias ls='exa --long -a'
 alias nv=nvim
 alias cl=clear
 alias cmd='cmd.exe /c'
