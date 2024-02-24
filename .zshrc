@@ -9,8 +9,12 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
+export GOPATH='/home/nuoram/go'
+export PATH=$PATH:$GOPATH/bin
+export JIRA_API_TOKEN=''
 
 export TERM=xterm-256color
 

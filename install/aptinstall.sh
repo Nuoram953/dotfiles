@@ -43,6 +43,7 @@ install ruby-full
 install ninja-build 
 install gettext 
 install cmake 
+install go-lang
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 

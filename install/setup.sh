@@ -13,4 +13,6 @@ sudo apt upgrade -y
 #Oh My Zsh
 chsh -s $(which zsh)
 
-# ./neovim.sh
+#jira-cli
+go install github.com/ankitpokhrel/jira-cli/cmd/jira@latest
+jira init
