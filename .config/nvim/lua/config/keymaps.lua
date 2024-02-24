@@ -45,6 +45,11 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize +2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { noremap = true })
 
+-- Diffview
+vim.keymap.set("n", "<leader>do", "<cmd>DiffviewOpen<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>dc", "<cmd>DiffviewClose<CR>", { noremap = true })
+vim.keymap.set("n", "<leader>df", "<cmd>DiffviewFileHistory %<CR>", { noremap = true })
+
 -- Use <Tab> to cycle through buffers in tab
 vim.keymap.set("n", "<Tab>", "<cmd>:bprevious<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
@@ -53,8 +58,12 @@ vim.keymap.set("v", "J", ":m '>+1<CR>gv==kgvo<esc>=kgvo", { desc = "move highlig
 vim.keymap.set("v", "K", ":m '<-2<CR>gv==jgvo<esc>=jgvo", { desc = "move highlighted text up" })
 
 -- nvim-scissors
-vim.keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end)
-vim.keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end)
+vim.keymap.set("n", "<leader>se", function()
+	require("scissors").editSnippet()
+end)
+vim.keymap.set({ "n", "x" }, "<leader>sa", function()
+	require("scissors").addNewSnippet()
+end)
 
 -- Refactor
 vim.keymap.set("x", "<leader>re", ":Refactor extract", { desc = "Refactor extract" })
