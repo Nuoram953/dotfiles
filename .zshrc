@@ -15,6 +15,8 @@ export EDITOR='nvim'
 export GOPATH='/home/nuoram/go'
 export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
+export FZF_DEFAULT_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*}'"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export TERM=xterm-256color
 
@@ -114,8 +116,6 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 #
 # Example aliases
 source ~/.aliases
-source ~/dotfiles/zsh/.zshenv
-source ~/dotfiles/zsh/api.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
