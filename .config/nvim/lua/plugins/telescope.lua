@@ -20,11 +20,24 @@ return { -- Telescope
 					sorting_strategy = "descending",
 					layout_strategy = "vertical",
 				},
-                extensions = {
-                    file_browser = {
-                        cwd_to_path = true
-                    }
-                }
+				extensions = {
+					file_browser = {
+						cwd_to_path = true,
+					},
+					live_grep_args = {
+						vimgrep_arguments = {
+							"rg",
+							"--hidden",
+							"-L",
+							"--color=never",
+							"--no-heading",
+							"--with-filename",
+							"--line-number",
+							"--column",
+							"--smart-case",
+						},
+					},
+				},
 			})
 			require("telescope").load_extension("live_grep_args")
 			require("telescope").load_extension("noice")
