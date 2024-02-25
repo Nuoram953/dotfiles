@@ -17,7 +17,7 @@ export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
 export FZF_CTRL_T_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*}'"
 export FZF_ALT_C_COMMAND="find . -type d"
-
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export TERM=xterm-256color
 
 # Set name of the theme to load --- if set to "random", it will
@@ -125,31 +125,23 @@ source ~/.aliases
 convertPath(){
     local current_directory=$(pwd)
 
-  # Check if the current directory is within WSL
   if [[ $current_directory == /mnt/* ]]; then
-    # Current directory is in Windows, use cmd.exe
     cmd.exe /c "$@"
   else
-    # Current directory is in WSL, use wsl command
      "$@"
   fi
-    }
-
-function tmux_last_session(){
-
-    LAST_TMUX_SESSION=$(tmux list-sessions | awk -F ":" '{print$1}' | tail -n1);
-    tmux attach -t $LAST_TMUX_SESSION
 }
+
 
 _fzf_complete_gitco() {
   _fzf_complete --prompt="branch> " -- "$@" < <(
-    git branch -a
+    git branch -a | sed 's/^\* //'
   )
 }
 
 _fzf_complete_gitpso() {
   _fzf_complete --prompt="branch> " -- "$@" < <(
-    git branch -a
+    git branch --list | sed 's/^\* //'
   )
 }
 

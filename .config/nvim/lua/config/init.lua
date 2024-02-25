@@ -14,6 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.opt.termguicolors = true -- enable 24-bit RGB colors
 
+vim.cmd('autocmd ColorScheme dracula highlight DiffChange guifg=#000000 guibg=#f1fa8c')
+vim.cmd('autocmd ColorScheme dracula highlight DiffText guifg=#000000 guibg=#f1fa8c')
+
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
