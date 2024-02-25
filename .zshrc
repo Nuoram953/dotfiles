@@ -15,8 +15,8 @@ export EDITOR='nvim'
 export GOPATH='/home/nuoram/go'
 export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
-export FZF_DEFAULT_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*}'"
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*}'"
+export FZF_ALT_C_COMMAND="find . -type d"
 
 export TERM=xterm-256color
 
@@ -140,4 +140,11 @@ function tmux_last_session(){
     LAST_TMUX_SESSION=$(tmux list-sessions | awk -F ":" '{print$1}' | tail -n1);
     tmux attach -t $LAST_TMUX_SESSION
 }
+
+custom_git_branch_fzf() {
+    echo test
+  git branch --list | fzf
+}
+
 bindkey -s '^s' 'tmux_last_session ^M'
+bindkey -s '^G' custom_git_branch_fzf
