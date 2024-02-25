@@ -147,4 +147,10 @@ _fzf_complete_gitco() {
   )
 }
 
+_fzf_complete_gitpso() {
+  _fzf_complete --prompt="branch> " -- "$@" < <(
+    git branch -a
+  )
+}
+
 bindkey -s '^s' 'tmux_last_session ^M'
