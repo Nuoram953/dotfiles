@@ -141,10 +141,10 @@ function tmux_last_session(){
     tmux attach -t $LAST_TMUX_SESSION
 }
 
-custom_git_branch_fzf() {
-    echo test
-  git branch --list | fzf
+_fzf_complete_gitco() {
+  _fzf_complete --prompt="branch> " -- "$@" < <(
+    git branch --list --all
+  )
 }
 
 bindkey -s '^s' 'tmux_last_session ^M'
-bindkey -s '^G' custom_git_branch_fzf
