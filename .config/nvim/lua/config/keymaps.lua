@@ -21,7 +21,6 @@ vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
 vim.keymap.set("n", "<leader>so", builtin.lsp_document_symbols, {})
 vim.keymap.set("n", "<leader>sO", builtin.lsp_workspace_symbols, {})
 vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
-vim.keymap.set("n", "<leader>fp", ":Telescope projects<CR>", {})
 vim.keymap.set(
 	"n",
 	";",
