@@ -143,7 +143,7 @@ function tmux_last_session(){
 
 _fzf_complete_gitco() {
   _fzf_complete --prompt="branch> " -- "$@" < <(
-    git branch --list --all
+    git branch -a
   )
 }
 
