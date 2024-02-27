@@ -8,12 +8,9 @@ return {
 		require("lualine").setup({
 			options = {
 				icons_enabled = true,
-				theme = "auto",
+				theme = "dracula-nvim",
 				component_separators = { left = "", right = "" },
 				section_separators = { left = "", right = "" },
-				disabled_filetypes = {
-					"NvimTree",
-				},
 				ignore_focus = {},
 				always_divide_middle = true,
 				globalstatus = false,
@@ -27,7 +24,7 @@ return {
 				lualine_a = { "mode" },
 				lualine_b = { "branch", "diff", "diagnostics" },
 				lualine_c = { "filename" },
-				lualine_x = { "encoding", "fileformat", "filetype", {"fancy_macro"} },
+				lualine_x = { "encoding", "fileformat", "filetype", { "fancy_macro" } },
 				lualine_y = { "progress" },
 				lualine_z = { "location" },
 			},
