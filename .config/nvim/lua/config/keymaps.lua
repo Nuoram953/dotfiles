@@ -12,7 +12,7 @@ vim.keymap.set("n", "<leader>ww", ":w<CR>", { noremap = true })
 vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true })
 
 vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
-
+vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 -- Telescope
 local builtin = require("telescope.builtin")
 vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
@@ -27,10 +27,10 @@ vim.keymap.set(
 	"<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>",
 	opts
 )
-vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>", { noremap = true })
+-- vim.keymap.set("n", "<space>e", ":Telescope file_browser<CR>", { noremap = true })
 
 -- open file_browser with the path of the current buffer
-vim.keymap.set("n", "<space>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
+-- vim.keymap.set("n", "<space>e", ":Telescope file_browser path=%:p:h select_buffer=true<CR>", { noremap = true })
 
 -- Window management
 vim.keymap.set("n", "<leader>tv", "<C-w>v", { noremap = true, desc = "Vertical split" })
