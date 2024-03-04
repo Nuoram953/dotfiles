@@ -1,3 +1,8 @@
+if [ -z "$TMUX" ]
+then
+    tmux attach -t TMUX || tmux new -s TMUX
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -146,3 +151,4 @@ _fzf_complete_gitpso() {
 }
 
 bindkey -s '^s' 'tmux_last_session ^M'
+
