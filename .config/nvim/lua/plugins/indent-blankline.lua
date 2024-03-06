@@ -24,7 +24,7 @@ return {
 			vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
 		end)
 		require("ibl").setup({
-			indent = { highlight = highlight, char = "" },
+			indent = { highlight = highlight, char = "┊" },
 			scope = { enabled = true },
 		})
 	end,
