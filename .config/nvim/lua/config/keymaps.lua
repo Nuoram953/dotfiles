@@ -35,10 +35,11 @@ vim.keymap.set(
 -- Window management
 vim.keymap.set("n", "<leader>tv", "<C-w>v", { noremap = true, desc = "Vertical split" })
 vim.keymap.set("n", "<leader>th", "<C-w>s", { noremap = true, desc = "Horizontal split" })
-vim.keymap.set("n", "<C-h>", "<C-w>h", { noremap = true })
-vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true })
-vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true })
-vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true })
+
+vim.keymap.set("n", "<C-h>", "<cmd>lua require'tmux'.move_left()<cr>", { desc = "Go to left window" })
+vim.keymap.set("n", "<C-j>", "<cmd>lua require'tmux'.move_bottom()<cr>", { desc = "Go to lower window" })
+vim.keymap.set("n", "<C-k>", "<cmd>lua require'tmux'.move_top()<cr>", { desc = "Go to upper window" })
+vim.keymap.set("n", "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>", { desc = "Go to right window" })
 vim.keymap.set("n", "<C-Up>", "<cmd>resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Down>", "<cmd>resize +2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { noremap = true })
