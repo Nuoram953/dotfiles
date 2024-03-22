@@ -3,7 +3,11 @@ return {
 		"aserowy/tmux.nvim",
 		config = function()
 			require("tmux").setup({
-				-- Configuration here, or leave empty to use defaults
+				copy_sync = {
+					enable = true,
+					sync_clipboard = false,
+					sync_registers = true,
+				},
 			})
 		end,
 	},
