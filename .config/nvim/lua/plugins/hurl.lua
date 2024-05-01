@@ -6,6 +6,8 @@ return {
 		opts = {
 			-- Show debugging info
 			debug = false,
+			slit_position = "right",
+			split_size = "50%",
 			-- Show notification on run
 			show_notification = false,
 			-- Show response in popup or split

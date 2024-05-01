@@ -20,10 +20,12 @@ export EDITOR='nvim'
 export GOPATH='/home/nuoram/go'
 export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
-export FZF_CTRL_T_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*}'"
-export FZF_ALT_C_COMMAND="find . -type d"
+export FZF_CTRL_T_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*, **/env/*}'"
+export FZF_ALT_C_COMMAND="find . -type d ! -path '**/env/*' ! -path '**/venv/*' ! -path '**/node_modules/*' ! -path '**/.git/*' ! -path '**/static/*' "
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export TERM=xterm-256color
+
+source ~/.env_work.sh
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -121,6 +123,7 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 #
 # Example aliases
 source ~/.aliases
+source ~/.aliases_work
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 

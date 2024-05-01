@@ -81,10 +81,11 @@ M.lsp_servers = {
 	"cssls",
 	"taplo",
 	"html",
+	"emmet_language_server",
 }
 
 M.parsers = {
-    "c",
+	"c",
 	"lua",
 	"vim",
 	"markdown",
@@ -103,6 +104,7 @@ M.parsers = {
 	"regex",
 	"dockerfile",
 	"hurl",
+	"norg",
 }
 
 function M.on_attach(on_attach)
