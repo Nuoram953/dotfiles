@@ -15,7 +15,8 @@ vim.keymap.set("n", "<c-e>", "<cmd>lua require('fzf-lua').files()<CR>", { silent
 vim.keymap.set("n", "<c-b>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 vim.keymap.set("n", "<c-g>", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>fo", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>ca", "<cmd>lua require('fzf-lua').lsp_code_actions()<CR>", { noremap=true, silent = true })
+vim.keymap.set("n", "<leader>f;", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fgc", "<cmd>lua require('fzf-lua').grep_cword()<CR>", { silent = true, noremap=true })
 vim.keymap.set("n", "<leader>fgv", "<cmd>lua require('fzf-lua').grep_visual()<CR>", { silent = true, noremap=true })
 vim.keymap.set("n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true })
