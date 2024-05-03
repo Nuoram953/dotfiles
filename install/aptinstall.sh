@@ -40,11 +40,11 @@ install ripgrep
 install python3-pip
 install jq
 install ruby-full
-install ninja-build 
-install gettext 
-install cmake 
+install ninja-build
+install gettext
+install cmake
 install go-lang
+install bat
 # install openjdk-17-jdk #No need to always install java stuff
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-
