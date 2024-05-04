@@ -10,13 +10,13 @@ return {
 					["ctrl-q"] = "select-all+accept",
 				},
 			},
-            fzf_opts = {
-                ['--layout'] = 'reverse-list'
-            },
+			fzf_opts = {
+				["--layout"] = "reverse-list",
+			},
 			winopts = {
 				preview = {
 					layout = "vertical",
-                    vertical = "top:50%"
+					vertical = "top:50%",
 				},
 			},
 		})
