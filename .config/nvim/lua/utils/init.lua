@@ -105,6 +105,7 @@ M.parsers = {
 	"dockerfile",
 	"hurl",
 	"norg",
+	"vimdoc",
 }
 
 function M.on_attach(on_attach)

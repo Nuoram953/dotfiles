@@ -11,9 +11,12 @@ return {
 		treesitter_config.setup({
 			ensure_installed = require("utils").parsers,
 			sync_install = false,
+            disable = {"text"},
 
 			highlight = {
 				enable = true,
+                disable = {"text"}
+
 			},
 			indent = { enable = true, disable = { "python", "css" } },
 
