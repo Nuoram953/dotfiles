@@ -118,9 +118,9 @@ vim.keymap.set(
 )
 
 -- dap
-vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint", noremap = true })
-local dapui = require("dapui")
-vim.keymap.set("n", "<leader>dut", dapui.toggle, { desc = "Toggle dapui", noremap = true })
+-- vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint", noremap = true })
+-- local dapui = require("dapui")
+-- vim.keymap.set("n", "<leader>dut", dapui.toggle, { desc = "Toggle dapui", noremap = true })
 
 -- gitsigns
 local gitsigns = require("gitsigns")
