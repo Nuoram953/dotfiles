@@ -5,7 +5,6 @@ return { -- Telescope
         lazy=false,
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
 		},
 		config = function(_)
 			require("startup").setup({ theme = "dashboard" })

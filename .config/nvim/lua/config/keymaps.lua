@@ -15,27 +15,17 @@ vim.keymap.set("n", "<c-e>", "<cmd>lua require('fzf-lua').files()<CR>", { silent
 vim.keymap.set("n", "<c-b>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 vim.keymap.set("n", "<c-g>", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
 
-vim.keymap.set("n", "<leader>ca", "<cmd>lua require('fzf-lua').lsp_code_actions()<CR>", { noremap=true, silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>ca",
+	"<cmd>lua require('fzf-lua').lsp_code_actions()<CR>",
+	{ noremap = true, silent = true }
+)
 vim.keymap.set("n", "<leader>f;", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fgc", "<cmd>lua require('fzf-lua').grep_cword()<CR>", { silent = true, noremap=true })
-vim.keymap.set("n", "<leader>fgv", "<cmd>lua require('fzf-lua').grep_visual()<CR>", { silent = true, noremap=true })
+vim.keymap.set("n", "<leader>fgc", "<cmd>lua require('fzf-lua').grep_cword()<CR>", { silent = true, noremap = true })
+vim.keymap.set("n", "<leader>fgv", "<cmd>lua require('fzf-lua').grep_visual()<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true })
 
--- Telescope
--- local builtin = require("telescope.builtin")
--- vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find files" })
--- vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
--- vim.keymap.set("n", "<leader>fb", builtin.buffers, {})
--- vim.keymap.set("n", "<leader>so", builtin.lsp_document_symbols, {})
--- vim.keymap.set("n", "<leader>sO", builtin.lsp_workspace_symbols, {})
--- vim.keymap.set("n", "<leader>fh", builtin.help_tags, {})
--- vim.keymap.set(
--- 	"n",
--- 	";",
--- 	"<cmd>lua require('telescope.builtin').resume(require('telescope.themes').get_ivy({}))<cr>",
--- 	opts
--- )
---
 -- Window management
 vim.keymap.set("n", "<leader>tv", "<C-w>v", { noremap = true, desc = "Vertical split" })
 vim.keymap.set("n", "<leader>th", "<C-w>s", { noremap = true, desc = "Horizontal split" })
