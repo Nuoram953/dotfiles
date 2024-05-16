@@ -3,7 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("fzf-lua").setup({
-			"fzf-tmux",
+			"borderless",
 			grep = { rg_opts = "--hidden --line-number" },
 			keymap = {
 				fzf = {
