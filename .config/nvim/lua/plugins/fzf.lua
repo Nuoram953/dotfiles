@@ -3,15 +3,21 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("fzf-lua").setup({
-			"max-perf",
+			"fzf-tmux",
 			grep = { rg_opts = "--hidden --line-number" },
 			keymap = {
 				fzf = {
 					["ctrl-q"] = "select-all+accept",
 				},
 			},
-			fzf_opts = {
-				["--layout"] = "reverse-list",
+			file = {
+				fzf_opts = {
+
+					["--ansi"] = true,
+				},
+			},
+			defaults = {
+				formatter = "path.filename_first",
 			},
 			winopts = {
 				preview = {
@@ -19,6 +25,7 @@ return {
 					vertical = "top:50%",
 				},
 			},
+			file_icons = true,
 		})
 	end,
 }

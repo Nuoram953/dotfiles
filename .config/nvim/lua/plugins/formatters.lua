@@ -1,5 +1,14 @@
+local prettier = function()
+  return {
+    exe = "~/dotfiles/node_modules/.bin/prettier",
+    args = {"--stdin-filepath","--tab-width 4", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
+    stdin = true,
+  }
+end
+
 return {
 	{
+
 		"mhartington/formatter.nvim",
 		config = function(_)
 			require("formatter").setup({
@@ -10,7 +19,7 @@ return {
 						require("formatter.filetypes.lua").stylua,
 					},
 					javascript = {
-						require("formatter.defaults.prettier"),
+						prettier,
 					},
 					json = {
 						require("formatter.filetypes.json").fixjson,
@@ -20,11 +29,11 @@ return {
 						require("formatter.filetypes.python").isort,
 					},
 					typescript = {
-						require("formatter.defaults.prettier"),
+						prettier,
 						require("formatter.filetypes.typescript").ts_standard,
 					},
 					typescriptreact = {
-						require("formatter.defaults.prettier"),
+						prettier,
 					},
 					sql = {
 						require("formatter.filetypes.sql").pgformat,

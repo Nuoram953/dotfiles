@@ -11,20 +11,14 @@ vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
 vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
 -- fzf
-vim.keymap.set("n", "<c-e>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
+vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
 vim.keymap.set("n", "<c-b>", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
-vim.keymap.set("n", "<c-g>", "<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
-
-vim.keymap.set(
-	"n",
-	"<leader>ca",
-	"<cmd>lua require('fzf-lua').lsp_code_actions()<CR>",
-	{ noremap = true, silent = true }
-)
+vim.keymap.set("n", "<c-g>", "<<cmd>lua require('fzf-lua').live_grep()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>f;", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fgc", "<cmd>lua require('fzf-lua').grep_cword()<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>fgv", "<cmd>lua require('fzf-lua').grep_visual()<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true })
+vim.keymap.set("n", "<leader>sO", "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>", { silent = true })
 
 -- Window management
 vim.keymap.set("n", "<leader>tv", "<C-w>v", { noremap = true, desc = "Vertical split" })
@@ -125,3 +119,16 @@ vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>")
 
 --octo
 vim.keymap.set("n", "<leader>opl", "<cmd>Octo pr list<CR>", { desc = "List prs", noremap = true, silent = true })
+
+-- lsp
+local bufopts = { noremap = true, silent = true }
+
+vim.keymap.set("n", "<leader>gD", "<cmd>FzfLua lsp_declarations<cr>", bufopts)
+vim.keymap.set("n", "<leader>gd", "<cmd>FzfLua lsp_definitions<cr>", bufopts)
+vim.keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references<cr>", bufopts)
+vim.keymap.set("n", "<leader>gi", "<cmd>FzfLua lsp_implementations<cr>", bufopts)
+vim.keymap.set("n", "<leader>gt", "<cmd>FzfLua lsp_type_definitions<cr>", bufopts)
+vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, bufopts)
+vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
+vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", bufopts)

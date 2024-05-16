@@ -3,6 +3,7 @@
 ./aptinstall.sh
 ./pip.sh
 ./symlink.sh
+./npm.sh
 
 # Get all pgrades
 sudo apt upgrade -y
