@@ -26,8 +26,8 @@ export FZF_ALT_C_COMMAND="find . -type d ! -path '**/env/*' ! -path '**/venv/*' 
 export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export TERM=xterm-256color
 
-if [ -d "$HOME/.local/bin"] ; then
-    PATH=$HOME/.local/bin:$PATH
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH="$PATH:$HOME/.local/bin"
 fi
 
 source ~/.env_work.sh

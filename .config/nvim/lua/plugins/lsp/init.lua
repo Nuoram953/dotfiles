@@ -75,6 +75,25 @@ return {
 						},
 					})
 				end,
+				["tsserver"] = function()
+					lspconfig.tsserver.setup({
+						on_attach = lsp_utils.on_attach,
+						capabilities = lsp_utils.capabilities,
+						settings = {
+							typescript = {
+								inlayHints = {
+									includeInlayEnumMemberValueHint = true,
+									includeInlayFunctionLikeReturnTypeHints = true,
+									includeInlayFunctionParameterTypeHints = true,
+									includeInlayParameterNameHints = "all",
+									includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+									includeInlayPropertyDeclarationTypeHints = true,
+									includeInlayVariableTypeHints = true,
+								},
+							},
+						},
+					})
+				end,
 			})
 		end,
 	},

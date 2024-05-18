@@ -11,7 +11,6 @@ local M = {
 	opts = function()
 		local cmp = require("cmp")
 		local lsp_kinds = require("utils").lsp_kinds
-
 		local has_words_before = function()
 			if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
 				return false
@@ -23,6 +22,7 @@ local M = {
 		local luasnip = require("luasnip")
 
 		return {
+
 			snippet = {
 				expand = function(args)
 					luasnip.lsp_expand(args.body)
@@ -42,6 +42,15 @@ local M = {
 
 					return vim_item
 				end,
+			},
+			sorting = {
+				comparators = {
+					cmp.config.compare.offset,
+					cmp.config.compare.exact,
+					cmp.config.compare.score,
+					cmp.config.compare.recently_used,
+					cmp.config.compare.kind,
+				},
 			},
 			mapping = cmp.mapping.preset.insert({
 				["<C-p>"] = cmp.mapping.select_prev_item(),
@@ -81,9 +90,8 @@ local M = {
 				{ name = "luasnip" },
 			},
 			experimental = {
-				ghost_text = {
-					hl_group = "LspCodeLens",
-				},
+				ghost_text = false,
+				native_menu = false,
 			},
 		}
 	end,
