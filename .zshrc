@@ -99,7 +99,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Add wisely, as too many plugins slow down shell startup.
 zvm_after_init_commands+=('source /usr/share/doc/fzf/examples/key-bindings.zsh && source /usr/share/doc/fzf/examples/completion.zsh')
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search zsh-vi-mode fzf wd)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search zsh-vi-mode fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -130,6 +130,8 @@ source ~/.aliases
 source ~/.aliases_work
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+echo ''
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

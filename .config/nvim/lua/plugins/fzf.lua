@@ -16,6 +16,9 @@ return {
 					["--ansi"] = true,
 				},
 			},
+            lsp={
+                jump_to_single_result =true
+            },
 			defaults = {
 				formatter = "path.filename_first",
 			},
