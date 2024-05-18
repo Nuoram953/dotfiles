@@ -16,9 +16,9 @@ return {
 					["--ansi"] = true,
 				},
 			},
-            lsp={
-                jump_to_single_result =true
-            },
+			lsp = {
+				jump_to_single_result = true,
+			},
 			defaults = {
 				formatter = "path.filename_first",
 			},
@@ -27,6 +27,7 @@ return {
 					layout = "vertical",
 					vertical = "top:50%",
 				},
+				height = 0.35,
 			},
 			file_icons = true,
 		})
