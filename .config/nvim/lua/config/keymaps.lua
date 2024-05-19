@@ -3,10 +3,10 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
+local bufopts = { noremap = true, silent = true }
+
 vim.keymap.set("i", "jj", "<ESC>", { noremap = true })
 vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true })
-vim.keymap.set("n", "<leader>ww", ":w<CR>", { noremap = true })
-vim.keymap.set("n", "<leader>wq", ":wq<CR>", { noremap = true })
 vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
 vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
@@ -27,8 +27,8 @@ vim.keymap.set("n", "<C-h>", "<cmd>lua require'tmux'.move_left()<cr>", { desc = 
 vim.keymap.set("n", "<C-j>", "<cmd>lua require'tmux'.move_bottom()<cr>", { desc = "Go to lower window" })
 vim.keymap.set("n", "<C-k>", "<cmd>lua require'tmux'.move_top()<cr>", { desc = "Go to upper window" })
 vim.keymap.set("n", "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>", { desc = "Go to right window" })
-vim.keymap.set("n", "<C-Up>", "<cmd>resize -2<CR>", { noremap = true })
-vim.keymap.set("n", "<C-Down>", "<cmd>resize +2<CR>", { noremap = true })
+vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { noremap = true })
+vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { noremap = true })
 
@@ -121,8 +121,6 @@ vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>")
 vim.keymap.set("n", "<leader>opl", "<cmd>Octo pr list<CR>", { desc = "List prs", noremap = true, silent = true })
 
 -- lsp
-local bufopts = { noremap = true, silent = true }
-
 vim.keymap.set("n", "<leader>gD", "<cmd>FzfLua lsp_declarations<cr>", bufopts)
 vim.keymap.set("n", "<leader>gd", "<cmd>FzfLua lsp_definitions<cr>", bufopts)
 vim.keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references<cr>", bufopts)
