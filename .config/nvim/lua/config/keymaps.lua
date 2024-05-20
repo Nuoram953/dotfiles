@@ -130,3 +130,7 @@ vim.keymap.set("n", "<leader>K", vim.lsp.buf.hover, bufopts)
 vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", bufopts)
+
+--dadbod
+vim.keymap.set("n", "<leader>dbo", "<cmd>DBUI<cr>", bufopts)
+vim.keymap.set("n", "<leader>dbc", "<cmd>DBUIClose<cr>", bufopts)
