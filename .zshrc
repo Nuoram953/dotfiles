@@ -21,14 +21,26 @@ export EDITOR='nvim'
 export GOPATH='/home/nuoram/go'
 export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
-export FZF_CTRL_T_COMMAND="rg --files --follow --no-ignore-vcs --hidden -g '!{**/node_modules/*,**/.git/*, **/env/*}'"
-export FZF_ALT_C_COMMAND="find . -type d ! -path '**/env/*' ! -path '**/venv/*' ! -path '**/node_modules/*' ! -path '**/.git/*' ! -path '**/static/*' "
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export TERM=xterm-256color
 
-if [ -d "$HOME/.local/bin" ] ; then
-  PATH="$PATH:$HOME/.local/bin"
-fi
+export FZF_DEFAULT_COMMAND="fdfind --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fdfind --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+show_file_or_dir_preview="if [ -d {} ]; then exa --tree --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi"
+
+export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_ALT_C_OPTS="--preview 'exa --tree --color=always {} | head -200'"
+
+_fzf_compgen_path() {
+  fdfind --hidden --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fdfind --type=d --hidden --exclude .git . "$1"
+}
 
 source ~/.env_work.sh
 
@@ -146,6 +158,22 @@ convertPath(){
   fi
 }
 
+
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'exa --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
+}
+
+if [ -d "$HOME/.local/bin" ] ; then
+  PATH="$PATH:$HOME/.local/bin"
+fi
 
 _fzf_complete_gitco() {
   _fzf_complete --prompt="branch> " -- "$@" < <(

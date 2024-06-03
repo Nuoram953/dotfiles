@@ -11,6 +11,10 @@ sudo apt upgrade -y
 ./plugins.sh
 ./scripts/hurl.sh
 
+# Create optinal files that is used in zsh config
+touch ~/.env_work.sh
+touch ~/.aliases_work
+
 #Oh My Zsh
 chsh -s $(which zsh)
 
