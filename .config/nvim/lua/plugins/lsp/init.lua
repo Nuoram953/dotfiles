@@ -82,13 +82,13 @@ return {
 						settings = {
 							typescript = {
 								inlayHints = {
-									includeInlayEnumMemberValueHint = true,
-									includeInlayFunctionLikeReturnTypeHints = true,
+									includeInlayEnumMemberValueHint = false,
+									includeInlayFunctionLikeReturnTypeHints = false,
 									includeInlayFunctionParameterTypeHints = true,
 									includeInlayParameterNameHints = "all",
 									includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-									includeInlayPropertyDeclarationTypeHints = true,
-									includeInlayVariableTypeHints = true,
+									includeInlayPropertyDeclarationTypeHints = false,
+									includeInlayVariableTypeHints = false,
 								},
 							},
 						},

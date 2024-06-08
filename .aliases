@@ -7,6 +7,8 @@ alias cmd='cmd.exe /c'
 alias mux='tmuxinator'
 alias fd='fdfind'
 alias bat='batcat'
+alias git='convertPath git'
+alias docker='convertPath docker'
 
 alias pym='convertPath python manage.py'
 

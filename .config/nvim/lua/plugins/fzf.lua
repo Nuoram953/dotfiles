@@ -3,8 +3,7 @@ return {
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	config = function()
 		require("fzf-lua").setup({
-			"fzf-tmux",
-			grep = { rg_opts = "--hidden --line-number" },
+			"fzf-native",
 			keymap = {
 				fzf = {
 					["ctrl-q"] = "select-all+accept",
@@ -16,6 +15,22 @@ return {
 					["--ansi"] = true,
 				},
 			},
+      files={
+        git_icons=false,
+        file_icons=true,
+        color_icons=true
+      },
+      git={
+        git_icons=false,
+        file_icons=true,
+        color_icons=true
+      },
+      grep={
+        rg_opts="--hidden --line-number",
+        git_icons=false,
+        file_icons=true,
+        color_icons=true
+      },
 			lsp = {
 				jump_to_single_result = true,
 			},
@@ -27,7 +42,7 @@ return {
 					layout = "vertical",
 					vertical = "top:50%",
 				},
-				height = 0.35,
+				height = 0.75,
 			},
 			file_icons = true,
 		})

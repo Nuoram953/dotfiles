@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-sudo add-apt-repository ppa:neovim-ppa/unstable
 sudo apt update
 
 curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -
@@ -27,7 +26,6 @@ install htop
 install nmap
 install openvpn
 install tmux
-install neovim
 install zsh
 install build-essential
 install libreadline-dev

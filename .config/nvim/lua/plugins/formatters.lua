@@ -1,11 +1,44 @@
 local prettier = function()
-  return {
-    exe = "~/dotfiles/node_modules/.bin/prettier",
-    args = {"--stdin-filepath","--tab-width 4", vim.fn.shellescape(vim.api.nvim_buf_get_name(0)), "--single-quote"},
-    stdin = true,
-  }
+	local util = require("formatter.util")
+	return {
+		exe = "~/dotfiles/node_modules/.bin/prettier",
+		args = {
+			"--config-precedence",
+			"prefer-file",
+			"--stdin-filepath",
+			util.escape_path(util.get_current_buffer_file_path()),
+		},
+		stdin = true,
+	}
 end
 
+local sqlfluff = function()
+	return {
+		exe = { "sqlfluff" },
+		argr = {
+			"format",
+			"--disable-progress-bar",
+			"--no-color",
+			"--dialect mysql",
+		},
+		stdin = true,
+		ignore_exitcode = true,
+	}
+end
+
+local black = function()
+	local util = require("formatter.util")
+	return {
+		exe = "black",
+		args = {
+			"-q",
+			"--stdin_filename",
+			util.escape_path(util.get_current_buffer_file_path()),
+			"-",
+			stdin = true,
+		},
+	}
+end
 return {
 	{
 
@@ -25,8 +58,7 @@ return {
 						require("formatter.filetypes.json").fixjson,
 					},
 					python = {
-						require("formatter.filetypes.python").black,
-						require("formatter.filetypes.python").isort,
+						black,
 					},
 					typescript = {
 						prettier,
@@ -36,7 +68,7 @@ return {
 						prettier,
 					},
 					sql = {
-						require("formatter.filetypes.sql").pgformat,
+						sqlfluff,
 					},
 					php = {
 						require("formatter.defaults.prettier"),

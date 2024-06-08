@@ -67,6 +67,7 @@ M.mason_packages = {
 	"editorconfig-checker",
 	"ts-standard",
 	"debugpy",
+  "sqlfluff"
 }
 
 M.lsp_servers = {

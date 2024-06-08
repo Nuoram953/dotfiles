@@ -116,7 +116,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search zsh-vi-mode 
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
-ZVM_VI_INSERT_ESCAPE_BINDKEY=jj
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
