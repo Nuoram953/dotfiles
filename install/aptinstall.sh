@@ -43,6 +43,8 @@ install gettext
 install cmake
 install go-lang
 install bat
+install fd-find
+install git-delta
 # install openjdk-17-jdk #No need to always install java stuff
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended

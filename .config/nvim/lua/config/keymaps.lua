@@ -5,8 +5,6 @@ vim.opt.termguicolors = true
 
 local bufopts = { noremap = true, silent = true }
 
-vim.keymap.set("i", "jj", "<ESC>", { noremap = true })
-vim.keymap.set("t", "jj", "<C-\\><C-n>", { noremap = true })
 vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
 vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
