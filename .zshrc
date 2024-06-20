@@ -1,8 +1,3 @@
-if [ -z "$TMUX" ]
-then
-    tmux attach -t TMUX || tmux new -s TMUX
-fi
-
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -22,6 +17,7 @@ export GOPATH='/home/nuoram/go'
 export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
 export TERM=xterm-256color
+export STARSHIP_CONFIG=~/dotfiles/starship.toml
 
 export FZF_DEFAULT_COMMAND="fdfind --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -48,7 +44,6 @@ source ~/.env_work.sh
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -144,8 +139,6 @@ source ~/.aliases_work
 
 echo ''
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 convertPath(){
     local current_directory=$(pwd)
@@ -189,3 +182,4 @@ _fzf_complete_gitpso() {
 bindkey -s '^s' 'tmux_last_session ^M'
 
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"

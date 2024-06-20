@@ -32,6 +32,5 @@ function linkDotfile {
 linkDotfile .tmux.conf 
 linkDotfile .zshrc
 linkDotfile .bashrc
-linkDotfile .p10k.zsh
 linkDotfile .config
 linkDotfile .aliases
