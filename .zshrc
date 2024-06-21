@@ -1,9 +1,6 @@
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -104,9 +101,8 @@ source ~/.env_work.sh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-zvm_after_init_commands+=('source /usr/share/doc/fzf/examples/key-bindings.zsh && source /usr/share/doc/fzf/examples/completion.zsh')
 
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search zsh-vi-mode fzf)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode fzf)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -183,3 +179,6 @@ bindkey -s '^s' 'tmux_last_session ^M'
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+source <(fzf --zsh)
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -7,16 +7,31 @@ palette = "dracula"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
+format = ""
 disabled = true
 
-# Use the color palette
+[python]
+disabled = true
+
+[nodejs]
+disabled = true
+
+[git_status]
+format="([\\[$all_status$ahead_behind\\]]($style) )"
+style = "bold red"
+ahead = '⇡${count}'
+diverged = '⇕⇡${ahead_count}⇣${behind_count}'
+behind = '⇣${count}'
+modified="!${count}"
+deleted = "✘${count}"
+staged = '[++\($count\)](green)'
 
 [aws]
 style = "bold orange"
 
 [character]
 error_symbol = "[λ](bold red)"
-success_symbol = "[λ](bold green)"
+success_symbol = "[>](bold green)"
 
 [cmd_duration]
 style = "bold yellow"
@@ -26,9 +41,6 @@ style = "bold green"
 
 [git_branch]
 style = "bold pink"
-
-[git_status]
-style = "bold red"
 
 [hostname]
 style = "bold purple"
