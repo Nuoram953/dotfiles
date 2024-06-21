@@ -133,8 +133,6 @@ source ~/.aliases_work
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-echo ''
-
 
 convertPath(){
     local current_directory=$(pwd)
