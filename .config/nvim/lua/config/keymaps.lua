@@ -7,6 +7,7 @@ local bufopts = { noremap = true, silent = true }
 
 vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
 vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+vim.keymap.set('c', '<tab>', '<C-z>', { silent = false }) -- to fix cmp
 
 -- fzf
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
