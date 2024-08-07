@@ -173,6 +173,41 @@ _fzf_complete_gitpso() {
   )
 }
 
+_fzf_complete_gitpso() {
+  _fzf_complete --prompt="branch> " -- "$@" < <(
+    git branch --list | sed 's/^\* //'
+  )
+}
+
+function git_file_commits() {
+    local file="$1"
+    if [[ -z "$file" ]]; then
+        echo "Please provide a file path."
+        return 1
+    fi
+
+    # Use fzf to select a commit and capture the selected line
+    local selected_commit=$(git log --pretty=format:"%H %s" --follow -- "$file" | fzf --preview "
+        commit=\$(echo {} | awk '{print \$1}')
+        echo 'Commit: ' \$commit
+        echo 'Message: ' \$(git log -1 --pretty=format:\"%s\" \$commit)
+        echo 'Branches:'
+        git branch -r --contains \$commit
+        echo 'Changes:'
+        git show --stat --oneline --shortstat \$commit -- $file | tail -n 1
+    " | awk '{print $1}')
+
+    # Print the selected commit hash
+    if [[ -n "$selected_commit" ]]; then
+        echo "$selected_commit"
+    else
+        echo "No commit selected."
+    fi
+}
+
+# Source your .bashrc or .zshrc after adding the function
+# source ~/.bashrc or source ~/.zshrc
+
 bindkey -s '^s' 'tmux_last_session ^M'
 
 eval "$(zoxide init zsh)"

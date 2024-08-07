@@ -98,6 +98,7 @@ M.parsers = {
 	"typescript",
 	"tsx",
 	"html",
+  "query",
 	"css",
 	"json",
 	"yaml",

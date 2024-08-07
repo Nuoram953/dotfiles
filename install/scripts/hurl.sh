@@ -1,4 +1,4 @@
-#!/bin/bas
+#!/bin/bash
 
 VERSION=4.2.0
 

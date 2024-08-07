@@ -26,19 +26,6 @@ local sqlfluff = function()
 	}
 end
 
-local black = function()
-	local util = require("formatter.util")
-	return {
-		exe = "black",
-		args = {
-			"-q",
-			"--stdin_filename",
-			util.escape_path(util.get_current_buffer_file_path()),
-			"-",
-			stdin = true,
-		},
-	}
-end
 return {
 	{
 
@@ -58,7 +45,7 @@ return {
 						require("formatter.filetypes.json").fixjson,
 					},
 					python = {
-						black,
+						require("formatter.filetypes.python").black,
 					},
 					typescript = {
 						prettier,

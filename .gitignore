@@ -1,3 +1,5 @@
 node_modules
 .config/.jira
 .config/lazygit
+.config/zellij/plugins/statusbar/target
+.config/gh/hosts.yml

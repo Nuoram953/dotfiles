@@ -26,7 +26,7 @@ return {
         color_icons=true
       },
       grep={
-        rg_opts="--hidden --line-number",
+        rg_opts="--hidden --line-number --multiline",
         git_icons=false,
         file_icons=true,
         color_icons=true
@@ -36,6 +36,7 @@ return {
 			},
 			defaults = {
 				formatter = "path.filename_first",
+        multiline = 1
 			},
 			winopts = {
 				preview = {

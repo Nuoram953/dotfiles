@@ -25,7 +25,6 @@ install git
 install htop
 install nmap
 install openvpn
-install tmux
 install zsh
 install build-essential
 install libreadline-dev
@@ -45,6 +44,11 @@ install go-lang
 install bat
 install fd-find
 install git-delta
+install mysql-client
 # install openjdk-17-jdk #No need to always install java stuff
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+curl -sS https://starship.rs/install.sh | sh
