@@ -88,6 +88,7 @@ local M = {
 				{ name = "path" },
 				{ name = "buffer" },
 				{ name = "luasnip" },
+				{ name = "vim-dadbod-completion", priority = 700 },
 			},
 			experimental = {
 				ghost_text = false,
@@ -104,12 +105,12 @@ local M = {
 				{ name = "buffer" },
 			},
 		})
-cmp.setup.cmdline(':', {
-  autocomplete = false,
-  sources = {
-    { name = 'cmdline' }
-  }
-})
+		cmp.setup.cmdline(":", {
+			autocomplete = false,
+			sources = {
+				{ name = "cmdline" },
+			},
+		})
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 		local handlers = require("nvim-autopairs.completion.handlers")

@@ -14,12 +14,13 @@ end
 
 local sqlfluff = function()
 	return {
-		exe = { "sqlfluff" },
+		exe = "sqlfluff",
 		argr = {
 			"format",
 			"--disable-progress-bar",
-			"--no-color",
+			"nocolor",
 			"--dialect mysql",
+      "-"
 		},
 		stdin = true,
 		ignore_exitcode = true,
@@ -57,8 +58,10 @@ return {
 					sql = {
 						sqlfluff,
 					},
+          html={
+						require("formatter.filetypes.html").prettier
+          },
 					php = {
-						require("formatter.defaults.prettier"),
 						require("formatter.filetypes.php").phpcbf,
 						require("formatter.filetypes.php").php_cs_fixer,
 					},
