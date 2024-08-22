@@ -45,6 +45,7 @@ install bat
 install fd-find
 install git-delta
 install mysql-client
+install fzf
 # install openjdk-17-jdk #No need to always install java stuff
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -52,3 +53,6 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 curl -sS https://starship.rs/install.sh | sh
+
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
