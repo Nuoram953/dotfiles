@@ -11,6 +11,8 @@ sudo apt upgrade -y
 ./plugins.sh
 ./scripts/hurl.sh
 
+./neovim.sh
+
 # Create optinal files that is used in zsh config
 touch ~/.env_work.sh
 touch ~/.aliases_work

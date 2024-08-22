@@ -2,11 +2,11 @@ return {
 	{
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		dependencies = {
-			"vim-treesitter/nvim-treesitter",
+			"nim-treesitter/nvim-treesitter",
 		},
 	},
 	{
-		"vim-treesitter/nvim-treesitter",
+		"nvim-treesitter/nvim-treesitter",
 		event = "BufReadPre",
 		config = function()
 			-- Using protected call
