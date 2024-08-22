@@ -48,7 +48,7 @@ install mysql-client
 install fzf
 # install openjdk-17-jdk #No need to always install java stuff
 
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
