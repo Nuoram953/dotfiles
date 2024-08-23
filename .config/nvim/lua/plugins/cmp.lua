@@ -88,7 +88,7 @@ local M = {
 				{ name = "path" },
 				{ name = "buffer" },
 				{ name = "luasnip" },
-				{ name = "vim-dadbod-completion", priority = 700 },
+				-- { name = "vim-dadbod-completion", priority = 700 },
 			},
 			experimental = {
 				ghost_text = false,
