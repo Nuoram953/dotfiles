@@ -47,6 +47,7 @@ install git-delta
 install mysql-client
 install fzf
 install gettext
+install xclip
 # install openjdk-17-jdk #No need to always install java stuff
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

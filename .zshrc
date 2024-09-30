@@ -11,6 +11,8 @@ export PKG_CONFIG_PATH=/usr/lib/pkgconfig
 export ZSH="$HOME/.oh-my-zsh"
 export EDITOR='nvim'
 export GOPATH='/home/nuoram/go'
+export PATH=$PATH:/usr/bin
+export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
 export TERM=xterm-256color
@@ -22,7 +24,7 @@ export FZF_ALT_C_COMMAND="fdfind --type=d --hidden --strip-cwd-prefix --exclude 
 
 show_file_or_dir_preview="if [ -d {} ]; then exa --tree --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi"
 
-export FZF_DEFAULT_OPTS='--color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
+export FZF_DEFAULT_OPTS='--multi --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
 export FZF_ALT_C_OPTS="--preview 'exa --tree --color=always {} | head -200'"
 
@@ -36,6 +38,11 @@ _fzf_compgen_dir() {
 }
 
 source ~/.env_work.sh
+
+if [ -z "$TMUX" ]
+then
+    tmux attach -t TMUX || tmux new -s TMUX
+fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -179,6 +186,12 @@ _fzf_complete_gitpso() {
   )
 }
 
+_fzf_complete_gita() {
+  _fzf_complete --prompt="status> " -- "$@" < <(
+    git status | awk '{print $2}' | sort -u
+  )
+}
+
 function git_file_commits() {
     local file="$1"
     if [[ -z "$file" ]]; then
@@ -212,6 +225,5 @@ bindkey -s '^s' 'tmux_last_session ^M'
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-source <(fzf --zsh)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

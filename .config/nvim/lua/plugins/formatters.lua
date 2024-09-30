@@ -27,6 +27,30 @@ local sqlfluff = function()
 	}
 end
 
+local php_cs_fixer = function ()
+  return {
+    exe = "php-cs-fixer",
+    args = {
+      "fix",
+    },
+    stdin = false,
+    ignore_exitcode = true,
+  }
+end
+
+local prettyhtml = function()
+	local util = require("formatter.util")
+  return {
+    exe = "prettyhtml",
+    args = {
+			util.escape_path(util.get_current_buffer_file_path()),
+    },
+    stdin = false,
+    ignore_exitcode = true,
+
+  }
+end
+
 return {
 	{
 
@@ -62,8 +86,11 @@ return {
 						require("formatter.filetypes.html").prettier
           },
 					php = {
-						require("formatter.filetypes.php").phpcbf,
-						require("formatter.filetypes.php").php_cs_fixer,
+            prettyhtml,
+            prettier
+					},
+					go = {
+						require("formatter.filetypes.go").gofumpt
 					},
 					["*"] = {
 						require("formatter.filetypes.any").remove_trailing_whitespace,

@@ -10,6 +10,8 @@ alias bat='batcat'
 alias git='convertPath git'
 alias docker='convertPath docker'
 alias gh='convertPath gh'
+alias npm='convertPath npm'
+alias kub='convertPath kubectl'
 
 alias pym='convertPath python manage.py'
 

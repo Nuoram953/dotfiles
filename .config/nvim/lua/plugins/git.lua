@@ -5,6 +5,14 @@ return {
 		config = true,
 	},
 	{
+		"sindrets/diffview.nvim",
+		config = function()
+			require("diffview").setup({
+				git_cmd = { "git" },
+			})
+		end,
+	},
+	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup({
