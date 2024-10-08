@@ -17,6 +17,7 @@ export PATH=$PATH:$GOPATH/bin
 export JIRA_API_TOKEN=''
 export TERM=xterm-256color
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
+export PATH="$PATH:/mnt/c/Windows/System32"
 
 export FZF_DEFAULT_COMMAND="fdfind --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
@@ -145,7 +146,7 @@ convertPath(){
     local current_directory=$(pwd)
 
   if [[ $current_directory == /mnt/* ]]; then
-    cmd.exe /c "$@"
+    cmd.exe /C "$@"
   else
      "$@"
   fi
