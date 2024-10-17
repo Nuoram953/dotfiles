@@ -7,7 +7,7 @@ local bufopts = { noremap = true, silent = true }
 
 vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
 vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set('c', '<tab>', '<C-z>', { silent = false }) -- to fix cmp
+vim.keymap.set("c", "<tab>", "<C-z>", { silent = false }) -- to fix cmp
 
 -- fzf
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
@@ -36,8 +36,6 @@ vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { noremap = true
 -- Use <Tab> to cycle through buffers in tab
 vim.keymap.set("n", "<Tab>", "<cmd>:bprevious<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
-vim.keymap.set("v", "J", ":m '>+1<CR>gv==kgvo<esc>=kgvo", { desc = "move highlighted text down" })
-vim.keymap.set("v", "K", ":m '<-2<CR>gv==jgvo<esc>=jgvo", { desc = "move highlighted text up" })
 
 -- nvim-scissors
 vim.keymap.set("n", "<leader>se", function()
