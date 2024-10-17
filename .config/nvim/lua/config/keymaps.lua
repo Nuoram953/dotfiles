@@ -89,18 +89,6 @@ vim.keymap.set(
 	"<cmd>lua vim.diagnostic.setloclist()<CR>",
 	{ desc = "Send lsp to Quickfix list", noremap = true, silent = true }
 )
-vim.keymap.set(
-	"n",
-	"<leader>dn",
-	"<cmd>lua vim.diagnostic.goto_next()<CR>",
-	{ desc = "Go to next element diagnostic", noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"<leader>dp",
-	"<cmd>lua vim.diagnostic.goto_prev()<CR>",
-	{ desc = "Go to previous element Quickfix", noremap = true, silent = true }
-)
 
 -- dap
 -- vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint", noremap = true })

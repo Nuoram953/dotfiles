@@ -17,9 +17,15 @@ return {
 				ensure_installed = utils.lsp_servers,
 			})
 
+			local handlers = {
+				["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = "rounded" }),
+				["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = "rounded" }),
+			}
+
 			mason_lspconfig.setup_handlers({
 				function(server_name)
 					lspconfig[server_name].setup({
+            handlers=handlers,
 						on_attach = lsp_utils.on_attach,
 						capabilities = lsp_utils.capabilities,
 					})
