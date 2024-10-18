@@ -22,4 +22,17 @@ return {
 			require("mini.move").setup()
 		end,
 	},
+	{
+		"echasnovski/mini.move",
+		version = false,
+		config = function()
+			require("mini.move").setup()
+		end,
+	},
+	{
+	  "echasnovski/mini.splitjoin",
+	  version = false,
+	  config = function() require("mini.splitjoin").setup()
+    end
+	},
 }
