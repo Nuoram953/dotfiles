@@ -100,6 +100,8 @@ opt.undoreload = 10000
 opt.foldmethod = "marker"
 opt.foldlevel = 99
 
+opt.formatexpr = "v:lua.require'conform'.formatexpr()"
+
 -- Disable builtin plugins
 local disabled_built_ins = {
 	"2html_plugin",

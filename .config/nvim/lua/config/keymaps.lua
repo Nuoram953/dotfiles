@@ -5,7 +5,18 @@ vim.opt.termguicolors = true
 
 local bufopts = { noremap = true, silent = true }
 
-vim.keymap.set({ "n", "x" }, "<leader>fo", ":Format<CR>", { noremap = true })
+-- Keymap to format the entire file
+-- vim.keymap.set({ "n", "v" }, "<leader>mp", function()
+local conform = require("conform")
+vim.keymap.set({ "n", "x" }, "<leader>fo", function()
+	conform.format({
+		lsp_fallback = true,
+		async = false,
+		timeout_ms = 500,
+	})
+end, { desc = "Format file or range (in visual mode)" })
+-- Keymap to format the selected range in visual mode
+
 vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("c", "<tab>", "<C-z>", { silent = false }) -- to fix cmp
 
