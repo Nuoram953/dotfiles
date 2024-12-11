@@ -8,7 +8,8 @@ return {
           lua = {"stylua"},
           python  = {"black"},
           typescript ={"prettier"},
-          php = {"php-cs-fixer"}
+          php = {"php-cs-fixer"},
+          markdown = {"doctoc"}
         }
       })
 		end,

@@ -5,8 +5,6 @@ vim.opt.termguicolors = true
 
 local bufopts = { noremap = true, silent = true }
 
--- Keymap to format the entire file
--- vim.keymap.set({ "n", "v" }, "<leader>mp", function()
 local conform = require("conform")
 vim.keymap.set({ "n", "x" }, "<leader>fo", function()
 	conform.format({
@@ -15,24 +13,24 @@ vim.keymap.set({ "n", "x" }, "<leader>fo", function()
 		timeout_ms = 500,
 	})
 end, { desc = "Format file or range (in visual mode)" })
--- Keymap to format the selected range in visual mode
 
-vim.keymap.set("n", "<space>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("c", "<tab>", "<C-z>", { silent = false }) -- to fix cmp
 
+-- ****************************************************************************************************
 -- fzf
+-- ****************************************************************************************************
+vim.keymap.set({ "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true })
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fB", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fgc", "<cmd>lua require('fzf-lua').grep_cword()<CR>", { silent = true, noremap = true })
-vim.keymap.set("x", "<leader>fgv", "<cmd>lua require('fzf-lua').grep_visual()<CR>", { silent = true, noremap = true })
 vim.keymap.set("n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>sO", "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>", { silent = true })
 vim.keymap.set("n", "<leader>fm", "<cmd>lua require('fzf-lua').marks()<CR>", { silent = true })
 
+-- ****************************************************************************************************
 -- Window management
+-- ****************************************************************************************************
 vim.keymap.set("n", "<leader>tv", "<C-w>v", { noremap = true, desc = "Vertical split" })
 vim.keymap.set("n", "<leader>th", "<C-w>s", { noremap = true, desc = "Horizontal split" })
 vim.keymap.set("n", "<C-h>", "<cmd>lua require'tmux'.move_left()<cr>", { desc = "Go to left window" })
@@ -43,12 +41,12 @@ vim.keymap.set("n", "<C-Down>", "<cmd>resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Up>", "<cmd>resize +2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Left>", "<cmd>vertical resize -2<CR>", { noremap = true })
 vim.keymap.set("n", "<C-Right>", "<cmd>vertical resize +2<CR>", { noremap = true })
-
--- Use <Tab> to cycle through buffers in tab
 vim.keymap.set("n", "<Tab>", "<cmd>:bprevious<cr>")
 vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
 
+-- ****************************************************************************************************
 -- nvim-scissors
+-- ****************************************************************************************************
 vim.keymap.set("n", "<leader>se", function()
 	require("scissors").editSnippet()
 end)
@@ -56,7 +54,9 @@ vim.keymap.set({ "n", "x" }, "<leader>sa", function()
 	require("scissors").addNewSnippet()
 end)
 
+-- ****************************************************************************************************
 -- Refactor
+-- ****************************************************************************************************
 vim.keymap.set("x", "<leader>re", ":Refactor extract", { desc = "Refactor extract" })
 vim.keymap.set("x", "<leader>rf", ":Refactor extract_to_file", { desc = "Refactor extract_to_file" })
 vim.keymap.set("x", "<leader>rv", ":Refactor extract_var ")
@@ -65,7 +65,9 @@ vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
 vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
 vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 
+-- ****************************************************************************************************
 -- Quickfix list
+-- ****************************************************************************************************
 vim.keymap.set(
 	"n",
 	"<leader>qn",
@@ -91,20 +93,17 @@ vim.keymap.set(
 	{ desc = "Go to previous list element Quickfix", noremap = true, silent = true }
 )
 
---lsp
-vim.keymap.set(
-	"n",
-	"<leader>dq",
-	"<cmd>lua vim.diagnostic.setloclist()<CR>",
-	{ desc = "Send lsp to Quickfix list", noremap = true, silent = true }
-)
 
+-- ****************************************************************************************************
 -- dap
+-- ****************************************************************************************************
 -- vim.keymap.set("n", "<leader>db", ":DapToggleBreakpoint<CR>", { desc = "Toggle breakpoint", noremap = true })
 -- local dapui = require("dapui")
 -- vim.keymap.set("n", "<leader>dut", dapui.toggle, { desc = "Toggle dapui", noremap = true })
 
+-- ****************************************************************************************************
 -- gitsigns
+-- ****************************************************************************************************
 local gitsigns = require("gitsigns")
 vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk)
 vim.keymap.set("n", "<leader>hv", gitsigns.preview_hunk)
@@ -115,10 +114,9 @@ end)
 vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>")
 vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>")
 
---octo
-vim.keymap.set("n", "<leader>opl", "<cmd>Octo pr list<CR>", { desc = "List prs", noremap = true, silent = true })
-
+-- ****************************************************************************************************
 -- lsp
+-- ****************************************************************************************************
 vim.keymap.set("n", "<leader>gD", "<cmd>FzfLua lsp_declarations<cr>", bufopts)
 vim.keymap.set("n", "<leader>gd", "<cmd>FzfLua lsp_definitions<cr>", bufopts)
 vim.keymap.set("n", "<leader>gr", "<cmd>FzfLua lsp_references<cr>", bufopts)
@@ -129,6 +127,8 @@ vim.keymap.set("n", "<leader>k", vim.lsp.buf.signature_help, bufopts)
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, bufopts)
 vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", bufopts)
 
+-- ****************************************************************************************************
 --dadbod
+-- ****************************************************************************************************
 vim.keymap.set("n", "<leader>dbo", "<cmd>DBUI<cr>", bufopts)
 vim.keymap.set("n", "<leader>dbc", "<cmd>DBUIClose<cr>", bufopts)
