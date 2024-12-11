@@ -19,14 +19,29 @@ vim.keymap.set("c", "<tab>", "<C-z>", { silent = false }) -- to fix cmp
 -- ****************************************************************************************************
 -- fzf
 -- ****************************************************************************************************
-vim.keymap.set({ "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true })
-vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>sO", "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>", { silent = true })
-vim.keymap.set("n", "<leader>fm", "<cmd>lua require('fzf-lua').marks()<CR>", { silent = true })
+vim.keymap.set(
+	{ "n", "x" },
+	"<leader><leader>",
+	"<cmd>lua require('fzf-lua').builtin()<CR>",
+	{ silent = true, desc = "Command palette" }
+)
+vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc = "Files" })
+vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true, desc = "Buffers" })
+vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true, desc = "Old files" })
+vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<CR>", { silent = true, desc = "Resume" })
+vim.keymap.set(
+	"n",
+	"<leader>so",
+	"<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>",
+	{ silent = true, desc = "Document symbols" }
+)
+vim.keymap.set(
+	"n",
+	"<leader>sO",
+	"<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>",
+	{ silent = true, desc = "Workspace symbols" }
+)
+vim.keymap.set("n", "<leader>fm", "<cmd>lua require('fzf-lua').marks()<CR>", { silent = true, desc = "Marks" })
 
 -- ****************************************************************************************************
 -- Window management
@@ -49,10 +64,10 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
 -- ****************************************************************************************************
 vim.keymap.set("n", "<leader>se", function()
 	require("scissors").editSnippet()
-end)
+end, {desc="Edit snippet"})
 vim.keymap.set({ "n", "x" }, "<leader>sa", function()
 	require("scissors").addNewSnippet()
-end)
+end, {desc="New snippet"})
 
 -- ****************************************************************************************************
 -- Refactor
@@ -92,7 +107,6 @@ vim.keymap.set(
 	"<cmd>lprev<CR>",
 	{ desc = "Go to previous list element Quickfix", noremap = true, silent = true }
 )
-
 
 -- ****************************************************************************************************
 -- dap
