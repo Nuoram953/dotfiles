@@ -9,7 +9,8 @@ return {
           python  = {"black"},
           typescript ={"prettier"},
           php = {"php-cs-fixer"},
-          markdown = {"doctoc"}
+          markdown = {"doctoc"},
+          zsh={"beautysh"}
         }
       })
 		end,
