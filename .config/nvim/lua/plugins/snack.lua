@@ -8,7 +8,6 @@ return {
 		indent = { enabled = false },
 		input = { enabled = true },
 		notifier = { enabled = true },
-		lazygit = { enabled = true },
 		quickfile = { enabled = true },
 		scroll = { enabled = false },
 		statuscolumn = { enabled = true },
@@ -39,13 +38,6 @@ return {
 				Snacks.scratch.select()
 			end,
 			desc = "Select Scratch Buffer",
-		},
-		{
-			"<leader>gg",
-			function()
-				Snacks.lazygit()
-			end,
-			desc = "Lazygit",
 		},
 	},
 }

@@ -1,23 +1,17 @@
 #!/bin/bash
 
-sessions=$(tmux list-sessions -F "#{session_name}" 2>/dev/null | tr '\n' '\n')
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
-if [ -d "$HOME/.config/tmuxinator" ]; then
-  possible_sessions=$(ls "$HOME/.config/tmuxinator" | sed 's/\.yml$//' | tr '\n' '\n')
-else
-  possible_sessions=""
-fi
+sessions=$(tmux list-sessions -F "#S" | tr '\n' '\n')
 
-all_sessions=$(printf "%s\n%s" "$sessions" "$possible_sessions" | sort -u)
+# if [ -z "$all_sessions" ]; then
+#   echo "No tmux sessions or possible sessions found."
+#   exit 0
+# fi
+#
+# echo $all_sessions
 
-if [ -z "$all_sessions" ]; then
-  echo "No tmux sessions or possible sessions found."
-  exit 0
-fi
-
-echo $all_sessions
-
-selected_session=$($all_sessions | fzf --prompt="Select or create a tmux session: " --height=10 --border --ansi)
+selected_session=$(echo "$sessions" | fzf --prompt="Select or create a tmux session: " --height=10 --border --ansi)
 
 if [ -z "$selected_session" ]; then
   echo "No session selected."
