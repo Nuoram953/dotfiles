@@ -6,41 +6,19 @@ vim.opt.termguicolors = true
 local bufopts = { noremap = true, silent = true }
 
 local conform = require("conform")
-vim.keymap.set({ "n", "x" }, "<leader>fo", function()
-	conform.format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 500,
-	})
-end, { desc = "Format file or range (in visual mode)" })
+vim.keymap.set({ "n", "x" }, "<leader>fo", function() conform.format({ lsp_fallback = true, async = false, timeout_ms = 500, }) end, { desc = "Format file or range (in visual mode)" })
 
-vim.keymap.set("c", "<tab>", "<C-z>", { silent = false }) -- to fix cmp
 
 -- ****************************************************************************************************
 -- fzf
 -- ****************************************************************************************************
-vim.keymap.set(
-	{ "n", "x" },
-	"<leader><leader>",
-	"<cmd>lua require('fzf-lua').builtin()<CR>",
-	{ silent = true, desc = "Command palette" }
-)
+vim.keymap.set( { "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true, desc = "Command palette" })
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc = "Files" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true, desc = "Buffers" })
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true, desc = "Old files" })
 vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<CR>", { silent = true, desc = "Resume" })
-vim.keymap.set(
-	"n",
-	"<leader>so",
-	"<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>",
-	{ silent = true, desc = "Document symbols" }
-)
-vim.keymap.set(
-	"n",
-	"<leader>sO",
-	"<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>",
-	{ silent = true, desc = "Workspace symbols" }
-)
+vim.keymap.set( "n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true, desc = "Document symbols" })
+vim.keymap.set( "n", "<leader>sO", "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>", { silent = true, desc = "Workspace symbols" })
 vim.keymap.set("n", "<leader>fm", "<cmd>lua require('fzf-lua').marks()<CR>", { silent = true, desc = "Marks" })
 
 -- ****************************************************************************************************
@@ -62,12 +40,8 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
 -- ****************************************************************************************************
 -- nvim-scissors
 -- ****************************************************************************************************
-vim.keymap.set("n", "<leader>se", function()
-	require("scissors").editSnippet()
-end, {desc="Edit snippet"})
-vim.keymap.set({ "n", "x" }, "<leader>sa", function()
-	require("scissors").addNewSnippet()
-end, {desc="New snippet"})
+vim.keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end, {desc="Edit snippet"})
+vim.keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end, {desc="New snippet"})
 
 -- ****************************************************************************************************
 -- Refactor
@@ -83,30 +57,10 @@ vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
 -- ****************************************************************************************************
 -- Quickfix list
 -- ****************************************************************************************************
-vim.keymap.set(
-	"n",
-	"<leader>qn",
-	"<cmd>cnext<CR>",
-	{ desc = "Go to next element Quickfix", noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"<leader>qp",
-	"<cmd>cprev<CR>",
-	{ desc = "Go to previous element Quickfix", noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"<leader>qln",
-	"<cmd>lnext<CR>",
-	{ desc = "Go to next list element Quickfix", noremap = true, silent = true }
-)
-vim.keymap.set(
-	"n",
-	"<leader>qlp",
-	"<cmd>lprev<CR>",
-	{ desc = "Go to previous list element Quickfix", noremap = true, silent = true }
-)
+vim.keymap.set( "n", "<leader>cn", "<cmd>cnext<CR>", { desc = "Go to next element Quickfix", noremap = true, silent = true })
+vim.keymap.set( "n", "<leader>cp", "<cmd>cprev<CR>", { desc = "Go to previous element Quickfix", noremap = true, silent = true })
+vim.keymap.set( "n", "<leader>cln", "<cmd>lnext<CR>", { desc = "Go to next list element Quickfix", noremap = true, silent = true })
+vim.keymap.set( "n", "<leader>clp", "<cmd>lprev<CR>", { desc = "Go to previous list element Quickfix", noremap = true, silent = true })
 
 -- ****************************************************************************************************
 -- dap
@@ -122,9 +76,7 @@ local gitsigns = require("gitsigns")
 vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk)
 vim.keymap.set("n", "<leader>hv", gitsigns.preview_hunk)
 vim.keymap.set("n", "<leader>hd", gitsigns.diffthis)
-vim.keymap.set("n", "<leader>hD", function()
-	gitsigns.diffthis("~")
-end)
+vim.keymap.set("n", "<leader>hD", function() gitsigns.diffthis("~") end)
 vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>")
 vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>")
 
