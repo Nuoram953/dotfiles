@@ -17,15 +17,14 @@ vim.opt.termguicolors = true -- enable 24-bit RGB colors
 vim.cmd("autocmd ColorScheme dracula highlight DiffChange guifg=#000000 guibg=#f1fa8c")
 vim.cmd("autocmd ColorScheme dracula highlight DiffText guifg=#000000 guibg=#f1fa8c")
 
--- vim.api.nvim_create_autocmd({ "BufWritePre" }, {
--- 	pattern = { "*" },
--- 	command = [[%s/\s\+$//e]],
--- })
---
 require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 		{ import = "plugins.dap" },
+		{ "qol.nvim", dev = true },
+	},
+	dev = {
+		path = "~/projects/nvim-plugins",
 	},
 	install = { colorscheme = { "dracula" } },
 	defaults = { lazy = false },

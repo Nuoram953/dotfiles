@@ -13,6 +13,9 @@ return {
 							diagnostics = {
 								globals = { "vim", "opts", "snacks" },
 							},
+              worspace={
+                library= vim.api.nvim_get_runtime_file("lua", true),
+              }
 						},
 					},
 				},

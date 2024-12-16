@@ -3,27 +3,31 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-local bufopts = { noremap = true, silent = true }
+local bufopts = { noremap = true, silent = true}
 
 local conform = require("conform")
-vim.keymap.set({ "n", "x" }, "<leader>fo", function() conform.format({ lsp_fallback = true, async = false, timeout_ms = 500, }) end, { desc = "Format file or range (in visual mode)" })
+vim.keymap.set({ "n", "x" }, "<leader>fo", function() 	conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+end, { desc = "Format file or range (in visual mode)" })
 
+require("qol").setup({})
 
 -- ****************************************************************************************************
 -- Qol
 -- ****************************************************************************************************
-vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { silent = true })
-vim.keymap.set("x", "<leader>p", ":norm yp<enter>", { silent = true })
+vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { remap = true, desc="Copy to a comment above" })
+vim.keymap.set("x", "<leader>y", "ygvgc`>p", { remap = true, desc="Copy to a comment above" })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { remap = true })
+vim.keymap.set("n", "tt", function() 	require("qol").toggle_boolean() end, { remap = true, desc="Toggle boolean" })
 
 -- ****************************************************************************************************
 -- fzf
 -- ****************************************************************************************************
-vim.keymap.set( { "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true, desc = "Command palette" })
-vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc = "Files" })
-vim.keymap.set("n", "<leader>fT", "<cmd>lua require('fzf-lua').files({ cwd=vim.fn.expand('%:p:h') })<CR>", { silent = true, desc = "Files" })
-vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true, desc = "Buffers" })
-vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true, desc = "Old files" })
-vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<CR>", { silent = true, desc = "Resume" })
+vim.keymap.set( { "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<cr>", { silent = true, desc = "command palette" })
+vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<cr>", { silent = true, desc = "files" })
+vim.keymap.set( "n", "<leader>ft", "<cmd>lua require('fzf-lua').files({ cwd=vim.fn.expand('%:p:h') })<cr>", { silent = true, desc = "files" })
+vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>", { silent = true, desc = "buffers" })
+vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<cr>", { silent = true, desc = "old files" })
+vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<cr>", { silent = true, desc = "resume" })
 vim.keymap.set( "n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true, desc = "Document symbols" })
 vim.keymap.set( "n", "<leader>sO", "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>", { silent = true, desc = "Workspace symbols" })
 vim.keymap.set("n", "<leader>fm", "<cmd>lua require('fzf-lua').marks()<CR>", { silent = true, desc = "Marks" })

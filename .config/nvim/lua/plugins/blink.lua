@@ -26,8 +26,10 @@ return {
 			},
 
 			sources = {
-				default = { "lsp", "path", "snippets", "buffer", "ripgrep" },
+				default = { "lsp", "path", "snippets", "buffer", "ripgrep", "lazydev" },
 				providers = {
+					lsp = { fallback_for = { "lazydev" } },
+					lazydev = { name = "LazyDev", module = "lazydev.integrations.blink" },
 					ripgrep = {
 						module = "blink-ripgrep",
 						name = "Ripgrep",
