@@ -4,7 +4,9 @@ return {
 	lazy = false,
 	opts = {
 		bigfile = { enabled = true },
-		dashboard = { enabled = true },
+		dashboard = { enabled = true, preset = {
+			header = [[test]],
+		} },
 		indent = { enabled = false },
 		input = { enabled = true },
 		notifier = { enabled = true },

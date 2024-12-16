@@ -11,11 +11,12 @@ return {
 					settings = {
 						Lua = {
 							diagnostics = {
-								globals = { "vim", "opts" },
+								globals = { "vim", "opts", "snacks" },
 							},
 						},
 					},
 				},
+				gopls = {},
 			},
 		},
 		config = function(_, opts)

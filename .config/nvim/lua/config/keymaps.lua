@@ -10,10 +10,17 @@ vim.keymap.set({ "n", "x" }, "<leader>fo", function() conform.format({ lsp_fallb
 
 
 -- ****************************************************************************************************
+-- Qol
+-- ****************************************************************************************************
+vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { silent = true })
+vim.keymap.set("x", "<leader>p", ":norm yp<enter>", { silent = true })
+
+-- ****************************************************************************************************
 -- fzf
 -- ****************************************************************************************************
 vim.keymap.set( { "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<CR>", { silent = true, desc = "Command palette" })
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<CR>", { silent = true, desc = "Files" })
+vim.keymap.set("n", "<leader>fT", "<cmd>lua require('fzf-lua').files({ cwd=vim.fn.expand('%:p:h') })<CR>", { silent = true, desc = "Files" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", { silent = true, desc = "Buffers" })
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<CR>", { silent = true, desc = "Old files" })
 vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<CR>", { silent = true, desc = "Resume" })

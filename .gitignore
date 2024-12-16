@@ -4,3 +4,4 @@ node_modules
 .config/zellij/plugins/statusbar/target
 .config/gh/hosts.yml
 .config/lazygit/state.yml
+.config/go/telemetry/local
