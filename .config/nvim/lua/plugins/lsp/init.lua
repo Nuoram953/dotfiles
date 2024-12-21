@@ -20,6 +20,11 @@ return {
 					},
 				},
 				gopls = {},
+        marksman={},
+        markdown_oxide={},
+        tailwindcss={},
+        ts_ls={},
+        pyright={}
 			},
 		},
 		config = function(_, opts)

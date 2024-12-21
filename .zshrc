@@ -122,5 +122,6 @@ bindkey -s '^s' 'tmux_last_session ^M'
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
+eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

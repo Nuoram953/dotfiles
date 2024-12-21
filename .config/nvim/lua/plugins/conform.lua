@@ -8,6 +8,7 @@ return {
 					lua = { "stylua" },
 					python = { "black" },
 					typescript = { "prettier" },
+					typescriptreact = { "prettier" },
 					php = { "php-cs-fixer" },
 					markdown = { "doctoc" },
 					zsh = { "beautysh" },

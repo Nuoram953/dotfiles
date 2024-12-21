@@ -6,7 +6,7 @@ vim.opt.termguicolors = true
 local bufopts = { noremap = true, silent = true}
 
 local conform = require("conform")
-vim.keymap.set({ "n", "x" }, "<leader>fo", function() 	conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+vim.keymap.set({ "n", "x" }, "<leader>fo", function() conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
 end, { desc = "Format file or range (in visual mode)" })
 
 require("qol").setup({})
@@ -16,7 +16,6 @@ require("qol").setup({})
 -- ****************************************************************************************************
 vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { remap = true, desc="Copy to a comment above" })
 vim.keymap.set("x", "<leader>y", "ygvgc`>p", { remap = true, desc="Copy to a comment above" })
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>", { remap = true })
 vim.keymap.set("n", "tt", function() 	require("qol").toggle_boolean() end, { remap = true, desc="Toggle boolean" })
 
 -- ****************************************************************************************************
@@ -109,3 +108,8 @@ vim.keymap.set("n", "<leader>ca", "<cmd>FzfLua lsp_code_actions<cr>", bufopts)
 -- ****************************************************************************************************
 vim.keymap.set("n", "<leader>dbo", "<cmd>DBUI<cr>", bufopts)
 vim.keymap.set("n", "<leader>dbc", "<cmd>DBUIClose<cr>", bufopts)
+
+
+-- ****************************************************************************************************
+--multicursos
+-- ****************************************************************************************************
