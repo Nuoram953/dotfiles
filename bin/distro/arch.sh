@@ -7,7 +7,7 @@
 
 echo "Updating the system..."
 sudo pacman -Syu --noconfirm
- 
+
 PACKAGES=(
   ags-hyprpanel-git
   baobab
@@ -207,6 +207,12 @@ done
 
 
 #####################################################################################################
+#OH MY ZSH
+#####################################################################################################
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+
+
+#####################################################################################################
 #CREATING SYMLINKS
 #####################################################################################################
 
@@ -219,6 +225,7 @@ SYMLINKS=(
   "$HOME/dotfiles/.config/lazygit:$HOME/.config/lazygit"
   "$HOME/dotfiles/.aliases:$HOME/.aliases"
   "$HOME/dotfiles/.zshrc:$HOME/.zshrc"
+  "$HOME/dotfiles/.config/kitty:$HOME/.config/kitty"
 
 )
 
