@@ -19,15 +19,15 @@ export TERM=xterm-256color
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 export PATH="$PATH:/mnt/c/Windows/System32"
 
-export FZF_DEFAULT_COMMAND="fdfind --hidden --strip-cwd-prefix --exclude .git"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="fdfind --type=d --hidden --strip-cwd-prefix --exclude .git"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
 
-show_file_or_dir_preview="if [ -d {} ]; then exa --tree --color=always {} | head -200; else batcat -n --color=always --line-range :500 {}; fi"
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
 
 export FZF_DEFAULT_OPTS='--multi --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9 --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9 --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6 --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
 export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
-export FZF_ALT_C_OPTS="--preview 'exa --tree --color=always {} | head -200'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
 
 _fzf_compgen_path() {
     fdfind --hidden --exclude .git . "$1"
@@ -37,11 +37,10 @@ _fzf_compgen_dir() {
     fdfind --type=d --hidden --exclude .git . "$1"
 }
 
-source ~/.env_work.sh
+# source ~/.env_work.sh
 
-if [ -z "$TMUX" ]
-then
-    tmux attach -t TMUX || tmux new -s TMUX
+if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+  tmux attach || exec tmux new-session && exit;
 fi
 
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode fzf)
@@ -49,7 +48,7 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode fzf)
 source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases
-source ~/.aliases_work
+# source ~/.aliases_work
 
 
 convertPath(){
@@ -68,7 +67,7 @@ _fzf_comprun() {
     shift
 
     case "$command" in
-        cd)           fzf --preview 'exa --tree --color=always {} | head -200' "$@" ;;
+        cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
         export|unset) fzf --preview "eval 'echo \${}'"         "$@" ;;
         ssh)          fzf --preview 'dig {}'                   "$@" ;;
         *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
@@ -122,6 +121,6 @@ bindkey -s '^s' 'tmux_last_session ^M'
 
 eval "$(zoxide init zsh)"
 eval "$(starship init zsh)"
-eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" 
+# eval "$(_PIPENV_COMPLETE=zsh_source pipenv)" 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

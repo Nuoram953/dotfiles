@@ -21,7 +21,6 @@ require("lazy").setup({
 	spec = {
 		{ import = "plugins" },
 		{ import = "plugins.dap" },
-		{ "qol.nvim", dev = true },
 	},
 	dev = {
 		path = "~/projects/nvim-plugins",

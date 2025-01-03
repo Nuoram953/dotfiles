@@ -1,7 +1,7 @@
 #!/bin/bas
 
-./aptinstall.sh
-./pip.sh
+# ./aptinstall.sh
+# ./pip.sh
 ./symlink.sh
 ./npm.sh
 
