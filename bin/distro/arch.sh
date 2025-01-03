@@ -248,3 +248,4 @@ for link in "${SYMLINKS[@]}"; do
     fi
   fi
 done
+
