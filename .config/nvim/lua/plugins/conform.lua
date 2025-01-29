@@ -12,6 +12,7 @@ return {
 					php = { "php-cs-fixer" },
 					markdown = { "doctoc" },
 					zsh = { "beautysh" },
+					json = { "fixjson" },
 				},
 			})
 		end,

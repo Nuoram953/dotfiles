@@ -256,3 +256,4 @@ for link in "${SYMLINKS[@]}"; do
   fi
 done
 
+chsh -s $(which zsh)
