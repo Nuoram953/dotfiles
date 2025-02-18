@@ -39,7 +39,6 @@ return {
             }
           }
         },
-        fixjson = {},
         jdtls = {},
         yamlls = {}
       },
