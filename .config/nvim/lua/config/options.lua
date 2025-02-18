@@ -6,6 +6,8 @@ local g = vim.g
 local s = vim.s
 local indent = 2
 
+vim.diagnostic.config {virtual_text=true}
+
 cmd([[
 	filetype plugin indent on
 ]])

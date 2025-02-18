@@ -12,6 +12,7 @@ end, { desc = "Format file or range (in visual mode)" })
 -- ****************************************************************************************************
 -- Qol
 -- ****************************************************************************************************
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { remap = true, desc="Copy to a comment above" })
 vim.keymap.set("x", "<leader>y", "ygvgc`>p", { remap = true, desc="Copy to a comment above" })
 vim.keymap.set("n", "tt", function() 	require("qol").toggle_boolean() end, { remap = true, desc="Toggle boolean" })
@@ -85,8 +86,8 @@ vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk)
 vim.keymap.set("n", "<leader>hv", gitsigns.preview_hunk)
 vim.keymap.set("n", "<leader>hd", gitsigns.diffthis)
 vim.keymap.set("n", "<leader>hD", function() gitsigns.diffthis("~") end)
-vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>")
-vim.keymap.set("n", "<leader>hp", "<cmd>Gitsigns prev_hunk<CR>")
+vim.keymap.set("n", "]g", "<cmd>Gitsigns next_hunk<CR>")
+vim.keymap.set("n", "[g", "<cmd>Gitsigns prev_hunk<CR>")
 
 -- ****************************************************************************************************
 -- lsp

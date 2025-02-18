@@ -19,6 +19,9 @@ export TERM=xterm-256color
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 export PATH="$PATH:/mnt/c/Windows/System32"
 
+export NVM_DIR="$HOME/.nvm"
+source /usr/share/nvm/init-nvm.sh
+
 export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"

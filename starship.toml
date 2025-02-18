@@ -14,10 +14,10 @@ disabled = true
 disabled = true
 
 [nodejs]
-disabled = true
+disabled = false
 
 [git_status]
-disabled = true
+disabled = false
 format="([\\[$all_status$ahead_behind\\]]($style) )"
 style = "bold red"
 ahead = '⇡${count}'
