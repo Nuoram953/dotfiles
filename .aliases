@@ -35,4 +35,4 @@ alias ghprc='convertPath gh pr create --web'
 alias ghprck='convertPath gh pr checks'
 alias ghprv='convertPath gh pr view'
 
-alias jsp='jira spint list --current -a$(jira me)'
+alias jsp='jira sprint list --current -a$(jira me)'

@@ -19,6 +19,7 @@ return {
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- See the full "keymap" documentation for information on defining your own keymap.
     keymap = { preset = 'default' },
+    signature = { enabled = true },
 
     appearance = {
       -- Sets the fallback highlight groups to nvim-cmp's highlight groups
@@ -29,11 +30,29 @@ return {
       -- Adjusts spacing to ensure icons are aligned
       nerd_font_variant = 'mono'
     },
+    completion = {
+      menu = {
+        draw = {
+          treesitter = {
+            "lsp"
+          }
+        },
+        border = "rounded"
+      },
+      documentation = {
+        window = {
+          border = "rounded"
+        }
+      }
+    },
 
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'lsp', 'path', 'snippets', 'buffer', 'dadbod' },
+      providers = {
+        dadbod = { name = "Dadbod", module = "vim_dadbod_completion.blink" }
+      }
     },
   },
   opts_extend = { "sources.default" }
