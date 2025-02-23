@@ -6,8 +6,8 @@ return {
       local gen_loader = require('mini.snippets').gen_loader
       require('mini.snippets').setup({
         snippets = {
-          gen_loader.from_file('~/.config/nvim/lua/snippets/global.json'),
           gen_loader.from_lang(),
+          gen_loader.from_file('~/.config/nvim/snippets/global.json'),
         },
       })
     end,

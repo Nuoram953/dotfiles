@@ -1,0 +1,6 @@
+{
+  "Lua Test": {
+    "prefix": "luat",
+    "body": "T1=$1 T2=$2 T0=$0"
+  }
+}
