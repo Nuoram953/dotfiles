@@ -19,6 +19,7 @@ return {
     -- 'super-tab' for mappings similar to vscode (tab to accept, arrow keys to navigate)
     -- 'enter' for mappings similar to 'super-tab' but with 'enter' to accept
     -- See the full "keymap" documentation for information on defining your own keymap.
+    snippets = { preset = 'mini_snippets' },
     keymap = { preset = 'default' },
     signature = { enabled = true },
 
@@ -83,6 +84,7 @@ return {
       }
     },
 
+
     -- Default list of enabled providers defined so that you can extend it
     -- elsewhere in your config, without redefining it, due to `opts_extend`
     sources = {
@@ -92,5 +94,4 @@ return {
       }
     },
   },
-  opts_extend = { "sources.default" }
 }
