@@ -3,31 +3,37 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-local bufopts = { noremap = true, silent = true}
+local bufopts = { noremap = true, silent = true }
 
 local conform = require("conform")
-vim.keymap.set({ "n", "x" }, "<leader>fo", function() conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
-end, { desc = "Format file or range (in visual mode)" })
+vim.keymap.set({ "n", "x" }, "<leader>fo",
+  function()
+    conform.format({ lsp_fallback = true, async = false, timeout_ms = 500 })
+  end, { desc = "Format file or range (in visual mode)" })
 
 -- ****************************************************************************************************
 -- Qol
 -- ****************************************************************************************************
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { remap = true, desc="Copy to a comment above" })
-vim.keymap.set("x", "<leader>y", "ygvgc`>p", { remap = true, desc="Copy to a comment above" })
-vim.keymap.set("n", "tt", function() 	require("qol").toggle_boolean() end, { remap = true, desc="Toggle boolean" })
+vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { remap = true, desc = "Copy to a comment above" })
+vim.keymap.set("x", "<leader>y", "ygvgc`>p", { remap = true, desc = "Copy to a comment above" })
+vim.keymap.set("n", "tt", function() require("qol").toggle_boolean() end, { remap = true, desc = "Toggle boolean" })
 
 -- ****************************************************************************************************
 -- fzf
 -- ****************************************************************************************************
-vim.keymap.set( { "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<cr>", { silent = true, desc = "command palette" })
+vim.keymap.set({ "n", "x" }, "<leader><leader>", "<cmd>lua require('fzf-lua').builtin()<cr>",
+  { silent = true, desc = "command palette" })
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<cr>", { silent = true, desc = "files" })
-vim.keymap.set( "n", "<leader>ft", "<cmd>lua require('fzf-lua').files({ cwd=vim.fn.expand('%:p:h') })<cr>", { silent = true, desc = "files" })
+vim.keymap.set("n", "<leader>ft", "<cmd>lua require('fzf-lua').files({ cwd=vim.fn.expand('%:p:h') })<cr>",
+  { silent = true, desc = "files" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>", { silent = true, desc = "buffers" })
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<cr>", { silent = true, desc = "old files" })
 vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<cr>", { silent = true, desc = "resume" })
-vim.keymap.set( "n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>", { silent = true, desc = "Document symbols" })
-vim.keymap.set( "n", "<leader>sO", "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>", { silent = true, desc = "Workspace symbols" })
+vim.keymap.set("n", "<leader>so", "<cmd>lua require('fzf-lua').lsp_document_symbols()<CR>",
+  { silent = true, desc = "Document symbols" })
+vim.keymap.set("n", "<leader>sO", "<cmd>lua require('fzf-lua').lsp_workspace_symbols()<CR>",
+  { silent = true, desc = "Workspace symbols" })
 vim.keymap.set("n", "<leader>fm", "<cmd>lua require('fzf-lua').marks()<CR>", { silent = true, desc = "Marks" })
 
 -- ****************************************************************************************************
@@ -49,8 +55,8 @@ vim.keymap.set("n", "<S-Tab>", "<cmd>:bnext<cr>")
 -- ****************************************************************************************************
 -- nvim-scissors
 -- ****************************************************************************************************
-vim.keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end, {desc="Edit snippet"})
-vim.keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end, {desc="New snippet"})
+vim.keymap.set("n", "<leader>se", function() require("scissors").editSnippet() end, { desc = "Edit snippet" })
+vim.keymap.set({ "n", "x" }, "<leader>sa", function() require("scissors").addNewSnippet() end, { desc = "New snippet" })
 
 -- ****************************************************************************************************
 -- Refactor
@@ -62,14 +68,30 @@ vim.keymap.set({ "n", "x" }, "<leader>ri", ":Refactor inline_var", { desc = "Ref
 vim.keymap.set("n", "<leader>rI", ":Refactor inline_func")
 vim.keymap.set("n", "<leader>rb", ":Refactor extract_block")
 vim.keymap.set("n", "<leader>rbf", ":Refactor extract_block_to_file")
+vim.keymap.set(
+  "n",
+  "<leader>rp",
+  function() require('refactoring').debug.printf({ below = false }) end
+)
+
+-- Print var
+
+vim.keymap.set({ "x", "n" }, "<leader>rv", function() require('refactoring').debug.print_var() end)
+-- Supports both visual and normal mode
+
+vim.keymap.set("n", "<leader>rc", function() require('refactoring').debug.cleanup({}) end)
 
 -- ****************************************************************************************************
 -- Quickfix list
 -- ****************************************************************************************************
-vim.keymap.set( "n", "<leader>cn", "<cmd>cnext<CR>", { desc = "Go to next element Quickfix", noremap = true, silent = true })
-vim.keymap.set( "n", "<leader>cp", "<cmd>cprev<CR>", { desc = "Go to previous element Quickfix", noremap = true, silent = true })
-vim.keymap.set( "n", "<leader>cln", "<cmd>lnext<CR>", { desc = "Go to next list element Quickfix", noremap = true, silent = true })
-vim.keymap.set( "n", "<leader>clp", "<cmd>lprev<CR>", { desc = "Go to previous list element Quickfix", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cn", "<cmd>cnext<CR>",
+  { desc = "Go to next element Quickfix", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cp", "<cmd>cprev<CR>",
+  { desc = "Go to previous element Quickfix", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>cln", "<cmd>lnext<CR>",
+  { desc = "Go to next list element Quickfix", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>clp", "<cmd>lprev<CR>",
+  { desc = "Go to previous list element Quickfix", noremap = true, silent = true })
 
 -- ****************************************************************************************************
 -- dap
