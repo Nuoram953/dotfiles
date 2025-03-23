@@ -10,7 +10,7 @@ return {
           typescript = { "prettier" },
           typescriptreact = { "prettier" },
           php = { "php-cs-fixer" },
-          markdown = { "doctoc" },
+          markdown = { "doctoc", "markdownlint" },
           zsh = { "beautysh" },
           mysql = { "sqlfmt" },
           htmldjango = { "djlint" },

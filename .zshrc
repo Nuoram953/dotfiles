@@ -18,6 +18,7 @@ export JIRA_API_TOKEN=''
 export TERM=xterm-256color
 export STARSHIP_CONFIG=~/dotfiles/starship.toml
 export PATH="$PATH:/mnt/c/Windows/System32"
+export GTK_IM_MODULE=ibus
 
 export NVM_DIR="$HOME/.nvm"
 source /usr/share/nvm/init-nvm.sh

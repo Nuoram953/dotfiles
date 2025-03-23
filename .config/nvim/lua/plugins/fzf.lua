@@ -17,7 +17,7 @@ return {
 				},
 			},
 			grep = {
-				rg_opts = "--hidden --line-number --multiline",
+				rg_opts = "--column --hidden --line-number --multiline",
 			},
 			lsp = {
         includeDeclaration=false
