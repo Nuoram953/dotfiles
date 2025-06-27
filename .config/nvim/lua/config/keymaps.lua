@@ -17,7 +17,12 @@ vim.keymap.set({ "n", "x" }, "<leader>fo",
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 vim.keymap.set("n", "<leader>y", ":norm yygccp<enter>", { remap = true, desc = "Copy to a comment above" })
 vim.keymap.set("x", "<leader>y", "ygvgc`>p", { remap = true, desc = "Copy to a comment above" })
-vim.keymap.set("n", "tt", function() require("qol").toggle_boolean() end, { remap = true, desc = "Toggle boolean" })
+
+-- ****************************************************************************************************
+-- Diffview
+-- ****************************************************************************************************
+vim.keymap.set( 'n', '<leader>dvo', '<cmd>DiffviewFileHistory %<cr>', { desc = 'File history' })
+vim.keymap.set( 'n', '<leader>dvc', '<cmd>DiffviewClose<cr>', { desc = 'Close history' })
 
 -- ****************************************************************************************************
 -- fzf

@@ -41,30 +41,15 @@ _fzf_compgen_dir() {
     fdfind --type=d --hidden --exclude .git . "$1"
 }
 
-# source ~/.env_work.sh
+# if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
+#   tmux attach || exec tmux new-session && exit;
+# fi
 
-if [ -z "$TMUX" ] && [ "$TERM" = "xterm-kitty" ]; then
-  tmux attach || exec tmux new-session && exit;
-fi
-
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search vi-mode fzf)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting fzf)
 
 source $ZSH/oh-my-zsh.sh
 
 source ~/.aliases
-# source ~/.aliases_work
-
-
-convertPath(){
-    local current_directory=$(pwd)
-
-    if [[ $current_directory == /mnt/* ]]; then
-        cmd.exe /C "$@"
-    else
-        "$@"
-    fi
-}
-
 
 _fzf_comprun() {
     local command=$1
@@ -82,32 +67,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$HOME/.local/bin"
 fi
 
-
-function git_file_commits() {
-    local file="$1"
-    if [[ -z "$file" ]]; then
-        echo "Please provide a file path."
-        return 1
-    fi
-
-    # Use fzf to select a commit and capture the selected line
-    local selected_commit=$(git log --pretty=format:"%H %s" --follow -- "$file" | fzf --preview "
-        commit=\$(echo {} | awk '{print \$1}')
-        echo 'Commit: ' \$commit
-        echo 'Message: ' \$(git log -1 --pretty=format:\"%s\" \$commit)
-        echo 'Branches:'
-        git branch -r --contains \$commit
-        echo 'Changes:'
-        git show --stat --oneline --shortstat \$commit -- $file | tail -n 1
-    " | awk '{print $1}')
-
-    # Print the selected commit hash
-    if [[ -n "$selected_commit" ]]; then
-        echo "$selected_commit"
-    else
-        echo "No commit selected."
-    fi
-}
 
 function y() {
     local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
