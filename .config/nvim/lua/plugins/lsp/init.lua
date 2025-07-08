@@ -22,7 +22,9 @@ return {
         gopls = {},
         marksman = {},
         markdown_oxide = {},
-        tailwindcss = {},
+        tailwindcss = {
+          classFunctions = {"cva", "cx"}
+        },
         ts_ls = {},
         pyright = {
           settings = {
@@ -40,7 +42,10 @@ return {
           }
         },
         jdtls = {},
-        yamlls = {}
+        yamlls = {},
+        fish_lsp={},
+        jsonls={}
+
       },
     },
     config = function(_, opts)
