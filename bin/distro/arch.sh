@@ -30,6 +30,7 @@ PACKAGES=(
   eza
   fd
   firefox
+  fish
   fzf
   gamemode
   gamescope-nvidia
@@ -206,12 +207,6 @@ done
 
 
 #####################################################################################################
-#OH MY ZSH
-#####################################################################################################
-sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-
-
-#####################################################################################################
 #CREATING SYMLINKS
 #####################################################################################################
 
@@ -225,7 +220,8 @@ SYMLINKS=(
   "$HOME/dotfiles/.aliases:$HOME/.aliases"
   "$HOME/dotfiles/.zshrc:$HOME/.zshrc"
   "$HOME/dotfiles/.config/kitty:$HOME/.config/kitty"
-
+  "$HOME/dotfiles/starship.toml:$HOME/.config/starship.toml"
+  "$HOME/dotfiles/shell/fish/:$HOME/.config/fish"
 )
 
 for link in "${SYMLINKS[@]}"; do
@@ -255,4 +251,11 @@ for link in "${SYMLINKS[@]}"; do
   fi
 done
 
-chsh -s $(which zsh)
+
+#####################################################################################################
+#CREATING DEFAULT DIRECTORIES
+#####################################################################################################
+mkdir -p "$HOME/notes"
+mkdir -p "$HOME/http"
+
+chsh -s $(which fish)
