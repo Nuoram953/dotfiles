@@ -184,9 +184,6 @@ echo "NVIDIA Kernel Mode Setting enabled successfully. Please reboot your system
 
 REPOS=(
   "https://github.com/tmux-plugins/tpm.git:/$HOME/.tmux/plugins/tpm"
-  "https://github.com/zsh-users/zsh-autosuggestions.git:/$HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions"
-  "https://github.com/zsh-users/zsh-syntax-highlighting.git:/$HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting"
-  "https://github.com/jeffreytse/zsh-vi-mode.git:/$HOME/.oh-my-zsh/custom/plugins/zsh-vi-mode"
 )
 
 for repo in "${REPOS[@]}"; do

@@ -154,4 +154,4 @@ for _, plugin in pairs(disabled_built_ins) do
 end
 -- Colorscheme
 -- By default, use rose-pine
-cmd.colorscheme("dracula")
+cmd.colorscheme("solarized")

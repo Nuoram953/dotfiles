@@ -3,7 +3,7 @@
 
 # Inserts a blank line between shell prompts
 add_newline = true
-palette = "dracula"
+palette = "solarized_dark"
 
 # Disable the package module, hiding it from the prompt completely
 [package]
@@ -38,7 +38,7 @@ success_symbol = "[>](bold green)"
 style = "bold yellow"
 
 [directory]
-style = "bold green"
+style = "bold cyan"
 
 [git_branch]
 style = "bold pink"
@@ -64,3 +64,16 @@ pink = "#ff79c6"
 purple = "#bd93f9"
 red = "#ff5555"
 yellow = "#f1fa8c"
+
+[palettes.solarized_dark]
+background    = "#002b36"
+current_line  = "#073642"  # closest to current_line in Solarized
+foreground    = "#839496"
+comment       = "#586e75"
+cyan          = "#2aa198"
+green         = "#859900"
+orange        = "#cb4b16"
+pink          = "#d33682"  # Solarized magenta, used as "pink"
+purple        = "#6c71c4"  # Solarized violet/purple
+red           = "#dc322f"
+yellow        = "#b58900"

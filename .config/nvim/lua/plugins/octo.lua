@@ -1,7 +1,7 @@
 return {
   {
     'pwntester/octo.nvim',
-    enbled = false,
+    enbled = true,
     dependencies = {
       'nvim-lua/plenary.nvim',
       'ibhagwan/fzf-lua',
