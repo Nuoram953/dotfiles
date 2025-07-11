@@ -216,9 +216,9 @@ SYMLINKS=(
   "$HOME/dotfiles/.config/lazygit:$HOME/.config/lazygit"
   "$HOME/dotfiles/.aliases:$HOME/.aliases"
   "$HOME/dotfiles/.zshrc:$HOME/.zshrc"
-  "$HOME/dotfiles/.config/kitty:$HOME/.config/kitty"
   "$HOME/dotfiles/starship.toml:$HOME/.config/starship.toml"
-  "$HOME/dotfiles/shell/fish/:$HOME/.config/fish"
+  "$HOME/dotfiles/shell/fish:$HOME/.config/fish"
+  "$HOME/dotfiles/terminal/kitty/:$HOME/.config/kitty"
 )
 
 for link in "${SYMLINKS[@]}"; do

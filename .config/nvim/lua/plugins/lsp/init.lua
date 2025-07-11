@@ -23,7 +23,11 @@ return {
         marksman = {},
         markdown_oxide = {},
         tailwindcss = {
-          classFunctions = {"cva", "cx"}
+          settings = {
+            tailwindCSS = {
+              classFunctions = { "cva", "cx" },
+            },
+          },
         },
         ts_ls = {},
         pyright = {
@@ -43,8 +47,8 @@ return {
         },
         jdtls = {},
         yamlls = {},
-        fish_lsp={},
-        jsonls={}
+        fish_lsp = {},
+        jsonls = {}
 
       },
     },
