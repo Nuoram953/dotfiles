@@ -16,20 +16,13 @@ return {
     quickfile = { enabled = true },
     scroll = { enabled = false },
     statuscolumn = { enabled = true },
-    words = { enabled = true },
-    git = { enabled = true },
+    words = { enabled = false },
+    git = { enabled = false },
     animate = { enabled = true },
     scratch = { enabled = false },
     zen = { enabled = true },
   },
   keys = {
-    {
-      "<leader>gb",
-      function()
-        Snacks.git.blame_line()
-      end,
-      desc = "Git Blame Line",
-    },
 
   },
 }

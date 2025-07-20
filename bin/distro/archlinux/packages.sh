@@ -1,0 +1,136 @@
+echo "Updating the system..."
+sudo pacman -Syu --noconfirm
+
+PACKAGES=(
+  ags-hyprpanel-git
+  baobab
+  base
+  base-devel
+  bat
+  blueman
+  bluez-utils
+  btop
+  cmake
+  cpio
+  discord
+  dkms
+  dolphin
+  dunst
+  efibootmgr
+  epiphany
+  ethtool
+  evince
+  eza
+  fd
+  firefox
+  fish
+  fzf
+  gamemode
+  gamescope-nvidia
+  gdm
+  git
+  grilo-plugins
+  grim
+  grub
+  gst-plugin-pipewire
+  gvfs
+  gvfs-afc
+  gvfs-dnssd
+  gvfs-goa
+  gvfs-google
+  gvfs-gphoto2
+  gvfs-mtp
+  gvfs-nfs
+  gvfs-onedrive
+  gvfs-smb
+  gvfs-wsdd
+  hyprland
+  hyprlock
+  hyprpaper
+  intel-ucode
+  iwd
+  keepassxc
+  kitty
+  lazygit
+  lib32-gamemode
+  libpulse
+  libreoffice-still
+  linux
+  linux-firmware
+  linux-headers
+  linux-lts
+  linux-lts-headers
+  loupe
+  lutris
+  malcontent
+  meson
+  nano
+  nautilus
+  neovim
+  networkmanager
+  noto-fonts
+  noto-fonts-cjk
+  nvidia-dkms
+  opengamepadui-bin
+  openssh
+  orca
+  pavucontrol
+  pipewire
+  pipewire-alsa
+  pipewire-jack
+  pipewire-pulse
+  polkit-kde-agent
+  protonup-qt
+  qt5-wayland
+  qt6-wayland
+  qutebrowser
+  r2modman-bin
+  rofi-wayland
+  rygel
+  simple-scan
+  slurp
+  smartmontools
+  snapshot
+  spotify
+  starship
+  steam
+  sushi
+  tecla
+  tmux
+  totem
+  ttf-font-awesome
+  ttf-jetbrains-mono-nerd
+  vesktop
+  vim
+  waybar
+  wget
+  wine
+  winetricks
+  wireless_tools
+  wireplumber
+  wofi
+  wpa_supplicant
+  xdg-desktop-portal-gnome
+  xdg-desktop-portal-hyprland
+  xdg-user-dirs-gtk
+  xdg-utils
+  xorg-server
+  xorg-xinit
+  yay
+  yay-debug
+  yazi
+  yelp
+  zen-browser-bin
+  zoom
+  zoxide
+  zram-generator
+  zsh
+)
+
+echo "Installing packages..."
+sudo pacman -S --noconfirm "${PACKAGES[@]}"
+
+echo "Cleaning up package cache..."
+sudo pacman -Scc --noconfirm
+
+echo "Package installation complete!"

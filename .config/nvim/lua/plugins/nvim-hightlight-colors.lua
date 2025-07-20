@@ -16,6 +16,8 @@ return {
 				---Highlight tailwind colors, e.g. 'bg-blue-500'
 				enable_tailwind = false,
 
+        enable_var_usage = true,
+
 				---Set custom colors
 				---Label must be properly escaped with '%' to adhere to `string.gmatch`
 				--- :help string.gmatch
