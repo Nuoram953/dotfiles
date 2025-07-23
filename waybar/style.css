@@ -1,0 +1,89 @@
+* {
+    font-size: 9pt;
+    border: none;
+    font-weight: 400;
+    padding: 1px 1px;
+}
+
+window#waybar {
+    color: #839496; /* Base0 */
+    background: #002b36; /* Base03 */
+    opacity: 0.90;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 8px;
+}
+
+#workspaces button {
+    color: #839496; /* Base0 */
+    background: transparent;
+    padding: 0 8px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    color: #268bd2; /* Blue */
+    background-color: #073642; /* Base02 */
+}
+
+#workspaces button.active {
+    color: #b58900; /* Yellow */
+    background-color: transparent; /* Base03 */
+}
+
+#workspaces button.urgent {
+    background-color: #cb4b16; /* Orange */
+}
+
+#mode {
+    background-color: #073642; /* Base02 */
+    color: #839496; /* Base0 */
+}
+
+.modules-left {
+    padding-left: 8px;
+    border-radius: 8px;
+    color: #839496;
+}
+
+.modules-right {
+    transition: none;
+    background: transparent;
+    color: #839496;
+    padding-right: 8px;
+}
+
+#workspaces {
+    padding: 0;
+    margin: 2 1px;
+    background-color: #073642;
+    border-radius: 8px;
+}
+
+#language, #clock, #battery, #cpu, #memory, #disk, #temperature, #backlight, #network, #pulseaudio, #custom-media, #tray, #mode, #idle_inhibitor, #mpd, #custom-loadavg, #custom-uptime, #wireplumber {
+    padding: 0 8px;
+    margin: 2 1px;
+    background-color: #073642;
+    border-radius: 8px;
+}
+
+#window {
+    color: transparent;
+    background-color: transparent;
+}
+
+#battery.critical:not(.charging) {
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+#language {
+    padding: 0 4px;
+    min-width: 24px;
+}
