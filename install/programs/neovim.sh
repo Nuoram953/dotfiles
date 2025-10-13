@@ -11,5 +11,6 @@ cd neovim
 make distclean
 rm -rf build
 make CMAKE_BUILD_TYPE=Release
-git checkout main
+git checkout master
+git pull
 sudo make install
