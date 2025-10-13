@@ -3,11 +3,6 @@
 -- -----------------------------------------------------------------------------------------------
 vim.g.mapleader = " "
 
-vim.o.complete = ".,o" -- use buffer and omnifunc
-vim.o.completeopt = "fuzzy,menuone,noselect" -- add 'popup' for docs (sometimes)
-vim.o.autocomplete = true
-vim.o.pumheight = 7
-
 -- Search
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
@@ -16,6 +11,7 @@ vim.opt.wildmenu = true
 
 vim.o.signcolumn = "yes"
 vim.o.winborder = "rounded"
+vim.o.pumborder = "rounded"
 
 -- Indention
 vim.opt.autoindent = true -- auto indentation
@@ -25,6 +21,8 @@ vim.opt.smartindent = true -- make indenting smarter
 vim.opt.softtabstop = 2 -- when hitting <BS>, pretend like a tab is removed, even if spaces
 vim.opt.tabstop = 2 -- insert 2 spaces for a tab
 vim.opt.shiftround = true -- use multiple of shiftwidth when indenting with "<" and ">"
+
+vim.opt.relativenumber = true
 
 vim.diagnostic.config({ virtual_text = false })
 
@@ -41,6 +39,17 @@ vim.pack.add({
 	{ src = "https://github.com/maxmx03/solarized.nvim" },
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+})
+
+require("fzf-lua").register_ui_select({})
+require("fzf-lua").setup({
+	"fzf-native",
+	winopts = {
+		preview = {
+			layout = "vertical",
+			vertical = "top:50%",
+		},
+	},
 })
 
 require("mason").setup()
@@ -97,21 +106,3 @@ vim.lsp.config("lua_ls", {
 -- CMD
 -- -----------------------------------------------------------------------------------------------
 vim.cmd.colorscheme("solarized")
-
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(ev)
-		vim.lsp.completion.enable(true, ev.data.client_id, ev.buf, {
-			convert = function(item)
-				local abbr = item.label
-				abbr = abbr:gsub("%b()", ""):gsub("%b{}", "")
-				abbr = abbr:match("[%w_.]+.*") or abbr
-				abbr = #abbr > 15 and abbr:sub(1, 14) .. "…" or abbr
-
-				local menu = item.detail or ""
-				menu = #menu > 15 and menu:sub(1, 14) .. "…" or menu
-
-				return { abbr = abbr, menu = menu }
-			end,
-		})
-	end,
-})
