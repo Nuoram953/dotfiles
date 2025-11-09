@@ -1,37 +1,29 @@
 echo "Updating the system..."
 sudo pacman -Syu --noconfirm
 
-PACKAGES=(
-  ags-hyprpanel-git
-  baobab
+SYSTEM_PACKAGES=(
   base
   base-devel
-  bat
-  blueman
-  bluez-utils
-  btop
-  cmake
-  cpio
-  discord
-  dkms
-  dolphin
-  dunst
-  efibootmgr
-  epiphany
-  ethtool
-  evince
-  eza
-  fd
-  firefox
-  fish
-  fzf
-  gamemode
-  gamescope-nvidia
-  gdm
-  git
-  grilo-plugins
-  grim
+  linux
+  linux-lts
+  linux-headers
+  linux-lts-headers
+  linux-firmware
+  intel-ucode
   grub
+  efibootmgr
+  networkmanager
+  iwd
+  wireless_tools
+  wpa_supplicant
+  ethtool
+  smartmontools
+  polkit-kde-agent
+  pipewire
+  pipewire-alsa
+  pipewire-jack
+  pipewire-pulse
+  wireplumber
   gst-plugin-pipewire
   gvfs
   gvfs-afc
@@ -44,90 +36,100 @@ PACKAGES=(
   gvfs-onedrive
   gvfs-smb
   gvfs-wsdd
-  hyprland
-  hyprlock
-  hyprpaper
-  intel-ucode
-  iwd
-  keepassxc
-  kitty
-  lazygit
-  lib32-gamemode
-  libpulse
-  libreoffice-still
-  linux
-  linux-firmware
-  linux-headers
-  linux-lts
-  linux-lts-headers
-  loupe
-  lutris
-  malcontent
-  meson
-  nano
-  nautilus
-  neovim
-  networkmanager
-  noto-fonts
-  noto-fonts-cjk
-  nvidia-dkms
-  opengamepadui-bin
-  openssh
-  orca
-  pavucontrol
-  pipewire
-  pipewire-alsa
-  pipewire-jack
-  pipewire-pulse
-  polkit-kde-agent
-  protonup-qt
-  qt5-wayland
-  qt6-wayland
-  qutebrowser
-  r2modman-bin
-  rofi-wayland
-  rygel
-  simple-scan
-  slurp
-  smartmontools
-  snapshot
-  spotify
-  starship
-  steam
-  sushi
-  tecla
-  tmux
-  totem
-  ttf-font-awesome
-  ttf-jetbrains-mono-nerd
-  vesktop
-  vim
-  waybar
-  wget
-  wine
-  winetricks
-  wireless_tools
-  wireplumber
-  wofi
-  wpa_supplicant
-  xdg-desktop-portal-gnome
-  xdg-desktop-portal-hyprland
   xdg-user-dirs-gtk
   xdg-utils
   xorg-server
   xorg-xinit
+  qt5-wayland
+  qt6-wayland
+  blueman
+  bluez-utils
+  dkms
+  nvidia-dkms
+  zram-generator
+  pipewire
+  wireplumber
+)
+
+
+DEV_PACKAGES=(
+  cmake
+  meson
+  git
+  neovim
+  vim
+  nano
+  kitty
+  tmux
+  lazygit
+  fd
+  fzf
+  bat
+  eza
+  fish
+  starship
+  zoxide
   yay
   yay-debug
-  yazi
-  yelp
+  wget
+  cpio
+  openssh
+  btop
+)
+
+
+GAMING_PACKAGES=(
+  gamemode
+  lib32-gamemode
+  gamescope-nvidia
+  steam
+  lutris
+  protonup-qt
+  opengamepadui-bin
+  r2modman-bin
+)
+
+
+PERSONAL_PACKAGES=(
+  gdm
+  dolphin
+  nautilus
+  firefox
+  qutebrowser
   zen-browser-bin
+  libreoffice-still
+  keepassxc
+  spotify
+  vesktop
   zoom
-  zoxide
-  zram-generator
+  discord
+  totem
+  evince
+  simple-scan
+  snapshot
+  baobab
+  malcontent
+  orca
+  yelp
+  sushi
+  loupe
+  rygel
+  grilo-plugins
+  rofi-wayland
+  waybar
+  dunst
+  pavucontrol
+  noto-fonts
+  noto-fonts-cjk
+  ttf-font-awesome
+  ttf-jetbrains-mono-nerd
+  qutebrowser
+  yazi
 )
 
 echo "Installing packages..."
-sudo pacman -S --noconfirm "${PACKAGES[@]}"
+sudo pacman -S --noconfirm "${SYSTEM_PACKAGES[@]}"
+sudo pacman -S --noconfirm "${DEV_PACKAGES[@]}"
 
 echo "Cleaning up package cache..."
 sudo pacman -Scc --noconfirm

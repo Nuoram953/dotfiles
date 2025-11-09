@@ -11,6 +11,7 @@ SYMLINKS=(
   "$HOME/dotfiles/terminal/kitty/:$HOME/.config/kitty"
   "$HOME/dotfiles/fastfetch/:$HOME/.config/fastfetch"
   "$HOME/dotfiles/waybar/:$HOME/.config/waybar"
+  "$HOME/dotfiles/niri/:$HOME/.config/niri"
 )
 
 for link in "${SYMLINKS[@]}"; do
