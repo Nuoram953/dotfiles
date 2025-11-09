@@ -27,6 +27,10 @@ vim.opt.shiftround = true -- use multiple of shiftwidth when indenting with "<" 
 
 vim.opt.relativenumber = true
 
+vim.opt.backup = false -- create a backup file
+vim.opt.swapfile = false -- creates a swapfile
+vim.opt.writebackup = false -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
+
 vim.diagnostic.config({ virtual_text = false })
 
 --
@@ -34,18 +38,19 @@ vim.diagnostic.config({ virtual_text = false })
 -- PLUGINS
 -- -----------------------------------------------------------------------------------------------
 vim.pack.add({
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/aserowy/tmux.nvim" },
 	{ src = "https://github.com/maxmx03/solarized.nvim" },
-	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.surround" },
 	{ src = "https://github.com/nvim-mini/mini.snippets" },
 	{ src = "https://github.com/nvim-mini/mini.completion" },
+	{ src = "https://github.com/mistweaverco/kulala.nvim" },
 })
 
 require("fzf-lua").register_ui_select({})
@@ -59,15 +64,20 @@ require("fzf-lua").setup({
 	},
 })
 
-require("oil").setup()
+require("oil").setup({
+	columns = {
+		"icon",
+	},
+})
 
 require("mason").setup()
-require("ibl").setup()
 
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		typescript = { "prettier" },
+		typescriptreact = { "prettier" },
+		markdown = { "prettier" },
 	},
 })
 
@@ -82,19 +92,28 @@ require("tmux").setup({
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "typescript", "tsx" },
 	highlight = { enable = true },
+	-- incremental_selection = {
+	-- 	enable = true,
+	-- 	keymaps = {
+	-- 		init_selection = false,
+	-- 		node_incremental = "an",
+	-- 		node_decremental = "in",
+	-- 	},
+	-- },
 })
 
 require("mini.surround").setup()
-require("mini.completion").setup({
-	window = {
-		info = { width = 120 },
-	},
-})
 require("mini.snippets").setup({
 	snippets = {
 		-- gen_loader.from_file("~/.config/nvim/snippets/global.json"),
 		-- gen_loader.from_lang(),
 	},
+})
+
+require("kulala").setup({
+	ft = { "http", "rest" },
+	opts = { global_keymaps = true, global_keymaps_prefix = "<leader>R", kulala_keymaps_prefix = ""
+ },
 })
 
 -- -----------------------------------------------------------------------------------------------
@@ -127,7 +146,7 @@ vim.keymap.set("n", "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>")
 -- -----------------------------------------------------------------------------------------------
 -- LSP
 -- -----------------------------------------------------------------------------------------------
-vim.lsp.enable({ "lua_ls", "ts_ls", "emmet_language_server" })
+vim.lsp.enable({ "lua_ls", "ts_ls", "emmet_language_server", "kulala_fmt" })
 
 vim.lsp.config("lua_ls", {
 	settings = {
@@ -135,7 +154,21 @@ vim.lsp.config("lua_ls", {
 	},
 })
 
+vim.lsp.config("emmet_language_server", {
+	init_options = {
+		showSuggestionsAsSnippets = true,
+	},
+})
+
+vim.lsp.config("kulala_fmt", {})
+
 -- -----------------------------------------------------------------------------------------------
 -- CMD
 -- -----------------------------------------------------------------------------------------------
 vim.cmd.colorscheme("solarized")
+
+vim.filetype.add({
+	extension = {
+		["http"] = "http",
+	},
+})

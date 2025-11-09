@@ -124,7 +124,6 @@ PACKAGES=(
   zoom
   zoxide
   zram-generator
-  zsh
 )
 
 echo "Installing packages..."

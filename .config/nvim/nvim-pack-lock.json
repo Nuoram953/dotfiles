@@ -5,12 +5,16 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "db3ccff",
+      "rev": "d45ce94",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "indent-blankline.nvim": {
       "rev": "005b560",
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
+    "kulala.nvim": {
+      "rev": "9a9308b",
+      "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "mason.nvim": {
       "rev": "ad7146a",
@@ -36,8 +40,12 @@
       "rev": "42fc28ba",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-web-devicons": {
+      "rev": "b8221e4",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
     "oil.nvim": {
-      "rev": "919e155",
+      "rev": "7194872",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "solarized.nvim": {

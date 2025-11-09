@@ -6,7 +6,6 @@ SYMLINKS=(
   "$HOME/dotfiles/.config/yazi:$HOME/.config/yazi"
   "$HOME/dotfiles/.config/lazygit:$HOME/.config/lazygit"
   "$HOME/dotfiles/.aliases:$HOME/.aliases"
-  "$HOME/dotfiles/.zshrc:$HOME/.zshrc"
   "$HOME/dotfiles/starship.toml:$HOME/.config/starship.toml"
   "$HOME/dotfiles/shell/fish:$HOME/.config/fish"
   "$HOME/dotfiles/terminal/kitty/:$HOME/.config/kitty"
