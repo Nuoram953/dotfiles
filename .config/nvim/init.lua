@@ -38,6 +38,7 @@ vim.diagnostic.config({ virtual_text = false })
 -- PLUGINS
 -- -----------------------------------------------------------------------------------------------
 vim.pack.add({
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/ibhagwan/fzf-lua" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
@@ -51,6 +52,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.snippets" },
 	{ src = "https://github.com/nvim-mini/mini.completion" },
 	{ src = "https://github.com/mistweaverco/kulala.nvim" },
+	{ src = "https://github.com/pwntester/octo.nvim" },
 })
 
 require("fzf-lua").register_ui_select({})
@@ -67,6 +69,9 @@ require("fzf-lua").setup({
 require("oil").setup({
 	columns = {
 		"icon",
+	},
+	view_options = {
+		show_hidden = true,
 	},
 })
 
@@ -112,8 +117,11 @@ require("mini.snippets").setup({
 
 require("kulala").setup({
 	ft = { "http", "rest" },
-	opts = { global_keymaps = true, global_keymaps_prefix = "<leader>R", kulala_keymaps_prefix = ""
- },
+	opts = { global_keymaps = true, global_keymaps_prefix = "<leader>R", kulala_keymaps_prefix = "" },
+})
+
+require("octo").setup({
+	picker = "fzf-lua",
 })
 
 -- -----------------------------------------------------------------------------------------------
