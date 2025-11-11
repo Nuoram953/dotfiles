@@ -30,4 +30,8 @@ if ! grep -Eq '^%wheel\s+ALL=\(ALL:ALL\)\s+ALL' /etc/sudoers; then
     echo '%wheel ALL=(ALL:ALL) ALL' >> /etc/sudoers
 fi
 
+su "$USERNAME"
+
 echo "Setup complete for user '$USERNAME'."
+
+

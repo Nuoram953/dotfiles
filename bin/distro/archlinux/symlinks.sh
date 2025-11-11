@@ -1,3 +1,11 @@
+
+if [ -e "$HOME/.config" ]; then
+  echo "Target '$TARGET' already exists. Skipping..."
+else
+  echo "Creating symlink from '$SOURCE' to '$TARGET'..."
+  mkdir "$HOME/.config"
+fi
+
 SYMLINKS=(
   "$HOME/dotfiles/.config/nvim:$HOME/.config/nvim"
   "$HOME/dotfiles/.tmux.conf:$HOME/.tmux.conf"
