@@ -139,6 +139,11 @@ end, { desc = "Format file or range (in visual mode)" })
 
 vim.keymap.set({ "n", "x" }, "<leader><leader>", "<cmd>FzfLua<cr>", { silent = true })
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<cr>")
+vim.keymap.set("n", "<leader>T", function()
+	require("fzf-lua").files({
+		cwd = vim.fn.expand("%:p:h"),
+	})
+end, { noremap = true, silent = true, desc = "fzf-lua: files from buffer dir" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>")
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<cr>")
 vim.keymap.set("n", "<leader>fr", "<cmd>lua require('fzf-lua').resume()<cr>")
@@ -175,7 +180,6 @@ vim.lsp.config("kulala_fmt", {})
 -- CMD
 -- -----------------------------------------------------------------------------------------------
 vim.cmd.colorscheme("solarized")
-
 
 vim.filetype.add({
 	extension = {
