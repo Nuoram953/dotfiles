@@ -108,6 +108,7 @@ require("nvim-treesitter.configs").setup({
 })
 
 require("mini.surround").setup()
+require("mini.completion").setup()
 require("mini.snippets").setup({
 	snippets = {
 		-- gen_loader.from_file("~/.config/nvim/snippets/global.json"),
@@ -174,6 +175,7 @@ vim.lsp.config("kulala_fmt", {})
 -- CMD
 -- -----------------------------------------------------------------------------------------------
 vim.cmd.colorscheme("solarized")
+
 
 vim.filetype.add({
 	extension = {
