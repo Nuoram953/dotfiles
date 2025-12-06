@@ -128,8 +128,6 @@ require("octo").setup({
 -- -----------------------------------------------------------------------------------------------
 -- KEYMAPS
 -- -----------------------------------------------------------------------------------------------
-local bufopts = { noremap = true, silent = true }
-
 vim.keymap.set("n", "<leader>w", ":w<CR>")
 vim.keymap.set("n", "<leader>q", ":q<CR>")
 vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>")
@@ -139,10 +137,11 @@ end, { desc = "Format file or range (in visual mode)" })
 
 vim.keymap.set({ "n", "x" }, "<leader><leader>", "<cmd>FzfLua<cr>", { silent = true })
 vim.keymap.set("n", "<c-t>", "<cmd>lua require('fzf-lua').files()<cr>")
+vim.keymap.set("n", "grr", "<cmd>lua require('fzf-lua').lsp_references()<cr>")
+vim.keymap.set("n", "gri", "<cmd>lua require('fzf-lua').lsp_implementations()<cr>")
+vim.keymap.set("n", "grd", "<cmd>lua require('fzf-lua').lsp_definitions()<cr>")
 vim.keymap.set("n", "<leader>T", function()
-	require("fzf-lua").files({
-		cwd = vim.fn.expand("%:p:h"),
-	})
+	require("fzf-lua").files({ cwd = vim.fn.expand("%:p:h") })
 end, { noremap = true, silent = true, desc = "fzf-lua: files from buffer dir" })
 vim.keymap.set("n", "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<cr>")
 vim.keymap.set("n", "<leader>ff", "<cmd>lua require('fzf-lua').oldfiles()<cr>")
