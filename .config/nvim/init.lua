@@ -57,12 +57,17 @@ vim.pack.add({
 
 require("fzf-lua").register_ui_select({})
 require("fzf-lua").setup({
-	"fzf-native",
+	"default-title",
 	winopts = {
 		preview = {
+			hidden = true,
 			layout = "vertical",
 			vertical = "top:50%",
+			border = "rounded",
 		},
+	},
+	fzf_opts = {
+		["--layout"] = "default",
 	},
 })
 

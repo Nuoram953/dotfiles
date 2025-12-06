@@ -5,7 +5,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "5eed082",
+      "rev": "0284d640fd88c56f100a43f41103c5b564699e15",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "indent-blankline.nvim": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-lspconfig": {
-      "rev": "f7c6e58",
+      "rev": "9c923997123ff9071198ea3b594d4c1931fab169",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -45,7 +45,7 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "octo.nvim": {
-      "rev": "a8ce64e",
+      "rev": "6f8a27847328e55582733cbe3ff43c449f0b881d",
       "src": "https://github.com/pwntester/octo.nvim"
     },
     "oil.nvim": {
