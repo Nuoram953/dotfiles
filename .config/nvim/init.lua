@@ -13,6 +13,8 @@ vim.o.signcolumn = "yes"
 vim.o.winborder = "rounded"
 vim.o.pumborder = "rounded"
 
+vim.o.pumheight = 15
+
 vim.opt.backspace = { "eol", "start", "indent" } -- allow backspacing over everything in insert mode
 vim.opt.clipboard = "unnamedplus" -- allow neovim to access the system clipboard
 
