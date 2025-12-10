@@ -50,6 +50,7 @@ vim.pack.add({
 	{ src = "https://github.com/stevearc/oil.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.surround" },
 	{ src = "https://github.com/nvim-mini/mini.snippets" },
+	{ src = "https://github.com/nvim-mini/mini.cmdline" },
 	{ src = "https://github.com/nvim-mini/mini.completion" },
 	{ src = "https://github.com/mistweaverco/kulala.nvim" },
 	{ src = "https://github.com/pwntester/octo.nvim" },
@@ -88,6 +89,7 @@ require("conform").setup({
 		typescript = { "prettier" },
 		typescriptreact = { "prettier" },
 		markdown = { "prettier" },
+		json = { "prettier" },
 	},
 })
 
@@ -114,6 +116,7 @@ require("nvim-treesitter.configs").setup({
 
 require("mini.surround").setup()
 require("mini.completion").setup()
+require("mini.cmdline").setup()
 require("mini.snippets").setup({
 	snippets = {
 		-- gen_loader.from_file("~/.config/nvim/snippets/global.json"),

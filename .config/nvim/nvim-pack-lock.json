@@ -20,6 +20,10 @@
       "rev": "57e5a8a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "mini.cmdline": {
+      "rev": "59a297e160f25a7b49a35182b200a5259db6a9b7",
+      "src": "https://github.com/nvim-mini/mini.cmdline"
+    },
     "mini.completion": {
       "rev": "7c5edfc",
       "src": "https://github.com/nvim-mini/mini.completion"
