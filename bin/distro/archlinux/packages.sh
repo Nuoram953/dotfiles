@@ -1,5 +1,3 @@
-echo "Updating the system..."
-sudo pacman -Syu --noconfirm
 
 SYSTEM_PACKAGES=(
   base
@@ -56,7 +54,6 @@ DEV_PACKAGES=(
   cmake
   meson
   git
-  neovim
   vim
   nano
   kitty
@@ -69,12 +66,11 @@ DEV_PACKAGES=(
   fish
   starship
   zoxide
-  yay
-  yay-debug
   wget
   cpio
   openssh
   btop
+  git-delta
 )
 
 
@@ -127,9 +123,30 @@ PERSONAL_PACKAGES=(
   yazi
 )
 
-echo "Installing packages..."
-sudo pacman -S --noconfirm "${SYSTEM_PACKAGES[@]}"
-sudo pacman -S --noconfirm "${DEV_PACKAGES[@]}"
+TARGET="$1"
+
+echo "Target is: $TARGET"
+
+if [[ "$TARGET" == "system" ]]; then
+    echo "Updating the system..."
+    sudo pacman -Syu --noconfirm
+
+    echo "Installing packages..."
+    sudo pacman -S --noconfirm "${SYSTEM_PACKAGES[@]}"
+
+elif [[ "$TARGET" == "dev" ]]; then
+    sudo pacman -S --noconfirm "${DEV_PACKAGES[@]}"
+
+elif [[ "$TARGET" == "perso" ]]; then
+    sudo pacman -S --noconfirm "${PERSONAL_PACKAGES[@]}"
+
+elif [[ "$TARGET" == "gaming" ]]; then
+    sudo pacman -S --noconfirm "${GAMING_PACKAGES[@]}"
+
+else
+    echo "Unknown target: $TARGET"
+fi
+
 
 echo "Cleaning up package cache..."
 sudo pacman -Scc --noconfirm
