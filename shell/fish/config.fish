@@ -17,6 +17,14 @@ alias cl="clear"
 set -Ux PYENV_ROOT $HOME/.pyenv
 set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 
+# msyql 
+set -x mysqlclient_cflags "-I/usr/include/mysql"
+set -x smyqlclient_ldflags "-L/usr/lib -lmysqlclient"
+
+set -Ux DOCKER_BUILDKIT 1
+set -x XDG_RUNTIME_DIR ~/.xdg_runtime
+
+set -gx EDITOR 'nvim'
 set -g fish_greeting ''
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --strip-cwd-prefix --exclude .git'
 set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
