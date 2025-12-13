@@ -13,6 +13,10 @@ end
 alias nv="nvim"
 alias cl="clear"
 
+# pyenv
+set -Ux PYENV_ROOT $HOME/.pyenv
+set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
+
 set -g fish_greeting ''
 set -gx FZF_DEFAULT_COMMAND 'fd --hidden --strip-cwd-prefix --exclude .git'
 set -gx FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
@@ -31,5 +35,7 @@ if set -q TMUX
     end
 end
 
+
+pyenv init - fish | source
 starship init fish | source
 zoxide init fish | source

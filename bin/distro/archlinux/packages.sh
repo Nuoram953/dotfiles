@@ -71,6 +71,7 @@ DEV_PACKAGES=(
   openssh
   btop
   git-delta
+  pyenv
 )
 
 
