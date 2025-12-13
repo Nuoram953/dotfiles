@@ -8,5 +8,8 @@ function __fzf_cd
         | fzf
     )
 
-    test -n "$dir"; and cd "$dir"
+    if test -n "$dir"
+        cd "$dir"
+        commandline -f repaint
+    end
 end
