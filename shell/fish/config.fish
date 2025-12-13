@@ -21,8 +21,9 @@ set -U fish_user_paths $PYENV_ROOT/bin $fish_user_paths
 set -x mysqlclient_cflags "-I/usr/include/mysql"
 set -x smyqlclient_ldflags "-L/usr/lib -lmysqlclient"
 
-set -Ux DOCKER_BUILDKIT 1
-set -x XDG_RUNTIME_DIR ~/.xdg_runtime
+# Uncommented when using on wsl
+# set -Ux DOCKER_BUILDKIT 1
+# set -x XDG_RUNTIME_DIR ~/.xdg_runtime
 
 set -gx EDITOR 'nvim'
 set -g fish_greeting ''

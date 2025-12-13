@@ -72,6 +72,8 @@ DEV_PACKAGES=(
   btop
   git-delta
   pyenv
+  mariadb-libs
+  pkgconf
 )
 
 
