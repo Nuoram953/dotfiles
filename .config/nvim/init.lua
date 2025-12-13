@@ -169,7 +169,7 @@ vim.keymap.set("n", "<C-l>", "<cmd>lua require'tmux'.move_right()<cr>")
 -- -----------------------------------------------------------------------------------------------
 -- LSP
 -- -----------------------------------------------------------------------------------------------
-vim.lsp.enable({ "lua_ls", "ts_ls", "emmet_language_server", "kulala_fmt", "bashls" })
+vim.lsp.enable({ "lua_ls", "ts_ls", "emmet_language_server", "kulala_fmt", "bashls", "jsonls" })
 
 vim.lsp.config("lua_ls", {
 	settings = {
