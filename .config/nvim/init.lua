@@ -103,17 +103,18 @@ require("tmux").setup({
 	},
 })
 
+---@diagnostic disable-next-line: missing-fields
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "lua", "typescript", "tsx" },
 	highlight = { enable = true },
-	-- incremental_selection = {
-	-- 	enable = true,
-	-- 	keymaps = {
-	-- 		init_selection = false,
-	-- 		node_incremental = "an",
-	-- 		node_decremental = "in",
-	-- 	},
-	-- },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = false,
+			node_incremental = "an",
+			node_decremental = "in",
+		},
+	},
 })
 
 require("mini.surround").setup()
