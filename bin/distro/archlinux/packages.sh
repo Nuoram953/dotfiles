@@ -74,6 +74,7 @@ DEV_PACKAGES=(
   pyenv
   mariadb-libs
   pkgconf
+  ripgrep
 )
 
 

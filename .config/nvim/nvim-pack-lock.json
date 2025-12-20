@@ -1,11 +1,11 @@
 {
   "plugins": {
     "conform.nvim": {
-      "rev": "ffe26e8",
+      "rev": "328c2f1dda56f933d3337a1316e1020ba30ba6aa",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "fzf-lua": {
-      "rev": "0284d640fd88c56f100a43f41103c5b564699e15",
+      "rev": "9d579feab4d3035627150e5e9b6e8fbf5e814ef6",
       "src": "https://github.com/ibhagwan/fzf-lua"
     },
     "indent-blankline.nvim": {
@@ -13,7 +13,7 @@
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
     "kulala.nvim": {
-      "rev": "5d39161",
+      "rev": "9fc4831a116fb32b0fd420ed483f5102a873446a",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "mason.nvim": {
@@ -21,7 +21,7 @@
       "src": "https://github.com/mason-org/mason.nvim"
     },
     "mini.cmdline": {
-      "rev": "59a297e160f25a7b49a35182b200a5259db6a9b7",
+      "rev": "85159418d11c9cea48372502d40c2679afb4ddd6",
       "src": "https://github.com/nvim-mini/mini.cmdline"
     },
     "mini.completion": {
@@ -37,7 +37,7 @@
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-lspconfig": {
-      "rev": "9c923997123ff9071198ea3b594d4c1931fab169",
+      "rev": "c4f67bf85b01a57e3c130352c0a0e453ab8cd5b9",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-treesitter": {
@@ -49,7 +49,7 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "octo.nvim": {
-      "rev": "6f8a27847328e55582733cbe3ff43c449f0b881d",
+      "rev": "09ff70efd885fe1cdf62505dce3a9bc6baeb85e1",
       "src": "https://github.com/pwntester/octo.nvim"
     },
     "oil.nvim": {
