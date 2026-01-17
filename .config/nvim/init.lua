@@ -54,6 +54,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.snippets" },
 	{ src = "https://github.com/nvim-mini/mini.cmdline" },
 	{ src = "https://github.com/nvim-mini/mini.completion" },
+	{ src = "https://github.com/nvim-mini/mini.ai" },
 	{ src = "https://github.com/mistweaverco/kulala.nvim" },
 	{ src = "https://github.com/pwntester/octo.nvim" },
 })
@@ -120,6 +121,7 @@ require("nvim-treesitter.configs").setup({
 require("mini.surround").setup()
 require("mini.completion").setup()
 require("mini.cmdline").setup()
+require("mini.ai").setup()
 require("mini.snippets").setup({
 	snippets = {
 		-- gen_loader.from_file("~/.config/nvim/snippets/global.json"),
@@ -129,7 +131,9 @@ require("mini.snippets").setup({
 
 require("kulala").setup({
 	ft = { "http", "rest" },
-	opts = { global_keymaps = true, global_keymaps_prefix = "<leader>R", kulala_keymaps_prefix = "" },
+	global_keymaps = true,
+	global_keymaps_prefix = "<leader>R",
+	kulala_keymaps_prefix = "",
 })
 
 require("octo").setup({
