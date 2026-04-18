@@ -1,0 +1,8 @@
+require("plugins.snacks")
+require("plugins.mini")
+require("plugins.kulala")
+require("plugins.theme")
+require("plugins.blink")
+require("plugins.octo")
+require("plugins.conform")
+require("plugins.git")
