@@ -46,6 +46,7 @@ local ts_server = vim.g.lsp_typescript_server or "vtsls"
 vim.lsp.enable({
 	ts_server,
 	"lua_ls",
+	"rust_analyser",
 })
 
 if vim.g.lsp_on_demands then
