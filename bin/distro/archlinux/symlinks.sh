@@ -8,18 +8,17 @@ fi
 
 SYMLINKS=(
   "$HOME/dotfiles/.config/nvim:$HOME/.config/nvim"
-  "$HOME/dotfiles/.tmux.conf:$HOME/.tmux.conf"
   "$HOME/dotfiles/.config/hypr:$HOME/.config/hypr"
   "$HOME/dotfiles/.config/hyprpanel:$HOME/.config/hyprpanel"
   "$HOME/dotfiles/.config/yazi:$HOME/.config/yazi"
   "$HOME/dotfiles/.config/lazygit:$HOME/.config/lazygit"
-  "$HOME/dotfiles/.aliases:$HOME/.aliases"
-  "$HOME/dotfiles/starship.toml:$HOME/.config/starship.toml"
+  "$HOME/dotfiles/.config/starship.toml:$HOME/.config/starship.toml"
+  "$HOME/dotfiles/.config/fastfetch/:$HOME/.config/fastfetch"
+  "$HOME/dotfiles/.config/waybar/:$HOME/.config/waybar"
+  "$HOME/dotfiles/.config/rofi/:$HOME/.config/rofi"
+  "$HOME/dotfiles/.tmux.conf:$HOME/.tmux.conf"
   "$HOME/dotfiles/shell/fish:$HOME/.config/fish"
   "$HOME/dotfiles/terminal/kitty/:$HOME/.config/kitty"
-  "$HOME/dotfiles/fastfetch/:$HOME/.config/fastfetch"
-  "$HOME/dotfiles/waybar/:$HOME/.config/waybar"
-  "$HOME/dotfiles/rofi/:$HOME/.config/rofi"
 )
 
 for link in "${SYMLINKS[@]}"; do

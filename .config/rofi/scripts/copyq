@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+LIMIT=30  # 👈 change this (20–50 is ideal)
+
+count=$(copyq count)
+[ "$count" -eq 0 ] && exit
+
+start=$((count - 1))
+end=$((count - LIMIT))
+
+# prevent negative index
+[ "$end" -lt 0 ] && end=0
+
+items=""
+
+for ((i=start; i>=end; i--)); do
+  text=$(copyq read "$i" | tr '\n' ' ' | cut -c1-80)
+  items+="$i: $text\n"
+done
+
+choice=$(echo -e "$items" | rofi -dmenu -i -p "Clipboard")
+
+[ -z "$choice" ] && exit
+
+index=$(echo "$choice" | cut -d':' -f1)
+
+copyq select "$index"
+copyq paste

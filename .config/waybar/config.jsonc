@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["hyprland/workspaces"],
 
-  "modules-center": ["clock", "custom/weather"],
+  "modules-center": ["clock"],
 
   "modules-right": [
     "pulseaudio",
@@ -13,7 +13,6 @@
     "network",
     "cpu",
     "memory",
-    "custom/docker",
     "tray"
   ],
 
