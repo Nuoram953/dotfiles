@@ -83,7 +83,6 @@ GAMING_PACKAGES=(
   lib32-gamemode
   gamescope-nvidia
   steam
-  lutris
   protonup-qt
   opengamepadui-bin
   r2modman-bin
@@ -127,6 +126,11 @@ PERSONAL_PACKAGES=(
   yazi
 )
 
+LSP_PACKAGES=(
+  stylua
+)
+
+
 TARGET="$1"
 
 echo "Target is: $TARGET"
@@ -140,6 +144,7 @@ if [[ "$TARGET" == "system" ]]; then
 
 elif [[ "$TARGET" == "dev" ]]; then
     sudo pacman -S --noconfirm "${DEV_PACKAGES[@]}"
+    sudo pacman -S --noconfirm "${LSP_PACKAGES[@]}"
 
 elif [[ "$TARGET" == "perso" ]]; then
     sudo pacman -S --noconfirm "${PERSONAL_PACKAGES[@]}"

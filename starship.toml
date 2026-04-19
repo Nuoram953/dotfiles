@@ -14,7 +14,7 @@ disabled = true
 disabled = true
 
 [nodejs]
-disabled = false
+disabled = true
 
 [git_status]
 disabled = false
@@ -29,6 +29,9 @@ staged = '[++\($count\)](green)'
 
 [aws]
 style = "bold orange"
+
+[gcloud]
+disabled=true
 
 [character]
 error_symbol = "[λ](bold red)"

@@ -1,3 +1,5 @@
+set -Ux TERM xterm-256color
+
 # Default editor everywhere
 set -gx EDITOR nvim
 
