@@ -99,8 +99,6 @@ PERSONAL_PACKAGES=(
   libreoffice-still
   keepassxc
   spotify
-  vesktop
-  zoom
   discord
   totem
   evince
@@ -123,11 +121,11 @@ PERSONAL_PACKAGES=(
   ttf-font-awesome
   ttf-jetbrains-mono-nerd
   qutebrowser
-  yazi
 )
 
 LSP_PACKAGES=(
-  stylua
+  stylua,
+  prettier
 )
 
 
