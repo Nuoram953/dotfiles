@@ -1,0 +1,156 @@
+* {
+  font-family: JetbrainsMono Nerd Font;
+  font-size: 10px;
+  min-height: 0;
+  padding-right: 2px;
+  padding-left: 2px;
+  padding-bottom: 0px;
+}
+
+#waybar {
+  background: transparent;
+  color: #93a1a1;
+  margin: 2px 2px;
+}
+
+#workspaces {
+  border-radius: 5px;
+  margin: 5px;
+  background: #002b36;
+  margin-left: 2px;
+}
+
+#workspaces button {
+  color: #839496;
+  border-radius: 5px;
+  padding: 0.4rem;
+}
+
+#workspaces button.active {
+  color: #2aa198;
+  border-radius: 5px;
+}
+
+button {
+  background: transparent;
+}
+
+#workspaces button:hover {
+  background: #073642;
+  border: 0px solid transparent;
+}
+
+#custom-music,
+#tray,
+#backlight,
+#clock,
+#battery,
+#pulseaudio,
+#network,
+#cpu,
+#memory,
+#custom-lock,
+#custom-power,
+#custom-weather,
+#custom-uptime,
+#custom-docker {
+  background-color: #002b36;
+  padding: 0.5rem 1rem;
+  margin: 5px 0;
+}
+
+#clock {
+  color: #268bd2;
+  border-radius: 5px;
+}
+
+#custom-weather {
+  color: #2aa198;
+  margin-left: 0.5rem;
+  border-radius: 5px;
+}
+
+#battery {
+  color: #859900;
+}
+
+#battery.charging {
+  color: #859900;
+}
+
+#battery.warning:not(.charging) {
+  color: #dc322f;
+}
+
+#backlight {
+  color: #b58900;
+}
+
+#backlight,
+#battery {
+  border-radius: 0;
+}
+
+#pulseaudio {
+  color: #cb4b16;
+  border-radius: 5px 0px 0px 5px;
+}
+
+#custom-docker {
+  color: #268bd2;
+}
+
+#custom-music {
+  color: #d33682;
+  border-radius: 5px;
+}
+
+#custom-lock {
+  color: #6c71c4;
+}
+
+#custom-power {
+  margin-right: 1rem;
+  border-radius: 0px 5px 5px 0px;
+  color: #dc322f;
+}
+
+#custom-docker.docker {
+  color: #268bd2;
+}
+
+#custom-docker.docker-none {
+  color: #586e75;
+}
+
+#custom-docker.docker-error {
+  color: #dc322f;
+}
+
+#custom-weather.clear {
+  color: #b58900;
+}
+
+#custom-weather.cloud {
+  color: #93a1a1;
+}
+
+#custom-weather.rain {
+  color: #268bd2;
+}
+
+#custom-weather.snow {
+  color: #eee8d5;
+}
+
+#custom-weather.thunder {
+  color: #6c71c4;
+}
+
+#custom-weather.fog {
+  color: #657b83;
+}
+
+#custom-weather.error {
+  color: #dc322f;
+}
