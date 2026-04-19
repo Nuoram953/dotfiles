@@ -5,3 +5,4 @@ node_modules
 .config/gh/hosts.yml
 .config/lazygit/state.yml
 .config/go/telemetry/local
+/shell/fish/local
