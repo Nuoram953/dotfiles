@@ -1,0 +1,7 @@
+{
+  "Describe unit test": {
+    "prefix": "descr",
+    "body": ["describe('function', () => {", "", "})"],
+    "description": "describe unit test"
+  }
+}
