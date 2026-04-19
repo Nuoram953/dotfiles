@@ -1,4 +1,19 @@
 {
+  "For Loop": {
+    "prefix": ["for", "for-const"],
+    "body": ["for (const ${2:element} of ${1:array}) {", "\t$0", "}"],
+    "description": "A for loop."
+  },
+  "Async function": {
+    "prefix": "af",
+    "body": ["async const $1 = ($2) => {", "}"],
+    "description": "async function"
+  },
+  "Console log": {
+    "prefix": "cl",
+    "body": ["console.log($0);"],
+    "description": "insert console log"
+  },
   "Describe unit test": {
     "prefix": "descr",
     "body": ["describe('function', () => {", "", "})"],
@@ -36,7 +51,11 @@
   },
   "ItParams mocha test": {
     "prefix": "itp",
-    "body": ["itParam('should return when ${value.case}', data, (value) => {", "", "})"],
+    "body": [
+      "itParam('should return when ${value.case}', data, (value) => {",
+      "",
+      "})"
+    ],
     "description": "itParam mocha test"
   }
 }
