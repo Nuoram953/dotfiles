@@ -49,6 +49,7 @@ vim.lsp.enable({
 	"rust_analyser",
 	"jdtls",
 	"tailwindcss",
+	"pyright",
 })
 
 if vim.g.lsp_on_demands then
