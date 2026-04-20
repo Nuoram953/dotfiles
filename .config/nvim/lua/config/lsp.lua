@@ -47,6 +47,8 @@ vim.lsp.enable({
 	ts_server,
 	"lua_ls",
 	"rust_analyser",
+	"jdtls",
+	"tailwindcss",
 })
 
 if vim.g.lsp_on_demands then

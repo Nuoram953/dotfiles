@@ -125,7 +125,12 @@ PERSONAL_PACKAGES=(
 
 LSP_PACKAGES=(
   stylua,
-  prettier
+  prettier,
+  jdtls,
+)
+
+NPM_PACKAGES=(
+  @tailwindcss/language-server,
 )
 
 
@@ -149,6 +154,9 @@ elif [[ "$TARGET" == "perso" ]]; then
 
 elif [[ "$TARGET" == "gaming" ]]; then
     sudo pacman -S --noconfirm "${GAMING_PACKAGES[@]}"
+
+elif [[ "$TARGET" == "npm" ]]; then
+    npm -g "${PERSONAL_PACKAGES[@]}"
 
 else
     echo "Unknown target: $TARGET"
