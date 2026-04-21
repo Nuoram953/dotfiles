@@ -71,9 +71,9 @@ return {
 				completeFunctionCalls = true,
 			},
 			inlayHints = {
-				enumMemberValues = { enabled = true },
-				functionLikeReturnTypes = { enabled = true },
-				parameterNames = { enabled = "literals" },
+				enumMemberValues = { enabled = false },
+				functionLikeReturnTypes = { enabled = false },
+				parameterNames = { enabled = false },
 				parameterTypes = { enabled = false },
 				propertyDeclarationTypes = { enabled = false },
 				variableTypes = { enabled = false },

@@ -20,6 +20,7 @@ sudo pacman -S --noconfirm stylua prettier pyright
 sudo yay -S --noconfirm jdtls
 
 npm install -g @tailwindcss/language-server
+npm install -g @vtsls/language-server
 
 
 cd ~
