@@ -123,17 +123,6 @@ PERSONAL_PACKAGES=(
   qutebrowser
 )
 
-LSP_PACKAGES=(
-  stylua,
-  prettier,
-  jdtls,
-)
-
-NPM_PACKAGES=(
-  @tailwindcss/language-server,
-)
-
-
 TARGET="$1"
 
 echo "Target is: $TARGET"
@@ -147,7 +136,6 @@ if [[ "$TARGET" == "system" ]]; then
 
 elif [[ "$TARGET" == "dev" ]]; then
     sudo pacman -S --noconfirm "${DEV_PACKAGES[@]}"
-    sudo pacman -S --noconfirm "${LSP_PACKAGES[@]}"
 
 elif [[ "$TARGET" == "perso" ]]; then
     sudo pacman -S --noconfirm "${PERSONAL_PACKAGES[@]}"
