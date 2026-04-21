@@ -8,7 +8,18 @@ local Snacks = require("snacks")
 Snacks.setup({
 	animate = { enabled = true },
 	bigfile = { enabled = true },
-	dashboard = { enabled = false },
+	dashboard = {
+		enabled = true,
+		sections = {
+			{
+				section = "terminal",
+				cmd = "chafa ~/dotfiles/wallpapers/metroid.png -c 240  --scale 1 --dither none; sleep .1",
+				height = 25,
+				padding = 1,
+			},
+			{ section = "keys", gap = 1, padding = 1 },
+		},
+	},
 	dim = { enabled = true },
 	explorer = { enabled = true, replace_netrw = true },
 	image = { enabled = true },
