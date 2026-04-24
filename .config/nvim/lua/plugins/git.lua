@@ -116,7 +116,7 @@ require("diffview").setup({
 					diff_merges = "combined",
 				},
 				multi_file = {
-					diff_merges = "first-parent",
+					no_merges = true,
 				},
 			},
 		},

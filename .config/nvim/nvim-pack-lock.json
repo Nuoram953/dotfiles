@@ -6,11 +6,11 @@
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "eaa5f2a4570a8b756201987e50ded5ad34ac34b0",
+      "rev": "385f26fd6a50e3b0b11cc9623f1f96cde00ef08c",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "gitsigns.nvim": {
@@ -26,7 +26,7 @@
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "dd43736f30ed70571a02e8c560ab69746ad7a1ed",
+      "rev": "01ad4537bac9a0843e72c9615fa7fcaa69b119eb",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-treesitter": {
@@ -44,7 +44,7 @@
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "octo.nvim": {
-      "rev": "0384ae6b308725d29e735b02c5797e46edee52d0",
+      "rev": "34e67cc2d247e9b9271e2b54baeb6d4f6d1035bb",
       "src": "https://github.com/pwntester/octo.nvim"
     },
     "plenary.nvim": {

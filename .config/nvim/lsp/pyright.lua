@@ -28,6 +28,7 @@ return {
 	filetypes = { "python" },
 	root_markers = {
 		"pyrightconfig.json",
+		"uv.lock",
 		"pyproject.toml",
 		"setup.py",
 		"setup.cfg",

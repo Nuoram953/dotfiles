@@ -38,6 +38,9 @@ Snacks.setup({
 	zen = { enabled = true },
 	picker = {
 		sources = {
+			lsp_symbols = {
+				filter = { default = true },
+			},
 			files = {
 				hidden = true,
 				ignored = true,
