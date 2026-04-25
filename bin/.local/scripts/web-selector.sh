@@ -295,7 +295,7 @@ EOF
     [[ -z "$header" ]] && header="Bookmarks"
     
     local selected_index
-    selected_index=$(printf '%s\n' "${menu_display[@]}" | fzf)
+    selected_index=$(printf '%s\n' "${menu_display[@]}" | fzf --style default --height 100%)
     
     # Find the index of selected item
     for i in "${!menu_display[@]}"; do
