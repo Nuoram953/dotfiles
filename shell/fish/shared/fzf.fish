@@ -31,7 +31,9 @@ if type -q fzf
     end
 
     set -l fzf_opts \
+        --style full \
         --multi \
+        --height 40% \
         --color=fg:#839496 \
         --color=bg:#002b36 \
         --color=hl:#268bd2 \

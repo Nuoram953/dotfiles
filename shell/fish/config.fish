@@ -2,6 +2,7 @@ source ~/.config/fish/shared/env.fish
 source ~/.config/fish/shared/tools.fish
 source ~/.config/fish/shared/fzf.fish
 source ~/.config/fish/shared/aliases.fish
+source ~/.config/fish/shared/keymaps.fish
 
 if test -f ~/.config/fish/local/config.local.fish
     source ~/.config/fish/local/config.local.fish
