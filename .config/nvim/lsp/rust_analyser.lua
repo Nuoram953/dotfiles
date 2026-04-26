@@ -6,7 +6,10 @@ return {
 	settings = {
 		["rust-analyzer"] = {
 			inlayHints = {
+				typeHints = { enable = false },
 				chainingHints = { enable = false },
+				parameterHints = { enable = false },
+				closingBraceHints = { enable = false },
 			},
 		},
 	},
