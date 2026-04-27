@@ -1,34 +1,91 @@
 #!/usr/bin/env bash
 
-cd ~
-if [ ! -d "neovim" ]; then
+verbose_mode=false
+install_deps=false
+
+usage() {
+ echo "Usage: $0 [OPTIONS]"
+ echo "Options:"
+ echo " -h, --help              Display this help message"
+ echo " -v, --verbose           Enable verbose mode"
+ echo " -d, --install-deps      Insall third party like lsp, linter etc.."
+}
+
+has_argument() {
+    [[ ("$1" == *=* && -n ${1#*=}) || ( ! -z "$2" && "$2" != -*)  ]];
+}
+
+extract_argument() {
+  echo "${2:-${1#*=}}"
+}
+
+handle_options() {
+  while [ $# -gt 0 ]; do
+    case $1 in
+      -h | --help)
+        usage
+        exit 0
+        ;;
+      -v | --verbose)
+        verbose_mode=true
+        ;;
+      -d | --install-deps*)
+        install_deps=true
+        shift
+        ;;
+      *)
+        echo "Invalid option: $1" >&2
+        usage
+        exit 1
+        ;;
+    esac
+    shift
+  done
+}
+
+install_neovim() {
+  cd ~
+
+  if [ ! -d "neovim" ]; then
     echo "Cloning Neovim repository..."
     git clone https://github.com/neovim/neovim
-else
+  else
     echo "Neovim directory already exists, skipping clone..."
-fi
-cd neovim 
-make distclean
-rm -rf build
-make CMAKE_BUILD_TYPE=Release
-git checkout master
-git pull
-sudo make install
+  fi
+
+  cd neovim
+  git checkout master
+  git pull
+  make distclean
+  rm -rf build
+  make CMAKE_BUILD_TYPE=Release
+  sudo make install
+
+  if [ "$install_deps" = true ]; then
+    install_dependencies
+  fi
+
+}
+
+install_dependencies(){
+  sudo pacman -S --noconfirm stylua prettier pyright
+  sudo yay -S --noconfirm jdtls
+
+  npm install -g @tailwindcss/language-server
+  npm install -g @vtsls/language-server
 
 
-sudo pacman -S --noconfirm stylua prettier pyright
-sudo yay -S --noconfirm jdtls
-
-npm install -g @tailwindcss/language-server
-npm install -g @vtsls/language-server
-
-
-cd ~
-if [ ! -d "vscode-js-debug" ]; then
-  git clone https://github.com/microsoft/vscode-js-debug.git
-else
+  cd ~
+  if [ ! -d "vscode-js-debug" ]; then
+    git clone https://github.com/microsoft/vscode-js-debug.git
+  else
     echo "vscode-js-debug directory already exists, skipping clone..."
-fi
-cd vscode-js-debug
-npm install --legacy-peer-deps
-npx gulp dapDebugServer
+  fi
+  cd vscode-js-debug
+  npm install --legacy-peer-deps
+  npx gulp dapDebugServer
+}
+
+handle_options "$@"
+
+install_neovim
