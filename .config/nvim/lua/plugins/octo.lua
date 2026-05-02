@@ -7,4 +7,5 @@ local Octo = require("octo")
 
 Octo.setup({
 	picker = "snacks",
+	enable_builtin = true,
 })

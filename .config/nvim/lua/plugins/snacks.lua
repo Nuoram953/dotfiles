@@ -13,7 +13,7 @@ Snacks.setup({
 		sections = {
 			{
 				section = "terminal",
-				cmd = "chafa ~/dotfiles/wallpapers/metroid.png -c 240  --scale 1 --dither none; sleep .1",
+				cmd = "chafa ~/dotfiles/wallpapers/metroid.png; sleep .1",
 				height = 25,
 				padding = 1,
 			},
