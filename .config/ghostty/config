@@ -1,3 +1,5 @@
 font-family = "Fira Code Regular"
 
 theme = iTerm2 Solarized Dark
+
+command = tmux
