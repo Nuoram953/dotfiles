@@ -68,7 +68,7 @@ install_neovim() {
 }
 
 install_dependencies(){
-  sudo pacman -S --noconfirm stylua prettier pyright
+  sudo pacman -S --noconfirm stylua prettier pyright yaml-language-server
   sudo yay -S --noconfirm jdtls
 
   npm install -g @tailwindcss/language-server

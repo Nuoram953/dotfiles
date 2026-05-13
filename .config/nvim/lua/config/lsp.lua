@@ -50,6 +50,7 @@ vim.lsp.enable({
 	"jdtls",
 	"tailwindcss",
 	"pyright",
+	"yamlls",
 })
 
 if vim.g.lsp_on_demands then
