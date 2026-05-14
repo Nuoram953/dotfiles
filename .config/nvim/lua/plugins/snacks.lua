@@ -71,6 +71,8 @@ Snacks.setup({
 					"**/public/*",
 					"**/digest*.txt",
 					"**/.node-gyp/**",
+					"**/dist/**",
+					"**/.venv/*",
 				},
 			},
 			grep = {
