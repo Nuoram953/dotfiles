@@ -58,8 +58,7 @@ install_neovim() {
   git pull
   make distclean
   rm -rf build
-  make CMAKE_BUILD_TYPE=Release
-  sudo make install
+  sudo make CMAKE_BUILD_TYPE=Release install
 
   if [ "$install_deps" = true ]; then
     install_dependencies
