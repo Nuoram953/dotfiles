@@ -6,4 +6,6 @@ theme = iTerm2 Solarized Dark
 
 mouse-scroll-multiplier = 0.25
 
+copy-on-select = clipboard
+
 command = tmux
