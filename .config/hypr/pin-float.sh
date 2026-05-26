@@ -14,10 +14,7 @@ hyprctl dispatch pin
 
 # Only resize/move when pinning (not when unpinning)
 if [ "$pinned" = "false" ]; then
-    monitor=$(hyprctl monitors -j | jq '.[] | select(.focused == true)')
-    monitor_w=$(echo "$monitor" | jq -r '.width')
     gap=15
-    x=$((monitor_w - 300 - gap))
-    hyprctl dispatch resizeactive exact 300 300
-    hyprctl dispatch moveactive exact $x $gap
+    hyprctl dispatch resizeactive exact 600 450
+    hyprctl dispatch moveactive exact 3200 150
 fi
