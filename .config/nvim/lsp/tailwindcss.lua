@@ -73,6 +73,7 @@ return {
 	},
 	settings = {
 		tailwindCSS = {
+			classFunctions = { "cva", "cx" },
 			validate = true,
 			lint = {
 				cssConflict = "warning",
