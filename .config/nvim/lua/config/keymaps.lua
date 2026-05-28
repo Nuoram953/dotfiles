@@ -112,17 +112,41 @@ map("i", ",", ",<c-g>u")
 map("i", ".", ".<c-g>u")
 map("i", ";", ";<c-g>u")
 
--- Auto-close pairs (simple, no plugin needed)
-map("i", "`", "``<left>")
-map("i", '"', '""<left>')
+-- Auto-close pairs with skip-over: pressing a closing char again jumps past it
+local function auto_pair(open_seq, close_char)
+	return function()
+		local col = vim.fn.col(".")
+		local next_char = vim.fn.getline("."):sub(col, col)
+		if next_char == close_char then
+			return "<Right>"
+		end
+		return open_seq
+	end
+end
+
+local function jump_or_insert(char)
+	return function()
+		local col = vim.fn.col(".")
+		local next_char = vim.fn.getline("."):sub(col, col)
+		if next_char == char then
+			return "<Right>"
+		end
+		return char
+	end
+end
+
+map("i", "`", auto_pair("``<left>", "`"), { expr = true })
+map("i", '"', auto_pair('""<left>', '"'), { expr = true })
+map("i", "'", auto_pair("''<left>", "'"), { expr = true })
 map("i", "(", "()<left>")
 map("i", "[", "[]<left>")
 map("i", "{", "{}<left>")
 map("i", "<", "<><left>")
 
--- Note: Single quotes commented out to avoid conflicts in some contexts
-
--- map("i", "'", "''<left>")
+map("i", ")", jump_or_insert(")"), { expr = true })
+map("i", "]", jump_or_insert("]"), { expr = true })
+map("i", "}", jump_or_insert("}"), { expr = true })
+map("i", ">", jump_or_insert(">"), { expr = true })
 
 -- ═══════════════════════════════════════════════════════════
 
