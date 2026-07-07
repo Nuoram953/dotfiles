@@ -115,9 +115,6 @@ require("diffview").setup({
 				single_file = {
 					diff_merges = "combined",
 				},
-				multi_file = {
-					no_merges = true,
-				},
 			},
 		},
 		win_config = {

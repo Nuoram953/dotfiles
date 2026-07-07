@@ -18,7 +18,12 @@ switch $PROFILE
 end
 
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    # eval (zellij setup --generate-auto-start fish | string collect)
+    #
+    # if not set -q FASTFETCH_SHOWN
+    #     set -gx FASTFETCH_SHOWN 1
+    #     fastfetch
+    # end
 end
 
 if set -q TMUX

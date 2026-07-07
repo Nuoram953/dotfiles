@@ -10,7 +10,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffview.nvim": {
-      "rev": "e4871fdf697057e036690d6ad9ebba334711cfb6",
+      "rev": "06685829495ac5d7367a0693ef02ef0d6b97fda0",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "gitsigns.nvim": {
@@ -18,7 +18,7 @@
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "kulala.nvim": {
-      "rev": "77e5e949276e0b247f8f67575c42446750d164fa",
+      "rev": "6397ad2406995d5ceb061ba04677f7a96fcfb953",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "mini.surround": {

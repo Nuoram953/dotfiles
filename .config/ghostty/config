@@ -8,4 +8,4 @@ mouse-scroll-multiplier = 0.25
 
 copy-on-select = clipboard
 
-command = zellij
+command = tmux

@@ -17,6 +17,11 @@ fish_add_path $PYENV_ROOT/bin
 # composer
 fish_add_path ~/.config/composer/vendor/bin
 
+#go
+fish_add_path ~/go/bin
+
+fish_add_path ~/.config/emacs/bin 
+
 # local user bin
 fish_add_path ~/.local/bin
 
