@@ -11,12 +11,12 @@ Snacks.setup({
 	dashboard = {
 		enabled = true,
 		sections = {
-			{
-				section = "terminal",
-				cmd = "chafa ~/dotfiles/wallpapers/metroid.png; sleep .1",
-				height = 25,
-				padding = 1,
-			},
+			-- {
+			-- 	section = "terminal",
+			-- 	cmd = "chafa ~/dotfiles/wallpapers/metroid.png; sleep .1",
+			-- 	height = 25,
+			-- 	padding = 1,
+			-- },
 			{ section = "keys", gap = 1, padding = 1 },
 		},
 	},
@@ -200,6 +200,7 @@ local keymaps = {
     { "<leader>fn", function() Snacks.picker.files({ cwd = vim.fn.expand("~/notes")}) end, desc = "Find note File" },
 
     -- git
+    { "<leader>lg", function() Snacks.lazygit() end, desc = "Lazygit" },
     { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches" },
     { "<leader>gl", function() Snacks.picker.git_log() end, desc = "Git Log" },
     { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "Git Log Line" },

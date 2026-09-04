@@ -28,3 +28,6 @@ fish_add_path ~/.local/bin
 # mysql
 set -gx mysqlclient_cflags "-I/usr/include/mysql"
 set -gx mysqlclient_ldflags "-L/usr/lib -lmysqlclient"
+
+set -gx STEAM_COMPAT_CLIENT_INSTALL_PATH "$HOME/.local/share/Steam"
+set -gx STEAM_COMPAT_DATA_PATH "$HOME/.local/share/Steam/steamapps/compatdata/3882393629"

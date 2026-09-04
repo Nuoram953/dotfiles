@@ -1,8 +1,10 @@
 vim.pack.add({
 	"https://github.com/lewis6991/gitsigns.nvim",
 	"https://github.com/dlyongemallo/diffview.nvim",
+	"https://github.com/justinmk/guh.nvim",
+	"https://github.com/barrettruth/diffs.nvim",
 })
--- Setup gitsigns.nvim
+
 require("gitsigns").setup({
 	current_line_blame = true,
 	signs = {
@@ -180,14 +182,10 @@ require("diffview").setup({
 		},
 	},
 })
--- Git status / changed files view
 vim.keymap.set("n", "<leader>gd", "<Cmd>DiffviewOpen<CR>", { desc = "Diff: git status" })
--- File history views
 vim.keymap.set("n", "<leader>gv", "<Cmd>DiffviewFileHistory<CR>", { desc = "Diff: repo history" })
 vim.keymap.set("n", "<leader>gV", "<Cmd>DiffviewFileHistory %<CR>", { desc = "Diff: current file history" })
--- Visual mode: history of selected lines
 vim.keymap.set("v", "<leader>gv", ":'<,'>DiffviewFileHistory<CR>", { desc = "Diff: selection history" })
--- Compare with revisions (prompts)
 vim.keymap.set("n", "<leader>gc", function()
 	vim.ui.input({ prompt = "Compare revision (ex. main, HEAD~5, main..HEAD): " }, function(refs)
 		if refs and refs:match("%S") then
@@ -202,7 +200,6 @@ vim.keymap.set("n", "<leader>gC", function()
 		end
 	end)
 end, { desc = "Diff: file history with range" })
--- Compare two arbitrary files
 vim.keymap.set("n", "<leader>g2", function()
 	vim.ui.input({ prompt = "First file: " }, function(file1)
 		if not file1 or not file1:match("%S") then

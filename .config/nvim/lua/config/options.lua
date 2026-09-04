@@ -53,6 +53,7 @@ opt.timeoutlen = 1000 -- Lower than default (1000) to quickly trigger which-key
 opt.ttimeoutlen = 0 -- Key code timeout
 opt.autoread = true -- Auto reload files changed outside vim
 opt.autowrite = true -- Auto save
+opt.messagesopt:append({ timeout = 500 }) -- replace 500 with your desired timeout in ms
 
 -- Behavior settings
 opt.hidden = true -- Allow hidden buffers

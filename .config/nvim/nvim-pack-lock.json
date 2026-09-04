@@ -6,49 +6,57 @@
       "version": "1.0.0 - 2.0.0"
     },
     "conform.nvim": {
-      "rev": "619363c30309d29ffa631e67c8183f2a72caa373",
+      "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "diffs.nvim": {
+      "rev": "f6567df7aee5ff3ec7e53a59e7f892ae3f9dcd02",
+      "src": "https://github.com/barrettruth/diffs.nvim"
+    },
     "diffview.nvim": {
-      "rev": "06685829495ac5d7367a0693ef02ef0d6b97fda0",
+      "rev": "43e60bca414e4991ed10118e59f809fb03bbeddd",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "dd3f588bacbeb041be6facf1742e42097f62165d",
+      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
+    "guh.nvim": {
+      "rev": "943779f7cdb0acee203985ad531fb53ff95d9c8e",
+      "src": "https://github.com/justinmk/guh.nvim"
+    },
     "kulala.nvim": {
-      "rev": "6397ad2406995d5ceb061ba04677f7a96fcfb953",
+      "rev": "232a9939919fe9bc88d573bce92de50f2f160c60",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "mini.surround": {
-      "rev": "1e37ade260e2b655c3a9b8407ba7e6b0fb995b28",
+      "rev": "8d5d0c5aa92449368ac251e85451d79d8f69d296",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-dap": {
-      "rev": "531771530d4f82ad2d21e436e3cc052d68d7aebb",
+      "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
-      "rev": "a03a085b020197f441f6c63383f0cb7321729f6e",
+      "rev": "e766b3d8acef97e7e8b29f7f421aa4977b9978e1",
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-treesitter": {
-      "rev": "4916d6592ede8c07973490d9322f187e07dfefac",
+      "rev": "427e9222363d07c32d6db6169e4049c28d58d141",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "851e865342e5a4cb1ae23d31caf6e991e1c99f1e",
+      "rev": "898ee307df58f854d11cd7edd06472574d48014e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
     "nvim-web-devicons": {
-      "rev": "dfbfaa967a6f7ec50789bead7ef87e336c1fa63c",
+      "rev": "5f032a85be210cd1c6ac98861eb3b187ff3bd5eb",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
     "octo.nvim": {
-      "rev": "b495047f0b9d35de3d8c6b84fad9de296d353b41",
+      "rev": "af2411604b51cb4a0f3e2de50b1b7cacc2581c48",
       "src": "https://github.com/pwntester/octo.nvim"
     },
     "overseer.nvim": {
