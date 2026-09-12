@@ -10,15 +10,15 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffs.nvim": {
-      "rev": "f6567df7aee5ff3ec7e53a59e7f892ae3f9dcd02",
+      "rev": "fed0ebb08ada8ba069e23990f87582ce47007407",
       "src": "https://github.com/barrettruth/diffs.nvim"
     },
     "diffview.nvim": {
-      "rev": "43e60bca414e4991ed10118e59f809fb03bbeddd",
+      "rev": "be86a001f13b4d307814bd6e06eac429a2777ae8",
       "src": "https://github.com/dlyongemallo/diffview.nvim"
     },
     "gitsigns.nvim": {
-      "rev": "5be654f2232c10ddcad19c1607a67b6b4b78fc29",
+      "rev": "f2421c550618d257048afa650413d9e542ddbe67",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "guh.nvim": {
@@ -26,7 +26,7 @@
       "src": "https://github.com/justinmk/guh.nvim"
     },
     "kulala.nvim": {
-      "rev": "232a9939919fe9bc88d573bce92de50f2f160c60",
+      "rev": "dcad056448773ae5b54cadbfdbd188a599cfebd3",
       "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "mini.surround": {
@@ -34,7 +34,7 @@
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-dap": {
-      "rev": "9e848e09a697ee95302a3ef2dd43fd6eb709e570",
+      "rev": "cfa2d58f4537aca6ca83e2de1a0d9f1491121264",
       "src": "https://github.com/mfussenegger/nvim-dap"
     },
     "nvim-dap-view": {
@@ -42,12 +42,12 @@
       "src": "https://github.com/igorlfs/nvim-dap-view"
     },
     "nvim-treesitter": {
-      "rev": "427e9222363d07c32d6db6169e4049c28d58d141",
+      "rev": "9a168f6357ed21c3a636e1727bc7d382abc451b8",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "898ee307df58f854d11cd7edd06472574d48014e",
+      "rev": "5c7b0263797dfd1bd6202f2b219f3b53a80b2187",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
