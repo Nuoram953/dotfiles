@@ -10,7 +10,7 @@
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "diffs.nvim": {
-      "rev": "fed0ebb08ada8ba069e23990f87582ce47007407",
+      "rev": "49f6d84f28157966e1f7d4e7eca744a919ce287e",
       "src": "https://github.com/barrettruth/diffs.nvim"
     },
     "diffview.nvim": {
@@ -66,6 +66,10 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "sidekick.nvim": {
+      "rev": "3d80a47e6375f6d647c9695d3afea6fa1b3275df",
+      "src": "https://github.com/folke/sidekick.nvim"
     },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
