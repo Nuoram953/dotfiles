@@ -5,6 +5,217 @@ vim.pack.add({
 
 local Snacks = require("snacks")
 
+--------------------------------------------------------------------------------
+-- Custom File Manipulation Actions for Snacks Picker
+--------------------------------------------------------------------------------
+local function file_create(picker)
+	local item = picker:current()
+	local path = item and Snacks.picker.util.path(item)
+	local base_dir
+	if path then
+		base_dir = vim.fn.isdirectory(path) == 1 and path or vim.fs.dirname(path)
+	else
+		base_dir = picker:cwd()
+	end
+	base_dir = vim.fs.normalize(base_dir)
+
+	local cwd = vim.fs.normalize(picker:cwd())
+	local rel_dir
+	if base_dir == cwd then
+		rel_dir = "./"
+	elseif base_dir:sub(1, #cwd + 1) == cwd .. "/" then
+		rel_dir = base_dir:sub(#cwd + 2) .. "/"
+	else
+		rel_dir = vim.fn.fnamemodify(base_dir, ":~:.") .. "/"
+	end
+
+	Snacks.input({
+		prompt = "Create file in " .. rel_dir .. ": ",
+	}, function(value)
+		if not value or value:match("^%s*$") then
+			return
+		end
+
+		local full_path
+		if value:sub(1, 1) == "/" then
+			full_path = vim.fs.normalize(value)
+		elseif value:sub(1, 2) == "~/" or value == "~" then
+			full_path = vim.fs.normalize(vim.fn.expand(value))
+		elseif value:sub(1, 2) == "./" then
+			full_path = vim.fs.normalize(cwd .. "/" .. value:sub(3))
+		else
+			full_path = vim.fs.normalize(base_dir .. "/" .. value)
+		end
+
+		local is_dir = value:sub(-1) == "/"
+		if is_dir then
+			vim.fn.mkdir(full_path, "p")
+			Snacks.notify.info("Created directory: " .. vim.fn.fnamemodify(full_path, ":~:."))
+			picker:refresh()
+			return
+		end
+
+		local parent = vim.fs.dirname(full_path)
+		if vim.fn.isdirectory(parent) == 0 then
+			vim.fn.mkdir(parent, "p")
+		end
+
+		if vim.uv.fs_stat(full_path) then
+			Snacks.notify.warn("File already exists, opening: " .. vim.fn.fnamemodify(full_path, ":~:."))
+		else
+			local fd = io.open(full_path, "w")
+			if fd then
+				fd:close()
+				Snacks.notify.info("Created file: " .. vim.fn.fnamemodify(full_path, ":~:."))
+			else
+				Snacks.notify.error("Failed to create file: " .. full_path)
+				return
+			end
+		end
+
+		picker:close()
+		vim.schedule(function()
+			vim.cmd.edit(vim.fn.fnameescape(full_path))
+		end)
+	end)
+end
+
+local function file_rename(picker)
+	local item = picker:current()
+	if not item then
+		Snacks.notify.warn("No file selected to rename")
+		return
+	end
+	local path = Snacks.picker.util.path(item)
+	if not path or not vim.uv.fs_stat(path) then
+		Snacks.notify.warn("Selected item is not a valid file on disk")
+		return
+	end
+
+	Snacks.rename.rename_file({
+		from = path,
+		on_rename = function(_, _, ok)
+			if ok then
+				picker:refresh()
+			end
+		end,
+	})
+end
+
+local function trash_or_delete(path)
+	local ok_trash = false
+	if vim.fn.executable("gio") == 1 then
+		vim.fn.system({ "gio", "trash", path })
+		if vim.v.shell_error == 0 then
+			ok_trash = true
+		end
+	elseif vim.fn.executable("trash") == 1 then
+		vim.fn.system({ "trash", path })
+		if vim.v.shell_error == 0 then
+			ok_trash = true
+		end
+	end
+
+	if ok_trash then
+		return true, "trashed"
+	end
+
+	local ok, ret = pcall(vim.fn.delete, path, "rf")
+	if ok and ret == 0 then
+		return true, "deleted"
+	end
+	return false, type(ret) == "string" and ret or "Failed to delete"
+end
+
+local function file_delete(picker)
+	local items = picker:selected({ fallback = true })
+	local paths = {}
+	for _, it in ipairs(items) do
+		local p = Snacks.picker.util.path(it)
+		if p and vim.uv.fs_stat(p) then
+			table.insert(paths, p)
+		end
+	end
+
+	if #paths == 0 then
+		Snacks.notify.warn("No valid file selected to delete")
+		return
+	end
+
+	local prompt
+	if #paths == 1 then
+		prompt = "Delete " .. vim.fn.fnamemodify(paths[1], ":~:.") .. "?"
+	else
+		prompt = ("Delete %d selected files?"):format(#paths)
+	end
+
+	Snacks.picker.util.confirm(prompt, function()
+		local count = 0
+		for _, path in ipairs(paths) do
+			local ok, err = trash_or_delete(path)
+			if ok then
+				count = count + 1
+				local buf = vim.fn.bufnr(path)
+				if buf ~= -1 and vim.api.nvim_buf_is_valid(buf) then
+					Snacks.bufdelete.delete({ buf = buf, force = true, wipe = true })
+				end
+			else
+				Snacks.notify.error("Failed to delete " .. path .. ": " .. tostring(err))
+			end
+		end
+		if count > 0 then
+			Snacks.notify.info(("Deleted %d file(s)"):format(count))
+		end
+		picker:refresh()
+	end)
+end
+
+local function file_copy(picker)
+	local item = picker:current()
+	local path = item and Snacks.picker.util.path(item)
+	if not path or not vim.uv.fs_stat(path) then
+		Snacks.notify.warn("No valid file selected to copy")
+		return
+	end
+
+	local dir = vim.fn.isdirectory(path) == 1 and path or vim.fs.dirname(path)
+	local old_name = vim.fn.fnamemodify(path, ":t")
+
+	Snacks.input({
+		prompt = "Duplicate/copy file: ",
+		default = old_name,
+	}, function(value)
+		if not value or value:match("^%s*$") or value == old_name then
+			return
+		end
+
+		local to = vim.fs.normalize(dir .. "/" .. value)
+		if vim.uv.fs_stat(to) then
+			Snacks.notify.warn("File already exists: " .. to)
+			return
+		end
+
+		local parent = vim.fs.dirname(to)
+		if vim.fn.isdirectory(parent) == 0 then
+			vim.fn.mkdir(parent, "p")
+		end
+
+		Snacks.picker.util.copy_path(path, to)
+		Snacks.notify.info("Copied to: " .. vim.fn.fnamemodify(to, ":~:."))
+		picker:refresh()
+	end)
+end
+
+local function yank_relpath(picker, item)
+	local path = item and Snacks.picker.util.path(item)
+	if path then
+		local rel = vim.fn.fnamemodify(path, ":~:.")
+		vim.fn.setreg("+", rel)
+		vim.fn.setreg('"', rel)
+		Snacks.notify.info("Copied relative path: " .. rel)
+	end
+end
+
 Snacks.setup({
 	animate = { enabled = true },
 	bigfile = { enabled = true },
@@ -37,6 +248,34 @@ Snacks.setup({
 	words = { enabled = false },
 	zen = { enabled = true },
 	picker = {
+		actions = {
+			file_create = { action = file_create, desc = "Create file next to current" },
+			file_rename = { action = file_rename, desc = "Rename file" },
+			file_delete = { action = file_delete, desc = "Delete file" },
+			file_copy = { action = file_copy, desc = "Duplicate/copy file" },
+			yank_relpath = { action = yank_relpath, desc = "Copy relative path" },
+			yazi_copy_relative_path = "yank_relpath",
+		},
+		win = {
+			input = {
+				keys = {
+					["<a-c>"] = { "file_create", mode = { "n", "i" }, desc = "Create file next to current" },
+					["<a-a>"] = { "file_create", mode = { "n", "i" }, desc = "Create file next to current" },
+					["<a-r>"] = { "file_rename", mode = { "n", "i" }, desc = "Rename file" },
+					["<a-d>"] = { "file_delete", mode = { "n", "i" }, desc = "Delete file" },
+					["<a-y>"] = { "file_copy", mode = { "n", "i" }, desc = "Duplicate file" },
+				},
+			},
+			list = {
+				keys = {
+					["a"] = "file_create",
+					["c"] = "file_copy",
+					["r"] = "file_rename",
+					["d"] = "file_delete",
+					["y"] = "yank_relpath",
+				},
+			},
+		},
 		sources = {
 			lsp_symbols = {
 				filter = { default = true },
