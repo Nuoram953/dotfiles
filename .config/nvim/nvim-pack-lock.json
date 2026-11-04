@@ -4,10 +4,6 @@
       "rev": "f78cfc45930d070e93be6d00e500292dfcc263c8",
       "src": "https://github.com/emrearmagan/atlas.nvim"
     },
-    "better-gx.nvim": {
-      "rev": "c81177ff47a6031bffc1bbd6cef20b4403087e68",
-      "src": "https://github.com/Nuoram953/better-gx.nvim"
-    },
     "blink.cmp": {
       "rev": "78336bc89ee5365633bcf754d93df01678b5c08f",
       "src": "https://github.com/saghen/blink.cmp",
@@ -21,25 +17,9 @@
       "rev": "016802de402556da54c36bd7359b441266b01cdd",
       "src": "https://github.com/stevearc/conform.nvim"
     },
-    "diffs.nvim": {
-      "rev": "c149ff062ade88e39903611c77ceaa408861cc6f",
-      "src": "https://github.com/barrettruth/diffs.nvim"
-    },
-    "diffview.nvim": {
-      "rev": "fae72d6c981075dce2e0f946f002382ce0cb44e1",
-      "src": "https://github.com/dlyongemallo/diffview.nvim"
-    },
     "gitsigns.nvim": {
       "rev": "4bcd99167c265f135886b282baad77afe06206b2",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
-    },
-    "guh.nvim": {
-      "rev": "4dacfa42795870b17f64b6c5a542beb28efcfd5f",
-      "src": "https://github.com/justinmk/guh.nvim"
-    },
-    "kulala.nvim": {
-      "rev": "125751ea9f41c1ee966c5c7e3032e3539dd2f33e",
-      "src": "https://github.com/mistweaverco/kulala.nvim"
     },
     "lazydev.nvim": {
       "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
@@ -82,10 +62,6 @@
     "plenary.nvim": {
       "rev": "74b06c6c75e4eeb3108ec01852001636d85a932b",
       "src": "https://github.com/nvim-lua/plenary.nvim"
-    },
-    "sidekick.nvim": {
-      "rev": "3d80a47e6375f6d647c9695d3afea6fa1b3275df",
-      "src": "https://github.com/folke/sidekick.nvim"
     },
     "snacks.nvim": {
       "rev": "882c996cf28183f4d63640de0b4c02ec886d01f2",
