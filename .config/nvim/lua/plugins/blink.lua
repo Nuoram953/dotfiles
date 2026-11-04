@@ -22,6 +22,9 @@ vim.api.nvim_create_autocmd("InsertEnter", {
 			},
 			sources = {
 				default = { "lsp", "path", "snippets", "buffer" },
+				providers = {
+					lazydev = { name = "Lazydev", module = "lazydev.integrations.blink", score_offset = 100 },
+				},
 			},
 			fuzzy = { implementation = "prefer_rust_with_warning" },
 		})
