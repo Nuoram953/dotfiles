@@ -46,6 +46,7 @@ require("gitsigns").setup({
 			gs.nav_hunk("first")
 		end, "First Hunk")
 		map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+		map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
 		map("n", "<leader>ghb", function()
 			gs.blame_line({ full = true })
 		end, "Blame Line")
