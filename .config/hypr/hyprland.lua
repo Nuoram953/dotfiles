@@ -9,7 +9,7 @@
 -- Programs
 -- ============================================================================
 
-local terminal = "ghostty"
+local terminal = "kitty"
 local browser = "qutebrowser"
 local passwordManager = "keepassxc"
 
@@ -342,7 +342,7 @@ hl.bind(mod .. " + SHIFT + SPACE", hl.dsp.window.float())
 hl.bind(
 	mod .. " + F",
 	hl.dsp.window.fullscreen({
-		action = "set",
+		action = "toggle",
 		mode = "maximized",
 	})
 )
@@ -350,7 +350,7 @@ hl.bind(
 hl.bind(
 	mod .. " + SHIFT + F",
 	hl.dsp.window.fullscreen({
-		action = "set",
+		action = "toggle",
 		mode = "fullscreen",
 	})
 )
