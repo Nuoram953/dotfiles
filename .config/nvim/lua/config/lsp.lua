@@ -51,6 +51,7 @@ vim.lsp.enable({
 	"tailwindcss",
 	"pyright",
 	"yamlls",
+	"marksman",
 })
 
 if vim.g.lsp_on_demands then
