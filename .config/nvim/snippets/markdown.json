@@ -1,0 +1,19 @@
+{
+  "date": {
+    "prefix": "today",
+    "body": "$CURRENT_MONTH_NAME $CURRENT_DATE, $CURRENT_YEAR"
+  },
+  "Document Header": {
+    "prefix": "header",
+    "body": [
+      "---",
+      "title: \"${1}\"",
+      "subtitle: \"${2}\"",
+      "author: \"${3}\"",
+      "date: \"$CURRENT_MONTH_NAME $CURRENT_DATE, $CURRENT_YEAR\"",
+      "tags: \"${4}\"",
+      "---"
+    ],
+    "description": "Insert a Pandoc/pdflatex YAML document header"
+  }
+}
