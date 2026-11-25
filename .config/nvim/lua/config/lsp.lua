@@ -52,6 +52,7 @@ vim.lsp.enable({
 	"pyright",
 	"yamlls",
 	"marksman",
+	"terraformls",
 })
 
 if vim.g.lsp_on_demands then
